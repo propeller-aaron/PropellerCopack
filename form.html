@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Send Email</title>
+  </head>
+  <body>
+    <h1>Send Email</h1>
+
+    <form id="emailForm">
+      <div>
+        <label for="to">To</label>
+        <input id="to" name="to" type="email" required />
+      </div>
+      <div>
+        <label for="from">From</label>
+        <input id="from" name="from" type="email" required />
+      </div>
+      <div>
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" required />
+      </div>
+      <div>
+        <label for="textBody">Message</label>
+        <textarea id="textBody" name="textBody" rows="8" required></textarea>
+      </div>
+      <button type="submit">Send Email</button>
+    </form>
+
+    <p id="status" aria-live="polite"></p>
+
+    <script>
+      const WORKER_SEND_ENDPOINT = "https://prop-copack-form.aaron-4d8.workers.dev";
+
+      const form = document.getElementById("emailForm");
+      const statusEl = document.getElementById("status");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        statusEl.textContent = "Sending...";
+
+        const formData = new FormData(form);
+        const to = formData.get("to");
+        const from = formData.get("from");
+        const subject = formData.get("subject");
+        const textBody = formData.get("textBody");
+
+        const payload = { to, from, subject, textBody };
+
+        try {
+          const response = await fetch(WORKER_SEND_ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || result.data?.succeeded !== 1) {
+            const errorMessage = result?.data?.error || result?.error || "Failed to send email.";
+            throw new Error(errorMessage);
+          }
+
+          statusEl.textContent = "Email sent successfully.";
+          form.reset();
+        } catch (error) {
+          statusEl.textContent = `Error: ${error.message}`;
+        }
+      });
+    </script>
+  </body>
+</html>
