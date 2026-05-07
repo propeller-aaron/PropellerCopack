@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SEO analysis — internal (Propeller Copack)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --text: #1f2328;
+      --muted: #656d76;
+      --accent: #0969da;
+      --warn: #bf8700;
+      --ok: #1a7f37;
+      --border: #d0d7de;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      padding: 2rem 1.25rem 4rem;
+      max-width: 52rem;
+      margin-inline: auto;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin: 2.25rem 0 0.75rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.25rem 0 0.5rem;
+      color: var(--text);
+    }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    ul, ol { margin: 0 0 1rem; padding-left: 1.35rem; color: var(--muted); }
+    li { margin-bottom: 0.35rem; }
+    strong { color: var(--text); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+    }
+    td { color: var(--muted); }
+    code, .mono {
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 0.88em;
+      background: var(--surface);
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      color: var(--text);
+    }
+    .note {
+      background: var(--surface);
+      border-left: 3px solid var(--warn);
+      padding: 0.85rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .improved {
+      border-left-color: var(--ok);
+    }
+    .priority ol { counter-reset: item; list-style: none; padding-left: 0; }
+    .priority li {
+      counter-increment: item;
+      margin-bottom: 0.65rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    .priority li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--surface);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <p class="badge">Internal document · not linked from the public site</p>
+  <h1>SEO analysis — Propeller Copack website</h1>
+  <p><strong>Scan date:</strong> reflects the repository as of the last regeneration. <strong>Scope:</strong> <strong>15</strong> public marketing URLs (<span class="mono">index.html</span> plus 14 section folders). This file (<span class="mono">seo.html</span>) is internal-only and excluded from that count.</p>
+
+  <h2>What improved (since earlier baseline)</h2>
+  <div class="note improved">
+    <ul style="margin-bottom:0;">
+      <li><strong>Homepage (<span class="mono">/</span>):</strong> Branded <span class="mono">&lt;title&gt;</span> (“Propeller Co-Pack | Powder Blending, Packaging &amp; Fulfillment”), a filled <span class="mono">meta description</span>, and a substantive <span class="mono">meta keywords</span> list.</li>
+      <li><strong>Canonical URLs:</strong> <span class="mono">&lt;link rel="canonical" href="https://propellercopack.com/..."&gt;</span> is present on the homepage and on inner pages checked (e.g. <span class="mono">/blending/</span>, <span class="mono">/fda/</span>, etc.).</li>
+      <li><strong>Homepage service checklist:</strong> Links now target real paths (<span class="mono">./fda/</span>, <span class="mono">./testing/</span>, <span class="mono">./40000-sq-ft/</span>, …), not only <span class="mono">./</span>.</li>
+      <li><strong>XML sitemap:</strong> <span class="mono">sitemap.xml</span> lists the homepage and service URLs under <span class="mono">https://propellercopack.com/</span>.</li>
+    </ul>
+  </div>
+
+  <h2>Executive summary</h2>
+  <p>The site remains a static multi-page build with folder URLs, lazy-loaded images, and WebP via <span class="mono">&lt;picture&gt;</span>. Crawl signals are stronger on the homepage than on inner pages. The largest remaining gaps are <strong>empty meta descriptions on all inner pages</strong>, <strong>thin generic <span class="mono">&lt;title&gt;</span> tags</strong> on those pages, <strong>no <span class="mono">robots.txt</span></strong> (so the sitemap is not declared to crawlers), missing <strong>Open Graph / Twitter</strong> tags, repeated hero blocks on inner URLs (near-duplicate patterns), weak or wrong <strong>image <span class="mono">alt</span></strong> text and <strong>sitemap image titles</strong>, and minor copy issues on the homepage.</p>
+
+  <h2>Critical issues (prioritize)</h2>
+
+  <h3>1. <span class="mono">40000-sq-ft</span> document title does not match content</h3>
+  <p>The page <span class="mono">&lt;title&gt;</span> is still “3900 Sq. Ft.” while the on-page heading describes a 40,000 sq. ft. facility. Fix the title (and ensure SERP alignment with <span class="mono">canonical</span> + H1).</p>
+
+  <h3>2. Packaging design page: title, heading, image alt, and sitemap</h3>
+  <p><span class="mono">&lt;title&gt;</span> is “Package Design”, the H1 is “Packaging Design”, the hero image <span class="mono">alt</span> is still “Blending”, and <span class="mono">sitemap.xml</span> uses <span class="mono">&lt;image:title&gt;Blending&lt;/image:title&gt;</span> for the packaging-design images. Align naming everywhere for topical relevance.</p>
+
+  <h3>3. <span class="mono">sitemap.xml</span> image metadata quality</h3>
+  <p>Beyond packaging-design, many inner URLs’ image entries reuse “Blending” as <span class="mono">image:title</span> for unrelated topics (FDA, testing, 3PL, etc.). That dilutes relevance for image search and internal consistency; regenerate titles per page topic.</p>
+
+  <h2>On-page SEO</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Area</th>
+        <th>Current state</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meta description</strong></td>
+        <td>Populated on homepage only; empty on inner pages</td>
+        <td>Add unique descriptions per URL for snippet control.</td>
+      </tr>
+      <tr>
+        <td><strong><span class="mono">&lt;title&gt;</span></strong></td>
+        <td>Strong on homepage; generic on inner pages (“Blending”, “FDA”, …)</td>
+        <td>Add brand + intent (e.g. Utah co-packer, service name).</td>
+      </tr>
+      <tr>
+        <td><strong><span class="mono">html lang</span></strong></td>
+        <td>Often absent on marketing HTML (<span class="mono">&lt;html&gt;</span> without <span class="mono">lang</span>)</td>
+        <td>Use <span class="mono">lang="en"</span> on <span class="mono">&lt;html&gt;</span>.</td>
+      </tr>
+      <tr>
+        <td><strong>Headings</strong></td>
+        <td>Multiple <span class="mono">&lt;h1&gt;</span> per page common</td>
+        <td>Consider one primary H1 per URL for clearer topic focus.</td>
+      </tr>
+      <tr>
+        <td><strong>Duplicate hero</strong></td>
+        <td>Inner pages repeat the same “POWDER MANUFACTURING” block before unique copy</td>
+        <td>Risk of near-duplicate thin pages; lead with unique content.</td>
+      </tr>
+      <tr>
+        <td><strong>Homepage copy</strong></td>
+        <td>Packaging grid label still shows “Scahets”</td>
+        <td>Typo — should be “Sachets” for trust and professionalism.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Technical SEO</h2>
+  <ul>
+    <li><strong><span class="mono">robots.txt</span>:</strong> Not present — add <span class="mono">Sitemap: https://propellercopack.com/sitemap.xml</span> (and any crawl rules you need).</li>
+    <li><strong><span class="mono">sitemap.xml</span>:</strong> Present and lists main URLs; fix image titles as above.</li>
+    <li><strong>Canonicals:</strong> Implemented on sampled pages — good for duplicate URL handling.</li>
+    <li><strong>JSON-LD:</strong> Not observed — consider <span class="mono">Organization</span> / <span class="mono">LocalBusiness</span> using footer NAP.</li>
+    <li><strong>Open Graph / Twitter:</strong> Not observed — add for social previews.</li>
+  </ul>
+
+  <h2>Images and media</h2>
+  <ul>
+    <li><strong>Strengths:</strong> Dimensions on many images, lazy loading, WebP sources.</li>
+    <li><strong>Weaknesses:</strong> Some <span class="mono">alt</span> values mirror URL-encoded filenames; footer logo uses encoded-style alt in places; align <span class="mono">alt</span> with visible intent.</li>
+  </ul>
+
+  <h2>Internal linking</h2>
+  <p>Homepage checklist links deep-link to service folders correctly. Continue cross-linking related services where it helps users (without stuffing keywords).</p>
+
+  <h2>Measurement</h2>
+  <p>Analytics placeholders in page heads may still be empty — confirm Google Search Console property for <span class="mono">propellercopack.com</span> and connect analytics.</p>
+
+  <h2>Prioritized recommendations</h2>
+  <div class="priority">
+    <ol>
+      <li>Fix <span class="mono">40000-sq-ft</span> <span class="mono">&lt;title&gt;</span> to match 40,000 sq. ft. messaging.</li>
+      <li>Align packaging-design: <span class="mono">&lt;title&gt;</span>, H1, image <span class="mono">alt</span>, and sitemap <span class="mono">image:title</span>.</li>
+      <li>Rewrite <span class="mono">sitemap.xml</span> image titles for every URL (replace incorrect “Blending” duplicates).</li>
+      <li>Add unique <span class="mono">meta description</span> and stronger <span class="mono">&lt;title&gt;</span> on each inner page.</li>
+      <li>Add <span class="mono">robots.txt</span> with sitemap declaration.</li>
+      <li>Add <span class="mono">lang="en"</span> on all marketing <span class="mono">&lt;html&gt;</span> elements.</li>
+      <li>Correct homepage “Scahets” → “Sachets”. Clean encoded-style <span class="mono">alt</span> strings sitewide.</li>
+      <li>Add JSON-LD (organization/local) and basic OG tags on key templates.</li>
+      <li>Reduce duplicated hero HTML on inner pages or vary primary headings/copy per URL.</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <strong>Note:</strong> This file is intentionally not linked from the marketing pages. Keep it out of navigation and sitemaps if you want it to remain effectively non-public. The <span class="mono">noindex</span> meta tag reduces the chance of indexing if the URL is ever reachable.
+  </div>
+
+  <footer>
+    Internal SEO analysis · Propeller Copack repository · Not for public navigation
+  </footer>
+
+</body>
+</html>
