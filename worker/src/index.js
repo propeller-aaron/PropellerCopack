@@ -1,6 +1,7 @@
 const SMTP2GO_SEND_ENDPOINT = "https://api.smtp2go.com/v3/email/send";
 const CONTACT_REQUEST_SUBJECT = "Contact Request from propellercopack.com";
 const CONTACT_REQUEST_SENDER = "msg@propellercopack.com";
+const CONTACT_REQUEST_RECIPIENT = "notify@propellercopack.com";
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -50,7 +51,7 @@ export default {
       );
     }
 
-    const recipient = env.CONTACT_REQUEST_RECIPIENT || CONTACT_REQUEST_SENDER;
+    const recipient = env.CONTACT_REQUEST_RECIPIENT || CONTACT_REQUEST_RECIPIENT;
     const textBody = [
       `Name: ${name}`,
       `Email: ${email}`,
