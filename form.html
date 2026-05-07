@@ -66,8 +66,8 @@
 
           const result = await response.json();
 
-          if (!response.ok || result.data?.succeeded !== 1) {
-            const errorMessage = result?.data?.error || result?.error || "Failed to submit form.";
+          if (!response.ok || result?.ok !== true) {
+            const errorMessage = result?.message || result?.error || "Failed to submit form.";
             throw new Error(errorMessage);
           }
 
