@@ -9,9 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 BRAND_SUFFIX = " | Propeller Co-Pack"
 
 PAGE_META: dict[str, tuple[str, str]] = {
-    "3pl-services": (
-        "3PL Services",
-        "Third-party logistics and fulfillment for supplement and food brands. Storage, handling, and distribution support from Propeller Co-Pack in Utah.",
+    "fulfillment": (
+        "Fulfillment",
+        "Fulfillment and logistics for supplement and food brands. Storage, handling, and distribution support from Propeller Co-Pack in Utah.",
     ),
     "40000-sq-ft": (
         "40,000 Sq. Ft. Facility",
@@ -26,8 +26,8 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Bottle and jar filling for powders, capsules, and liquids. Co-packing, labeling, and packout with Propeller Co-Pack.",
     ),
     "custom-runs": (
-        "Small Custom Runs",
-        "Small-batch and custom production runs for growing brands. Propeller Co-Pack Utah co-packer.",
+        "Custom Projects",
+        "Custom projects and small-batch production for growing brands. Propeller Co-Pack Utah co-packer.",
     ),
     "customer-service": (
         "Customer Service",
@@ -38,11 +38,11 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Distribution support from production to market. Propeller Co-Pack coordinates logistics with your brand.",
     ),
     "dock-doors": (
-        "Dock Doors",
+        "Loading Docks",
         "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",
     ),
     "fda": (
-        "FDA & Compliance",
+        "Quality & Compliance",
         "Regulatory alignment and documentation for food and supplement manufacturing. Propeller Co-Pack.",
     ),
     "formulation": (
@@ -66,8 +66,8 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Packaging design for production—pouches, cartons, labels, and shelf-ready formats. Propeller Co-Pack.",
     ),
     "randd": (
-        "Research & Development",
-        "R&D for new products and line extensions in powders and supplements. Propeller Co-Pack Utah.",
+        "Product Development",
+        "Product development for new products and line extensions in powders and supplements. Propeller Co-Pack Utah.",
     ),
     "sachets": (
         "Sachet Packaging",

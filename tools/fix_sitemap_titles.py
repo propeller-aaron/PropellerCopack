@@ -9,16 +9,16 @@ SITEMAP = ROOT / "sitemap.xml"
 
 SLUG_TITLE: dict[str, str] = {
     "packaging-design": "Packaging Design",
-    "fda": "FDA",
+    "fda": "Quality & Compliance",
     "testing": "Testing",
     "customer-service": "Customer Service",
     "low-moqs": "Low MOQs",
-    "custom-runs": "Small Custom Runs",
-    "dock-doors": "Dock Doors",
-    "3pl-services": "3PL Services",
+    "custom-runs": "Custom Projects",
+    "dock-doors": "Loading Docks",
+    "fulfillment": "Fulfillment",
     "distribution": "Distribution",
     "40000-sq-ft": "40,000 Sq. Ft.",
-    "randd": "Research & Development",
+    "randd": "Product Development",
     "white-label": "White Label",
     "turn-key": "Turn-Key",
 }

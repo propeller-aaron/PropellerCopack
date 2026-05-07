@@ -195,11 +195,11 @@
 	<priority>0.5</priority>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/FDA.png</image:loc>
-	<image:title>FDA</image:title>
+	<image:title>Quality &amp; Compliance</image:title>
 	</image:image>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/FDA.webp</image:loc>
-	<image:title>FDA</image:title>
+	<image:title>Quality &amp; Compliance</image:title>
 	</image:image>
 </url>
 <url>
@@ -251,11 +251,11 @@
 	<priority>0.5</priority>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/Small%20Runs.png</image:loc>
-	<image:title>Small Custom Runs</image:title>
+	<image:title>Custom Projects</image:title>
 	</image:image>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/Small%20Runs.webp</image:loc>
-	<image:title>Small Custom Runs</image:title>
+	<image:title>Custom Projects</image:title>
 	</image:image>
 </url>
 <url>
@@ -265,25 +265,25 @@
 	<priority>0.5</priority>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/Dock%20Doors.png</image:loc>
-	<image:title>Dock Doors</image:title>
+	<image:title>Loading Docks</image:title>
 	</image:image>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/Dock%20Doors.webp</image:loc>
-	<image:title>Dock Doors</image:title>
+	<image:title>Loading Docks</image:title>
 	</image:image>
 </url>
 <url>
-	<loc>https://propellercopack.com/3pl-services/</loc>
+	<loc>https://propellercopack.com/fulfillment/</loc>
 	<lastmod>2026-05-07</lastmod>
 	<changefreq>Weekly</changefreq>
 	<priority>0.5</priority>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/3PL.png</image:loc>
-	<image:title>3PL Services</image:title>
+	<image:title>Fulfillment</image:title>
 	</image:image>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/3PL.webp</image:loc>
-	<image:title>3PL Services</image:title>
+	<image:title>Fulfillment</image:title>
 	</image:image>
 </url>
 <url>
@@ -321,11 +321,11 @@
 	<priority>0.5</priority>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/RandD.png</image:loc>
-	<image:title>Research & Development</image:title>
+	<image:title>Product Development</image:title>
 	</image:image>
 	<image:image>
 	<image:loc>https://propellercopack.com/img/RandD.webp</image:loc>
-	<image:title>Research & Development</image:title>
+	<image:title>Product Development</image:title>
 	</image:image>
 </url>
 <url>
