@@ -88,6 +88,10 @@
     .improved {
       border-left-color: var(--ok);
     }
+    .resolved {
+      opacity: 0.85;
+      font-size: 0.92rem;
+    }
     .priority ol { counter-reset: item; list-style: none; padding-left: 0; }
     .priority li {
       counter-increment: item;
@@ -115,108 +119,105 @@
 <body>
 
   <h1>SEO analysis — Propeller Copack website</h1>
-  <p><strong>Scan date:</strong> reflects the repository as of the last regeneration. <strong>Scope:</strong> <strong>15</strong> public marketing URLs (<span class="mono">index.html</span> plus 14 section folders). <span class="mono">seo.html</span> is excluded from that count.</p>
+  <p><strong>Last updated:</strong> reflects the repository at time of regeneration. <strong>Scope:</strong> <strong>22</strong> public marketing URLs (<span class="mono">index.html</span> at repo root plus <strong>21</strong> section folders with their own <span class="mono">index.html</span>). This file (<span class="mono">seo.html</span>) is excluded from that count and uses <span class="mono">noindex</span>.</p>
 
-  <h2>What improved (since earlier baseline)</h2>
+  <h2>Implemented improvements (current baseline)</h2>
   <div class="note improved">
     <ul style="margin-bottom:0;">
-      <li><strong>Homepage (<span class="mono">/</span>):</strong> Branded <span class="mono">&lt;title&gt;</span> (“Propeller Co-Pack | Powder Blending, Packaging &amp; Fulfillment”), a filled <span class="mono">meta description</span>, and a substantive <span class="mono">meta keywords</span> list.</li>
-      <li><strong>Canonical URLs:</strong> <span class="mono">&lt;link rel="canonical" href="https://propellercopack.com/..."&gt;</span> is present on the homepage and on inner pages checked (e.g. <span class="mono">/blending/</span>, <span class="mono">/fda/</span>, etc.).</li>
-      <li><strong>Homepage service checklist:</strong> Links now target real paths (<span class="mono">./fda/</span>, <span class="mono">./testing/</span>, <span class="mono">./40000-sq-ft/</span>, …), not only <span class="mono">./</span>.</li>
-      <li><strong>XML sitemap:</strong> <span class="mono">sitemap.xml</span> lists the homepage and service URLs under <span class="mono">https://propellercopack.com/</span>.</li>
+      <li><strong>Homepage:</strong> <span class="mono">lang="en"</span>, branded <span class="mono">&lt;title&gt;</span>, <span class="mono">meta description</span>, <span class="mono">meta keywords</span>, <span class="mono">canonical</span>, Open Graph and Twitter meta, JSON-LD (<span class="mono">Organization</span> + two <span class="mono">LocalBusiness</span> entries for office and manufacturing addresses), footer logo <span class="mono">alt</span> text improved.</li>
+      <li><strong>Inner pages (all service URLs):</strong> Unique <span class="mono">&lt;title&gt;</span> (<span class="mono">… | Propeller Co-Pack</span>), filled <span class="mono">meta description</span>, <span class="mono">canonical</span>, OG/Twitter tags, <span class="mono">lang="en"</span>, shared contact form via Cloudflare worker (<span class="mono">css/contact-form.css</span> + <span class="mono">js/propeller-contact.js</span>), PHP/blocs mail handlers removed from those pages.</li>
+      <li><strong>Title / content fixes:</strong> <span class="mono">40000-sq-ft</span> uses <span class="mono">40,000 Sq. Ft. Facility | Propeller Co-Pack</span>; <span class="mono">packaging-design</span> title and hero image <span class="mono">alt</span> aligned with “Packaging Design”. Hero image <span class="mono">alt</span> text corrected on many service pages where it incorrectly said “Blending”.</li>
+      <li><strong>Copy:</strong> “Flexible” removed from homepage hero and matching inner hero paragraph where applicable; packaging section heading is <strong>CUSTOM PACKAGING OPTIONS</strong>.</li>
+      <li><strong>Crawl / discovery:</strong> <span class="mono">robots.txt</span> at site root with <span class="mono">Sitemap: https://propellercopack.com/sitemap.xml</span>. <span class="mono">sitemap.xml</span> lists URLs including newer routes (<span class="mono">formulation/</span>, <span class="mono">ingredient-solutions/</span>, <span class="mono">manufacturing/</span>, packaging format folders, etc.); mistaken <span class="mono">image:title</span> values that repeated “Blending” for unrelated pages were corrected.</li>
+      <li><strong>Internal linking (homepage):</strong> Feature row links — Formulation, Ingredient Solutions, Manufacturing; packaging row — Sachets, Stick Packs, Stand Up Pouches, Bottles/Jars; checklist links to service folders (FDA, testing, blending, etc.).</li>
     </ul>
   </div>
 
   <h2>Executive summary</h2>
-  <p>The site remains a static multi-page build with folder URLs, lazy-loaded images, and WebP via <span class="mono">&lt;picture&gt;</span>. Crawl signals are stronger on the homepage than on inner pages. The largest remaining gaps are <strong>empty meta descriptions on all inner pages</strong>, <strong>thin generic <span class="mono">&lt;title&gt;</span> tags</strong> on those pages, <strong>no <span class="mono">robots.txt</span></strong> (so the sitemap is not declared to crawlers), missing <strong>Open Graph / Twitter</strong> tags, repeated hero blocks on inner URLs (near-duplicate patterns), weak or wrong <strong>image <span class="mono">alt</span></strong> text and <strong>sitemap image titles</strong>, and minor copy issues on the homepage.</p>
+  <p>The site is a <strong>static multi-page</strong> build on <span class="mono">propellercopack.com</span> with folder-based URLs, lazy-loaded images, WebP via <span class="mono">&lt;picture&gt;</span>, and consistent technical SEO metadata on the homepage and inner pages. Core gaps from earlier audits are largely addressed. Remaining opportunities are mostly <strong>content architecture</strong> (duplicate hero blocks across inner pages), <strong>heading hierarchy</strong> (multiple <span class="mono">&lt;h1&gt;</span> per page), optional <strong>per-page structured data</strong>, and <strong>measurement</strong> (Search Console, analytics).</p>
 
-  <h2>Critical issues (prioritize)</h2>
+  <h2>Previously critical — status</h2>
+  <ul class="resolved">
+    <li><strong>40000 sq. ft. title mismatch:</strong> Resolved — document title matches 40,000 sq. ft. messaging.</li>
+    <li><strong>Packaging design naming:</strong> Resolved — title, H1, hero <span class="mono">alt</span>, and sitemap image titles aligned.</li>
+    <li><strong>Sitemap <span class="mono">image:title</span> “Blending” noise:</strong> Largely resolved — titles scoped per URL topic.</li>
+    <li><strong>Empty inner meta descriptions / generic titles:</strong> Resolved — unique descriptions and branded titles.</li>
+    <li><strong>No <span class="mono">robots.txt</span>:</strong> Resolved.</li>
+    <li><strong>No OG/Twitter / JSON-LD:</strong> Resolved on homepage; OG/Twitter on inner pages.</li>
+    <li><strong>Homepage “Scahets” typo:</strong> Resolved — displays “Sachets”.</li>
+  </ul>
 
-  <h3>1. <span class="mono">40000-sq-ft</span> document title does not match content</h3>
-  <p>The page <span class="mono">&lt;title&gt;</span> is still “3900 Sq. Ft.” while the on-page heading describes a 40,000 sq. ft. facility. Fix the title (and ensure SERP alignment with <span class="mono">canonical</span> + H1).</p>
-
-  <h3>2. Packaging design page: title, heading, image alt, and sitemap</h3>
-  <p><span class="mono">&lt;title&gt;</span> is “Package Design”, the H1 is “Packaging Design”, the hero image <span class="mono">alt</span> is still “Blending”, and <span class="mono">sitemap.xml</span> uses <span class="mono">&lt;image:title&gt;Blending&lt;/image:title&gt;</span> for the packaging-design images. Align naming everywhere for topical relevance.</p>
-
-  <h3>3. <span class="mono">sitemap.xml</span> image metadata quality</h3>
-  <p>Beyond packaging-design, many inner URLs’ image entries reuse “Blending” as <span class="mono">image:title</span> for unrelated topics (FDA, testing, 3PL, etc.). That dilutes relevance for image search and internal consistency; regenerate titles per page topic.</p>
-
-  <h2>On-page SEO</h2>
+  <h2>On-page SEO (current)</h2>
   <table>
     <thead>
       <tr>
         <th>Area</th>
-        <th>Current state</th>
+        <th>State</th>
         <th>Notes</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><strong>Meta description</strong></td>
-        <td>Populated on homepage only; empty on inner pages</td>
-        <td>Add unique descriptions per URL for snippet control.</td>
+        <td>Filled on homepage and inner pages</td>
+        <td>Refresh seasonally or when offers/services change.</td>
       </tr>
       <tr>
         <td><strong><span class="mono">&lt;title&gt;</span></strong></td>
-        <td>Strong on homepage; generic on inner pages (“Blending”, “FDA”, …)</td>
-        <td>Add brand + intent (e.g. Utah co-packer, service name).</td>
+        <td>Branded pattern on inner pages</td>
+        <td>A/B test wording in Search Console for CTR.</td>
       </tr>
       <tr>
         <td><strong><span class="mono">html lang</span></strong></td>
-        <td>Often absent on marketing HTML (<span class="mono">&lt;html&gt;</span> without <span class="mono">lang</span>)</td>
-        <td>Use <span class="mono">lang="en"</span> on <span class="mono">&lt;html&gt;</span>.</td>
+        <td><span class="mono">lang="en"</span> on sampled pages</td>
+        <td>Keep on any new templates.</td>
       </tr>
       <tr>
         <td><strong>Headings</strong></td>
-        <td>Multiple <span class="mono">&lt;h1&gt;</span> per page common</td>
-        <td>Consider one primary H1 per URL for clearer topic focus.</td>
+        <td>Often multiple <span class="mono">&lt;h1&gt;</span> (hero + section + contact)</td>
+        <td>Optional: one primary H1 per URL; demote repeats to H2 for semantics.</td>
       </tr>
       <tr>
         <td><strong>Duplicate hero</strong></td>
-        <td>Inner pages repeat the same “POWDER MANUFACTURING” block before unique copy</td>
-        <td>Risk of near-duplicate thin pages; lead with unique content.</td>
+        <td>Same “POWDER MANUFACTURING” intro block before unique body on inner pages</td>
+        <td>Near-duplicate risk; consider unique lead section per URL over time.</td>
       </tr>
       <tr>
-        <td><strong>Homepage copy</strong></td>
-        <td>Packaging grid label still shows “Scahets”</td>
-        <td>Typo — should be “Sachets” for trust and professionalism.</td>
+        <td><strong>Structured data</strong></td>
+        <td>JSON-LD on homepage only</td>
+        <td>Optional: add <span class="mono">WebSite</span>, or page-level <span class="mono">Service</span> where useful.</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>Technical SEO</h2>
+  <h2>Technical SEO (current)</h2>
   <ul>
-    <li><strong><span class="mono">robots.txt</span>:</strong> Not present — add <span class="mono">Sitemap: https://propellercopack.com/sitemap.xml</span> (and any crawl rules you need).</li>
-    <li><strong><span class="mono">sitemap.xml</span>:</strong> Present and lists main URLs; fix image titles as above.</li>
-    <li><strong>Canonicals:</strong> Implemented on sampled pages — good for duplicate URL handling.</li>
-    <li><strong>JSON-LD:</strong> Not observed — consider <span class="mono">Organization</span> / <span class="mono">LocalBusiness</span> using footer NAP.</li>
-    <li><strong>Open Graph / Twitter:</strong> Not observed — add for social previews.</li>
+    <li><strong><span class="mono">robots.txt</span>:</strong> Present with sitemap URL.</li>
+    <li><strong><span class="mono">sitemap.xml</span>:</strong> Lists major URLs and image extensions; keep <span class="mono">lastmod</span> updated when you ship meaningful changes.</li>
+    <li><strong>Canonicals:</strong> Set per page to <span class="mono">https://propellercopack.com/…</span>.</li>
+    <li><strong>Forms:</strong> Worker-backed JSON POST (no server-side PHP required for contact on static hosting).</li>
   </ul>
 
   <h2>Images and media</h2>
   <ul>
-    <li><strong>Strengths:</strong> Dimensions on many images, lazy loading, WebP sources.</li>
-    <li><strong>Weaknesses:</strong> Some <span class="mono">alt</span> values mirror URL-encoded filenames; footer logo uses encoded-style alt in places; align <span class="mono">alt</span> with visible intent.</li>
+    <li><strong>Strengths:</strong> Dimensions, lazy loading, WebP.</li>
+    <li><strong>Ongoing:</strong> Some decorative row images still use filename-style paths in URLs; visible <span class="mono">alt</span> text has been improved on key heroes; continue plain-language <span class="mono">alt</span> where users notice encoded leftovers.</li>
   </ul>
 
   <h2>Internal linking</h2>
-  <p>Homepage checklist links deep-link to service folders correctly. Continue cross-linking related services where it helps users (without stuffing keywords).</p>
+  <p>Homepage connects feature tiles (formulation, ingredient solutions, manufacturing), packaging types, and the checklist to deep URLs. Optional: add contextual links inside body copy between related services (e.g. blending ↔ formulation) where it helps readers.</p>
 
   <h2>Measurement</h2>
-  <p>Analytics placeholders in page heads may still be empty — confirm Google Search Console property for <span class="mono">propellercopack.com</span> and connect analytics.</p>
+  <p>Confirm <strong>Google Search Console</strong> for the canonical domain and attach analytics if not already. Analytics HTML placeholders remain empty until you inject your tags.</p>
 
-  <h2>Prioritized recommendations</h2>
+  <h2>Remaining recommendations (priority)</h2>
   <div class="priority">
     <ol>
-      <li>Fix <span class="mono">40000-sq-ft</span> <span class="mono">&lt;title&gt;</span> to match 40,000 sq. ft. messaging.</li>
-      <li>Align packaging-design: <span class="mono">&lt;title&gt;</span>, H1, image <span class="mono">alt</span>, and sitemap <span class="mono">image:title</span>.</li>
-      <li>Rewrite <span class="mono">sitemap.xml</span> image titles for every URL (replace incorrect “Blending” duplicates).</li>
-      <li>Add unique <span class="mono">meta description</span> and stronger <span class="mono">&lt;title&gt;</span> on each inner page.</li>
-      <li>Add <span class="mono">robots.txt</span> with sitemap declaration.</li>
-      <li>Add <span class="mono">lang="en"</span> on all marketing <span class="mono">&lt;html&gt;</span> elements.</li>
-      <li>Correct homepage “Scahets” → “Sachets”. Clean encoded-style <span class="mono">alt</span> strings sitewide.</li>
-      <li>Add JSON-LD (organization/local) and basic OG tags on key templates.</li>
-      <li>Reduce duplicated hero HTML on inner pages or vary primary headings/copy per URL.</li>
+      <li>Reduce or vary the duplicated hero block on inner pages to strengthen unique topical signals.</li>
+      <li>Simplify heading hierarchy (one H1 per page) if you refactor templates.</li>
+      <li>Add Search Console + analytics; verify post-deploy indexing for new paths (<span class="mono">ingredient-solutions/</span>, <span class="mono">manufacturing/</span>, packaging routes).</li>
+      <li>Optional: expand JSON-LD (<span class="mono">WebSite</span>, <span class="mono">Service</span>) if rich results are a goal.</li>
+      <li>Keep <span class="mono">sitemap.xml</span> and meta descriptions in sync when adding pages.</li>
     </ol>
   </div>
 
