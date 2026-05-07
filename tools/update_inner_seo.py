@@ -49,6 +49,14 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Formulation",
         "Formulation support for powders and nutritional products—concept through production-ready recipes. Propeller Co-Pack.",
     ),
+    "ingredient-solutions": (
+        "Ingredient Solutions",
+        "Ingredient sourcing and solutions for powder and supplement brands—quality, documentation, and supply alignment. Propeller Co-Pack.",
+    ),
+    "manufacturing": (
+        "Manufacturing",
+        "Contract powder manufacturing for supplements and foods—production controls, equipment, and scale. Propeller Co-Pack Utah.",
+    ),
     "low-moqs": (
         "Low MOQs",
         "Minimum order quantities built for growing brands. Propeller Co-Pack Utah co-packer.",

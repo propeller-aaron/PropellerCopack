@@ -77,6 +77,34 @@
 	</image:image>
 </url>
 <url>
+	<loc>https://propellercopack.com/ingredient-solutions/</loc>
+	<lastmod>2026-05-07</lastmod>
+	<changefreq>Weekly</changefreq>
+	<priority>0.5</priority>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Formulation.png</image:loc>
+	<image:title>Ingredient Solutions</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Formulation.webp</image:loc>
+	<image:title>Ingredient Solutions</image:title>
+	</image:image>
+</url>
+<url>
+	<loc>https://propellercopack.com/manufacturing/</loc>
+	<lastmod>2026-05-07</lastmod>
+	<changefreq>Weekly</changefreq>
+	<priority>0.5</priority>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Conveyor%20Belt.png</image:loc>
+	<image:title>Manufacturing</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Conveyor%20Belt.webp</image:loc>
+	<image:title>Manufacturing</image:title>
+	</image:image>
+</url>
+<url>
 	<loc>https://propellercopack.com/sachets/</loc>
 	<lastmod>2026-05-07</lastmod>
 	<changefreq>Weekly</changefreq>
