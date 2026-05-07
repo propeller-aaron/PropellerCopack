@@ -8,19 +8,19 @@ ROOT = Path(__file__).resolve().parents[1]
 SITEMAP = ROOT / "sitemap.xml"
 
 SLUG_TITLE: dict[str, str] = {
-    "packaging-design": "Packaging Design",
-    "fda": "Quality & Compliance",
-    "testing": "Testing",
+    "40000-sq-ft-facility": "40,000 Sq. Ft. Facility",
+    "custom-projects": "Custom Projects",
     "customer-service": "Customer Service",
-    "low-moqs": "Low MOQs",
-    "custom-runs": "Custom Projects",
-    "dock-doors": "Loading Docks",
-    "fulfillment": "Fulfillment",
     "distribution": "Distribution",
-    "40000-sq-ft": "40,000 Sq. Ft.",
-    "randd": "Product Development",
+    "fulfillment": "Fulfillment",
+    "loading-docks": "Loading Docks",
+    "low-moqs": "Low MOQs",
+    "packaging-design": "Packaging Design",
+    "product-development": "Product Development",
+    "product-testing": "Product Testing",
+    "quality-compliance": "Quality & Compliance",
+    "turn-key-co-packing": "Turn-Key Co-Packing",
     "white-label": "White Label",
-    "turn-key": "Turn-Key",
 }
 
 

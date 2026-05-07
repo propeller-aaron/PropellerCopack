@@ -9,23 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 BRAND_SUFFIX = " | Propeller Co-Pack"
 
 PAGE_META: dict[str, tuple[str, str]] = {
-    "fulfillment": (
-        "Fulfillment",
-        "Fulfillment and logistics for supplement and food brands. Storage, handling, and distribution support from Propeller Co-Pack in Utah.",
-    ),
-    "40000-sq-ft": (
+    "40000-sq-ft-facility": (
         "40,000 Sq. Ft. Facility",
         "Powder manufacturing and co-packing in a 40,000 sq. ft. Utah facility—production, packaging, storage, and logistics under one roof.",
     ),
-    "blending": (
-        "Powder Blending",
-        "Contract powder blending for supplements and foods. Consistent batches, documentation, and production controls with Propeller Co-Pack.",
-    ),
-    "bottles-jars": (
+    "bottles-and-jars": (
         "Bottles & Jars",
         "Bottle and jar filling for powders, capsules, and liquids. Co-packing, labeling, and packout with Propeller Co-Pack.",
     ),
-    "custom-runs": (
+    "custom-projects": (
         "Custom Projects",
         "Custom projects and small-batch production for growing brands. Propeller Co-Pack Utah co-packer.",
     ),
@@ -37,55 +29,63 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Distribution",
         "Distribution support from production to market. Propeller Co-Pack coordinates logistics with your brand.",
     ),
-    "dock-doors": (
-        "Loading Docks",
-        "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",
-    ),
-    "fda": (
-        "Quality & Compliance",
-        "Regulatory alignment and documentation for food and supplement manufacturing. Propeller Co-Pack.",
-    ),
     "formulation": (
         "Formulation",
         "Formulation support for powders and nutritional products—concept through production-ready recipes. Propeller Co-Pack.",
+    ),
+    "fulfillment": (
+        "Fulfillment",
+        "Fulfillment and logistics for supplement and food brands. Storage, handling, and distribution support from Propeller Co-Pack in Utah.",
     ),
     "ingredient-solutions": (
         "Ingredient Solutions",
         "Ingredient sourcing and solutions for powder and supplement brands—quality, documentation, and supply alignment. Propeller Co-Pack.",
     ),
-    "manufacturing": (
-        "Manufacturing",
-        "Contract powder manufacturing for supplements and foods—production controls, equipment, and scale. Propeller Co-Pack Utah.",
+    "loading-docks": (
+        "Loading Docks",
+        "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",
     ),
     "low-moqs": (
         "Low MOQs",
         "Minimum order quantities built for growing brands. Propeller Co-Pack Utah co-packer.",
     ),
+    "manufacturing": (
+        "Manufacturing",
+        "Contract powder manufacturing for supplements and foods—production controls, equipment, and scale. Propeller Co-Pack Utah.",
+    ),
     "packaging-design": (
         "Packaging Design",
         "Packaging design for production—pouches, cartons, labels, and shelf-ready formats. Propeller Co-Pack.",
     ),
-    "randd": (
+    "powder-blending": (
+        "Powder Blending",
+        "Contract powder blending for supplements and foods. Consistent batches, documentation, and production controls with Propeller Co-Pack.",
+    ),
+    "product-development": (
         "Product Development",
         "Product development for new products and line extensions in powders and supplements. Propeller Co-Pack Utah.",
     ),
-    "sachets": (
+    "product-testing": (
+        "Product Testing",
+        "Quality and testing coordination as part of your co-packing program. Propeller Co-Pack.",
+    ),
+    "quality-compliance": (
+        "Quality & Compliance",
+        "Regulatory alignment and documentation for food and supplement manufacturing. Propeller Co-Pack.",
+    ),
+    "sachet-packaging": (
         "Sachet Packaging",
         "Single-serve sachet filling for powders and supplements. Co-packing with Propeller Co-Pack.",
-    ),
-    "stick-packs": (
-        "Stick Pack Packaging",
-        "Stick pack filling for on-the-go nutrition and functional blends. Propeller Co-Pack contract manufacturing.",
     ),
     "stand-up-pouches": (
         "Stand Up Pouches",
         "Stand-up pouch filling and co-packing for retail-ready products. Propeller Co-Pack Utah.",
     ),
-    "testing": (
-        "Product Testing",
-        "Quality and testing coordination as part of your co-packing program. Propeller Co-Pack.",
+    "stick-pack-packaging": (
+        "Stick Pack Packaging",
+        "Stick pack filling for on-the-go nutrition and functional blends. Propeller Co-Pack contract manufacturing.",
     ),
-    "turn-key": (
+    "turn-key-co-packing": (
         "Turn-Key Co-Packing",
         "End-to-end manufacturing from formulation through fulfillment. Full-service co-packer Propeller Co-Pack.",
     ),

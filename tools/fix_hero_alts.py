@@ -7,17 +7,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # slug -> hero image alt (topic column img in bloc-7)
 ALT: dict[str, str] = {
-    "40000-sq-ft": "40,000 square foot manufacturing facility",
-    "fulfillment": "Fulfillment and logistics",
-    "custom-runs": "Custom projects",
+    "40000-sq-ft-facility": "40,000 square foot manufacturing facility",
+    "custom-projects": "Custom projects",
     "customer-service": "Customer service",
     "distribution": "Distribution and logistics",
-    "dock-doors": "Loading docks",
-    "fda": "Quality and compliance",
+    "fulfillment": "Fulfillment and logistics",
+    "loading-docks": "Loading docks",
     "low-moqs": "Low minimum order quantities",
-    "randd": "Product development",
-    "testing": "Product testing and quality",
-    "turn-key": "Turn-key co-manufacturing",
+    "product-development": "Product development",
+    "product-testing": "Product testing and quality",
+    "quality-compliance": "Quality and compliance",
+    "turn-key-co-packing": "Turn-key co-manufacturing",
     "white-label": "White label products",
 }
 
