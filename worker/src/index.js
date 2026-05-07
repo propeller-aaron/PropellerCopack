@@ -1,4 +1,6 @@
 const SMTP2GO_SEND_ENDPOINT = "https://api.smtp2go.com/v3/email/send";
+const CONTACT_REQUEST_SUBJECT = "Contact Request from propellercopack.com";
+const CONTACT_REQUEST_SENDER = "msg@propellercopack.com";
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -40,19 +42,30 @@ export default {
       return jsonResponse({ error: "Invalid JSON payload." }, 400);
     }
 
-    const { to, from, subject, textBody } = payload;
-    if (!to || !from || !subject || !textBody) {
+    const { name, email, message, marketingOptIn } = payload;
+    if (!name || !email || !message) {
       return jsonResponse(
-        { error: "Missing required fields: to, from, subject, textBody." },
+        { error: "Missing required fields: name, email, message." },
         400
       );
     }
 
+    const recipient = env.CONTACT_REQUEST_RECIPIENT || CONTACT_REQUEST_SENDER;
+    const textBody = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Marketing Opt-In: ${marketingOptIn ? "Yes" : "No"}`,
+      "",
+      "Message:",
+      String(message)
+    ].join("\n");
+
     const smtpPayload = {
       api_key: env.SMTP2GO_API_KEY,
-      to: [to],
-      sender: from,
-      subject,
+      to: [recipient],
+      sender: CONTACT_REQUEST_SENDER,
+      subject: CONTACT_REQUEST_SUBJECT,
+      reply_to: [email],
       text_body: textBody
     };
 
