@@ -6,26 +6,28 @@
     <title>Send Email</title>
   </head>
   <body>
-    <h1>Send Email</h1>
+    <h1>Contact Form</h1>
 
-    <form id="emailForm">
+    <form id="contactForm">
       <div>
-        <label for="to">To</label>
-        <input id="to" name="to" type="email" required />
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
       </div>
       <div>
-        <label for="from">From</label>
-        <input id="from" name="from" type="email" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
       </div>
       <div>
-        <label for="subject">Subject</label>
-        <input id="subject" name="subject" type="text" required />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="8" required></textarea>
       </div>
       <div>
-        <label for="textBody">Message</label>
-        <textarea id="textBody" name="textBody" rows="8" required></textarea>
+        <input id="marketingOptIn" name="marketingOptIn" type="checkbox" />
+        <label for="marketingOptIn">
+          We can send you product updates and offers via email. It is possible to opt-out at any time.
+        </label>
       </div>
-      <button type="submit">Send Email</button>
+      <button type="submit">Submit</button>
     </form>
 
     <p id="status" aria-live="polite"></p>
@@ -33,7 +35,7 @@
     <script>
       const WORKER_SEND_ENDPOINT = "https://prop-copack-form.aaron-4d8.workers.dev";
 
-      const form = document.getElementById("emailForm");
+      const form = document.getElementById("contactForm");
       const statusEl = document.getElementById("status");
 
       form.addEventListener("submit", async (event) => {
@@ -41,12 +43,17 @@
         statusEl.textContent = "Sending...";
 
         const formData = new FormData(form);
-        const to = formData.get("to");
-        const from = formData.get("from");
-        const subject = formData.get("subject");
-        const textBody = formData.get("textBody");
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+        const marketingOptIn = formData.get("marketingOptIn") === "on";
 
-        const payload = { to, from, subject, textBody };
+        const payload = {
+          name,
+          email,
+          message,
+          marketingOptIn
+        };
 
         try {
           const response = await fetch(WORKER_SEND_ENDPOINT, {
@@ -60,11 +67,11 @@
           const result = await response.json();
 
           if (!response.ok || result.data?.succeeded !== 1) {
-            const errorMessage = result?.data?.error || result?.error || "Failed to send email.";
+            const errorMessage = result?.data?.error || result?.error || "Failed to submit form.";
             throw new Error(errorMessage);
           }
 
-          statusEl.textContent = "Email sent successfully.";
+          statusEl.textContent = "Form submitted successfully.";
           form.reset();
         } catch (error) {
           statusEl.textContent = `Error: ${error.message}`;
