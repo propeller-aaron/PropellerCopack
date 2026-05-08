@@ -1,4 +1,22 @@
 (function () {
+  const measurementId = "G-WFT2TFB1EX";
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", measurementId);
+
+  if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+    const gtagScript = document.createElement("script");
+    gtagScript.async = true;
+    gtagScript.src =
+      "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+    document.head.appendChild(gtagScript);
+  }
+})();
+
+(function () {
   const WORKER_SEND_ENDPOINT = "https://prop-copack-form.aaron-4d8.workers.dev";
 
   const form = document.getElementById("contactForm");
