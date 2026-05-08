@@ -73,17 +73,20 @@
 </head>
 <body>
   <h1>SEO Score and Next Steps</h1>
-  <p>Last updated: May 8, 2026. We checked the live site (home + all service pages). This report covers 22 public pages.</p>
+  <p>Last updated: May 8, 2026. This refresh used current project files plus live URL status checks across home + all service pages. This report covers 22 public pages.</p>
   <p><a href="./hero-images/">Open service-page hero image library</a> (private utility page).</p>
 
   <div class="score">
-    <div class="big">KPI: 85/100</div>
+    <div class="big">KPI: 89/100</div>
     <p><strong>How this score works:</strong> We combine basic SEO setup (25), page structure (20), content quality (20), internal links (15), and live site health checks (20).</p>
   </div>
 
   <h2>Current tasks (in order)</h2>
   <ul>
-    <li><strong>Done:</strong> No urgent SEO tasks right now. Keep checking the site and improving content over time.</li>
+    <li><strong>P1:</strong> Fix malformed metadata on <span class="mono">/stand-up-pouches/</span> where the meta description contains HTML anchor markup.</li>
+    <li><strong>P1:</strong> Resolve page-intent overlap between <span class="mono">/ingredient-solutions/</span> and <span class="mono">/product-development/</span> (both currently read as product development pages).</li>
+    <li><strong>P2:</strong> Expand service page body depth (most pages are ~180-210 words total; target ~600-900 words for stronger search coverage).</li>
+    <li><strong>P2:</strong> Run browser-based QA pass for console/network errors after next deploy (this refresh included live HTTP checks, not full browser console capture).</li>
   </ul>
 
   <h2>Suggested Cursor prompts by task</h2>
@@ -96,14 +99,26 @@
     </thead>
     <tbody>
       <tr>
-        <td>P3 - Post-deploy production QA and KPI refresh</td>
-        <td><span class="mono">After deployment, check the live site in a browser (home and all service pages). List broken links, console/network errors, and any new issues. Then fully refresh <code>seo/index.html</code> (score, tasks, prompts, per-page scores, content notes, PageRank table, and details).</span></td>
+        <td>P1 - Fix malformed metadata</td>
+        <td><span class="mono">Audit all pages for invalid HTML inside metadata tags (especially <code>meta name="description"</code>). Replace with plain text only, keep intent and length similar, and verify each page still has title + meta description + canonical. Then refresh all sections of <code>seo/index.html</code>.</span></td>
+      </tr>
+      <tr>
+        <td>P1 - Clarify /ingredient-solutions/ vs /product-development/ intent</td>
+        <td><span class="mono">Differentiate <code>/ingredient-solutions/</code> and <code>/product-development/</code> so each has distinct H1, intro, and metadata intent. Preserve both URLs, avoid duplicate copy, and align internal links to the right page intent. Then regenerate all sections of <code>seo/index.html</code>.</span></td>
+      </tr>
+      <tr>
+        <td>P2 - Content depth and conversion coverage</td>
+        <td><span class="mono">Expand each service page to 600-900 words with a clear intro, 2-4 focused sections, and 3-5 concise FAQs. Keep claims neutral, add at least 2 contextual internal links, and preserve existing layout/classes. Then regenerate all sections of <code>seo/index.html</code>.</span></td>
+      </tr>
+      <tr>
+        <td>P2 - Post-deploy browser QA and KPI refresh</td>
+        <td><span class="mono">Check the live site in a browser (home + all service pages) for console errors, failed network calls, and broken internal links. Summarize findings and fully regenerate <code>seo/index.html</code> with updated scores/tables.</span></td>
       </tr>
     </tbody>
   </table>
 
   <h2>Content suggestions and prompts</h2>
-  <p><strong>Content target:</strong> Each support page should be about <strong>600-900 words</strong>, start with a short intro (<strong>50-100 words</strong>), use clear sections of about <strong>150-250 words</strong>, end with <strong>3-5 short FAQs</strong>, and include at least <strong>2 internal links</strong>.</p>
+  <p><strong>Content target:</strong> Most service pages currently sit around <strong>180-210 words</strong>. For stronger ranking potential, target <strong>600-900 words</strong> per service page, begin with a <strong>50-100 word</strong> intent-specific intro, add practical sections (<strong>150-250 words</strong> each), and finish with <strong>3-5 short FAQs</strong>.</p>
   <table>
     <thead>
       <tr>
@@ -113,32 +128,20 @@
     </thead>
     <tbody>
       <tr>
-        <td>Supporting page depth for ranking</td>
-        <td><span class="mono">Expand each supporting service page to 600-900 words total with this structure: intro 50-100 words, then section blocks of about 150-250 words, ending with 3-5 concise FAQs. Add at least 2 natural internal links per page using relevant anchor text. Keep readability high and avoid fluff. After completion, run local QA and regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
+        <td>Service depth for ranking</td>
+        <td><span class="mono">Expand each service page to 600-900 words while preserving layout and tone. Add sectioned content with practical specifics and at least 2 contextual internal links per page. Regenerate all sections of <code>seo/index.html</code> after updates.</span></td>
       </tr>
       <tr>
-        <td>Strengthen service page intros</td>
-        <td><span class="mono">Rewrite the first body paragraph on each service page to be more specific to that page intent while keeping length similar and preserving existing meaning. Avoid generic repeated wording across pages. Keep tone consistent with current site copy. After completion, regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
+        <td>Intent-specific intros</td>
+        <td><span class="mono">Rewrite each service page opening paragraph to match that page's exact buyer intent (avoid repeated generic wording across pages). Keep existing readability style and similar paragraph length. Then regenerate <code>seo/index.html</code>.</span></td>
       </tr>
       <tr>
-        <td>Add proof-driven detail</td>
-        <td><span class="mono">Add one short proof-oriented paragraph to each high-intent service page (manufacturing, powder-blending, packaging-design, fulfillment) using existing site context and neutral claims only. Do not invent certifications or metrics. After completion, regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
+        <td>Metadata and on-page alignment</td>
+        <td><span class="mono">Align title/meta description with H1 and first paragraph for every service page. Remove stale/duplicate intent patterns and ensure no metadata includes HTML markup. Then regenerate <code>seo/index.html</code>.</span></td>
       </tr>
       <tr>
-        <td>Improve conversion clarity</td>
-        <td><span class="mono">Improve the contact-adjacent paragraph copy so it clearly states who should reach out, what information to include, and expected next step. Keep the same layout and paragraph length range. After completion, regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
-      </tr>
-      <tr>
-        <td>Refine internal anchor text</td>
-        <td><span class="mono">Review internal links in body copy and upgrade anchor text to be descriptive and intent-aligned while reusing existing words where possible. Avoid generic anchors like "click here". After completion, regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
-      </tr>
-      <tr>
-        <td>Metadata-copy alignment</td>
-        <td><span class="mono">Audit each page title and meta description against its visible H1 and opening paragraph. Update mismatches so metadata reflects on-page content intent without keyword stuffing. After completion, regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
-      </tr>
-      <tr>
-        <td>After content updates</td>
-        <td><span class="mono">After finishing content edits, run local QA for layout/console issues and regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td>
+        <td>Internal anchor quality</td>
+        <td><span class="mono">Upgrade internal link anchors to describe destination intent clearly and reduce ambiguous cross-linking between overlapping topics. Keep links natural in sentence flow. Then regenerate <code>seo/index.html</code>.</span></td>
       </tr>
     </tbody>
   </table>
@@ -154,32 +157,32 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>/formulation/</td><td class="good">83/100</td><td>✅ Strong service relevance and structure<br>❌ Add proof detail and tighten intro specificity</td><td><span class="mono">Review /formulation/ for specificity, search intent alignment, and conversion clarity. Improve intro clarity, add one concise proof-style paragraph using only existing claims, and ensure at least 2 contextual internal links in existing sentence flow. Keep visual layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/product-development/</td><td class="warn">74/100</td><td>✅ Good topical alignment with internal links<br>❌ Needs deeper supporting details and stronger opening paragraph</td><td><span class="mono">Review /product-development/ for content depth and alignment with the page H1 intent. Tighten the opening paragraph, add one practical detail paragraph, and ensure at least 2 natural internal links in existing sentence flow. Keep visual layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/manufacturing/</td><td class="good">85/100</td><td>✅ High-intent page with strong core relevance<br>❌ Add one concise operations/proof paragraph for depth</td><td><span class="mono">Review /manufacturing/ for clear manufacturing intent and buyer relevance. Improve clarity in the first paragraph, add one short operations-focused paragraph using existing site context, and ensure at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/sachet-packaging/</td><td class="warn">76/100</td><td>✅ Clear packaging intent and readable structure<br>❌ Needs richer use-case detail and stronger intro specificity</td><td><span class="mono">Audit /sachet-packaging/ for topical completeness and readability. Strengthen intro specificity, add one short paragraph that clarifies use cases, and add at least 2 contextual internal links from existing phrases. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/stick-pack-packaging/</td><td class="warn">76/100</td><td>✅ Intent match is solid for product format<br>❌ Needs deeper practical detail and clearer opening copy</td><td><span class="mono">Audit /stick-pack-packaging/ for topical completeness and intent match. Rewrite intro for specificity, add one short practical detail paragraph, and include at least 2 natural internal links using existing sentence text. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/stand-up-pouches/</td><td class="warn">77/100</td><td>✅ Good readability and service focus<br>❌ Add proof-oriented depth and stronger internal link context</td><td><span class="mono">Review /stand-up-pouches/ for product-page depth and conversion clarity. Strengthen opening copy, add one concise proof-oriented paragraph with neutral claims only, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/bottles-and-jars/</td><td class="warn">75/100</td><td>✅ Clear topic targeting for packaging format<br>❌ Needs additional decision-support detail for buyers</td><td><span class="mono">Review /bottles-and-jars/ for specificity and practical decision support. Improve the intro, add one concise details paragraph on format considerations using existing context, and ensure at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/powder-blending/</td><td class="good">84/100</td><td>✅ Strong high-intent relevance and clarity<br>❌ Add one process-quality proof paragraph for depth</td><td><span class="mono">Review /powder-blending/ for technical clarity and search intent fit. Refine opening paragraph, add one short process-quality paragraph with neutral claims only, and ensure at least 2 internal links using existing sentence flow. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/packaging-design/</td><td class="good">82/100</td><td>✅ Good service intent and logical flow<br>❌ Needs one practical design-to-production detail paragraph</td><td><span class="mono">Review /packaging-design/ for design intent coverage and conversion clarity. Tighten the first paragraph, add one short practical paragraph on design-to-production continuity, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/quality-compliance/</td><td class="warn">78/100</td><td>✅ Trust-oriented positioning is present<br>❌ Improve plain-language workflow detail and intro precision</td><td><span class="mono">Review /quality-compliance/ for trust clarity and terminology consistency. Improve intro precision, add one short paragraph that explains compliance workflow in plain language, and ensure at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/product-testing/</td><td class="warn">79/100</td><td>✅ Clear topic and readable structure<br>❌ Needs stronger buyer-value framing in body detail</td><td><span class="mono">Review /product-testing/ for specificity and intent alignment. Strengthen opening copy, add one short paragraph clarifying test-related decision value using existing context, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/customer-service/</td><td class="warn">77/100</td><td>✅ Helpful tone and clear intent<br>❌ Improve expectation-setting detail and conversion clarity</td><td><span class="mono">Review /customer-service/ for conversion support and expectation setting. Refine first paragraph for audience specificity, add one concise paragraph on communication process, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/low-moqs/</td><td class="warn">78/100</td><td>✅ Strong commercial relevance for prospects<br>❌ Add fit boundaries and practical qualifying detail</td><td><span class="mono">Review /low-moqs/ for intent clarity and buyer confidence. Improve opening paragraph, add one short practical paragraph describing fit/use-case boundaries using existing context, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/custom-projects/</td><td class="warn">77/100</td><td>✅ Distinct offering is communicated<br>❌ Needs more concrete pathway/detail for intent coverage</td><td><span class="mono">Review /custom-projects/ for differentiation and solution clarity. Improve intro specificity, add one concise paragraph on project pathways using existing context, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/loading-docks/</td><td class="warn">73/100</td><td>✅ Relevant operational topic covered<br>❌ Needs stronger contextual relevance and body depth</td><td><span class="mono">Review /loading-docks/ for relevance and content depth. Refine opening copy, add one short logistics-focused detail paragraph using existing site context, and add at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/fulfillment/</td><td class="good">82/100</td><td>✅ Good commercial intent fit and structure<br>❌ Add one concise workflow paragraph for depth</td><td><span class="mono">Review /fulfillment/ for service clarity and conversion intent. Improve intro precision, add one concise paragraph clarifying fulfillment workflow using neutral claims only, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/distribution/</td><td class="warn">79/100</td><td>✅ Clear logistics intent and readability<br>❌ Needs more practical coordination details</td><td><span class="mono">Review /distribution/ for logistics intent and readability. Strengthen first paragraph, add one short practical paragraph on distribution coordination using existing context, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/40000-sq-ft-facility/</td><td class="warn">76/100</td><td>✅ Strong facility relevance and positioning<br>❌ Needs more operational detail tied to user intent</td><td><span class="mono">Review /40000-sq-ft-facility/ for facility-value clarity and support of commercial intent. Refine intro specificity, add one short operational context paragraph using existing claims only, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/product-development/</td><td class="warn">74/100</td><td>✅ Intent direction is clear<br>❌ Needs deeper explanatory content and stronger intro precision</td><td><span class="mono">Review /product-development/ for intent alignment and content depth. Tighten first paragraph, add one short practical paragraph on development flow using existing context, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/white-label/</td><td class="warn">78/100</td><td>✅ Good positioning for white-label interest<br>❌ Needs clearer qualification detail and proof context</td><td><span class="mono">Review /white-label/ for positioning clarity and actionability. Improve intro specificity, add one concise paragraph clarifying white-label fit using neutral claims only, and include at least 2 contextual internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
-      <tr><td>/turn-key-co-packing/</td><td class="good">81/100</td><td>✅ Strong full-service framing and relevance<br>❌ Add concise process detail to improve depth</td><td><span class="mono">Review /turn-key-co-packing/ for full-service clarity and conversion confidence. Refine opening paragraph, add one short process-overview paragraph using existing context, and include at least 2 natural internal links. Keep layout unchanged. Then regenerate all aspects of <code>seo/index.html</code> (KPI score, current tasks, suggested prompts, per-page prompts, content analysis, PageRank snapshot, and technical details).</span></td></tr>
+      <tr><td>/formulation/</td><td class="good">83/100</td><td>✅ Good intent match and metadata setup<br>❌ Needs deeper supporting detail and FAQ coverage</td><td><span class="mono">Expand /formulation/ with practical section depth, clearer differentiation from /product-development/, and at least 2 contextual links. Keep layout unchanged, then regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/ingredient-solutions/</td><td class="warn">76/100</td><td>✅ Technical SEO is valid and crawlable<br>❌ Intent overlaps /product-development/ and copy needs differentiation</td><td><span class="mono">Reposition /ingredient-solutions/ around sourcing/specification/compliance support, update metadata + intro + body to remove overlap with /product-development/, and preserve URL. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/manufacturing/</td><td class="good">84/100</td><td>✅ Strong transactional intent relevance<br>❌ Add operations/process depth and proof-oriented detail</td><td><span class="mono">Add one concise operations-focused section and one quality/process detail section to /manufacturing/, keeping claims neutral and layout unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/sachet-packaging/</td><td class="warn">78/100</td><td>✅ Clear service targeting<br>❌ Limited depth and weak use-case coverage</td><td><span class="mono">Expand /sachet-packaging/ with use-case, format considerations, and buyer decision details; keep visual structure unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/stick-pack-packaging/</td><td class="warn">79/100</td><td>✅ Good page intent and crawlability<br>❌ Needs deeper practical content and richer internal context</td><td><span class="mono">Expand /stick-pack-packaging/ with practical format guidance and stronger supporting sections. Preserve classes/layout and regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/stand-up-pouches/</td><td class="warn">72/100</td><td>✅ Internal linking is strong<br>❌ Meta description contains HTML markup; content still thin</td><td><span class="mono">Fix malformed metadata on /stand-up-pouches/ (plain text only), then expand content depth with practical sections and FAQs. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/bottles-and-jars/</td><td class="warn">78/100</td><td>✅ Topic alignment is clear<br>❌ Needs more decision-support and buyer-fit detail</td><td><span class="mono">Add practical format-selection and production-readiness detail to /bottles-and-jars/ while preserving layout. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/powder-blending/</td><td class="good">83/100</td><td>✅ High-intent service relevance<br>❌ Add process depth and stronger differentiation</td><td><span class="mono">Expand /powder-blending/ with process steps, quality checks, and buyer-facing expectations; keep tone and layout consistent. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/packaging-design/</td><td class="good">82/100</td><td>✅ Good conversion relevance<br>❌ Needs more specifics on design-to-production handoff</td><td><span class="mono">Add a practical section on design-to-production continuity in /packaging-design/ and refine intro precision. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/quality-compliance/</td><td class="warn">79/100</td><td>✅ Strong trust theme and clean setup<br>❌ Needs clearer workflow explanation in plain language</td><td><span class="mono">Expand /quality-compliance/ with plain-language compliance workflow details and intent-specific FAQ items. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/product-testing/</td><td class="warn">79/100</td><td>✅ Relevant page intent<br>❌ Requires deeper buyer-value and process detail</td><td><span class="mono">Add practical test-planning and decision-value detail to /product-testing/ while preserving layout/style. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/customer-service/</td><td class="warn">78/100</td><td>✅ Clear support positioning<br>❌ Needs stronger expectations/process clarity</td><td><span class="mono">Improve /customer-service/ intro specificity and add communication workflow details (who responds, what happens next). Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/low-moqs/</td><td class="warn">79/100</td><td>✅ Useful commercial angle<br>❌ Needs qualification boundaries and use-case specificity</td><td><span class="mono">Expand /low-moqs/ with fit boundaries, stage-based recommendations, and practical next-step guidance. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/custom-projects/</td><td class="warn">78/100</td><td>✅ Distinct service theme<br>❌ Needs clearer project pathways and examples</td><td><span class="mono">Strengthen /custom-projects/ with project-pathway detail and clearer conversion-oriented structure. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/loading-docks/</td><td class="warn">77/100</td><td>✅ Operational relevance exists<br>❌ Needs stronger contextual value and depth</td><td><span class="mono">Expand /loading-docks/ with logistics workflow detail and clearer relevance to buyers evaluating operations readiness. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/fulfillment/</td><td class="good">82/100</td><td>✅ Good intent and link position<br>❌ Needs more process detail for decision support</td><td><span class="mono">Enhance /fulfillment/ with order-to-ship workflow details and expectations content, preserving current structure. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/distribution/</td><td class="warn">80/100</td><td>✅ Solid logistics intent alignment<br>❌ Needs richer coordination detail and edge cases</td><td><span class="mono">Expand /distribution/ with practical routing/coordination examples and stronger internal link context. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/40000-sq-ft-facility/</td><td class="warn">78/100</td><td>✅ Strong facility credibility signal<br>❌ Needs more operational specifics tied to buyer outcomes</td><td><span class="mono">Add operational examples and capacity context to /40000-sq-ft-facility/ while keeping claims neutral and layout unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/product-development/</td><td class="warn">80/100</td><td>✅ Good internal prominence and metadata setup<br>❌ Opening copy still references ingredient-solutions framing</td><td><span class="mono">Refocus /product-development/ around concept-to-production workflow and remove ingredient-sourcing phrasing overlap. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/white-label/</td><td class="warn">79/100</td><td>✅ Clear market intent<br>❌ Needs stronger qualification and buyer-path detail</td><td><span class="mono">Expand /white-label/ with clearer qualification criteria and launch path guidance; preserve existing layout. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/turn-key-co-packing/</td><td class="good">84/100</td><td>✅ Strong internal link authority and service framing<br>❌ Needs additional concrete process detail</td><td><span class="mono">Expand /turn-key-co-packing/ with practical end-to-end process detail and concise buyer FAQ content. Regenerate <code>seo/index.html</code>.</span></td></tr>
     </tbody>
   </table>
 
   <h2>Current status</h2>
-  <p><strong>Current result:</strong> 85/100. Live QA passed and no new major problems were found.</p>
+  <p><strong>Current result:</strong> 89/100. Technical setup is strong (metadata + canonical + H1), live URL status checks passed (22/22 HTTP 200), and no stale duplicate rows remain in this report. Highest-impact opportunities are content depth and page-intent differentiation.</p>
 
   <h2>Details (at bottom)</h2>
   <h3>Score breakdown</h3>
@@ -196,32 +199,32 @@
       <tr>
         <td>Basic SEO setup</td>
         <td>25</td>
-        <td class="good">23</td>
-        <td>All 22 pages have titles, descriptions, and canonical tags.</td>
+        <td class="good">25</td>
+        <td>All 22 public pages have title tags, meta descriptions, and canonical tags present.</td>
       </tr>
       <tr>
         <td>Page structure</td>
         <td>20</td>
-        <td class="good">13</td>
-        <td>All 22 public pages have one clear main heading (H1).</td>
+        <td class="good">20</td>
+        <td>All 22 public pages currently have a single main H1.</td>
       </tr>
       <tr>
         <td>Content quality</td>
         <td>20</td>
-        <td class="warn">14</td>
-        <td>Content is readable and on-topic, but many pages still need better detail and stronger intros.</td>
+        <td class="warn">12</td>
+        <td>Page copy is on-topic but generally short (~180-210 words on most service pages), limiting intent depth.</td>
       </tr>
       <tr>
         <td>Internal links (PageRank proxy)</td>
         <td>15</td>
-        <td class="warn">15</td>
-        <td>We added more useful internal links. Link strength is getting more balanced across pages.</td>
+        <td class="good">13</td>
+        <td>Internal link graph is healthy and distributed, with home, formulation, fulfillment, packaging-design, and product-development receiving the strongest flow.</td>
       </tr>
       <tr>
         <td>Live site health</td>
         <td>20</td>
-        <td class="good">20</td>
-        <td>Live checks passed on home and service pages: no broken links, no console errors, no failed network calls.</td>
+        <td class="good">19</td>
+        <td>All sitemap URLs returned HTTP 200 in live checks; browser console/network validation should be re-run post-deploy.</td>
       </tr>
     </tbody>
   </table>
@@ -236,13 +239,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>/</td><td>0.2984</td><td class="good">86/100</td></tr>
-      <tr><td>/formulation/</td><td>0.0902</td><td class="good">83/100</td></tr>
-      <tr><td>/packaging-design/</td><td>0.0602</td><td class="good">82/100</td></tr>
-      <tr><td>/product-development/</td><td>0.0484</td><td class="warn">74/100</td></tr>
-      <tr><td>/fulfillment/</td><td>0.0446</td><td class="good">82/100</td></tr>
-      <tr><td>/distribution/</td><td>0.0437</td><td class="warn">79/100</td></tr>
+      <tr><td>/</td><td>0.2947</td><td class="good">90/100</td></tr>
+      <tr><td>/formulation/</td><td>0.0751</td><td class="good">83/100</td></tr>
+      <tr><td>/fulfillment/</td><td>0.0561</td><td class="good">82/100</td></tr>
+      <tr><td>/packaging-design/</td><td>0.0551</td><td class="good">82/100</td></tr>
+      <tr><td>/product-development/</td><td>0.0536</td><td class="warn">80/100</td></tr>
+      <tr><td>/distribution/</td><td>0.0451</td><td class="warn">80/100</td></tr>
     </tbody>
   </table>
+
+  <h3>Full regeneration prompt</h3>
+  <p>Use this prompt when you want Cursor to fully rebuild this SEO report from current site state:</p>
+  <p><span class="mono">Regenerate this entire <code>seo/index.html</code> page from scratch using the current project files and live site checks. Recompute and rewrite: KPI score, current tasks, suggested prompts by task, content suggestions, per-page prompts/scores for all public pages, current status, score breakdown table, and PageRank proxy snapshot. Validate internal links, metadata consistency (title/meta/canonical), single-H1 structure, and crawl health assumptions. Ensure page/slug naming is consistent (including both <code>/ingredient-solutions/</code> and <code>/product-development/</code> where they exist), remove stale duplicates, and update the "Last updated" date. Keep the same overall HTML structure and styling conventions used in this file.</span></p>
 </body>
 </html>
