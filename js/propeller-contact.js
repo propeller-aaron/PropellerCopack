@@ -21,14 +21,32 @@
 
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("status");
-  if (!form || !statusEl) return;
+  if (!form) return;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const defaultSubmitText = submitBtn ? submitBtn.textContent : "Submit";
+
+  function setSubmittingState(isSubmitting) {
+    if (!submitBtn) return;
+    submitBtn.disabled = isSubmitting;
+    if (isSubmitting) {
+      submitBtn.innerHTML =
+        '<span class="propeller-submit-spinner" aria-hidden="true"></span>Sending...';
+    } else {
+      submitBtn.textContent = defaultSubmitText;
+    }
+  }
 
   function showThankYou() {
     const wrap = form.closest(".propeller-form-wrap");
     if (!wrap) return;
+    const targetHeight = 210;
 
     form.classList.add("is-complete");
-    statusEl.textContent = "";
+    wrap.classList.add("is-complete-state");
+    if (targetHeight > 0) {
+      wrap.style.minHeight = targetHeight + "px";
+    }
+    if (statusEl) statusEl.textContent = "";
 
     window.setTimeout(function () {
       form.style.display = "none";
@@ -43,13 +61,15 @@
         ].join("");
         wrap.appendChild(thankYou);
       }
+      if (targetHeight > 0) {
+        thankYou.style.minHeight = targetHeight + "px";
+      }
     }, 350);
   }
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
-
-    statusEl.textContent = "Sending...";
+    setSubmittingState(true);
 
     const formData = new FormData(form);
 
@@ -81,7 +101,8 @@
 
       showThankYou();
     } catch (error) {
-      statusEl.textContent = "Error: " + error.message;
+      console.error("Contact form submission failed:", error);
+      setSubmittingState(false);
     }
   });
 })();
