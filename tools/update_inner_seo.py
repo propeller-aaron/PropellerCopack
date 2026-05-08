@@ -105,6 +105,16 @@ CONTACT_BLOCK = """			<div class="col-md-6 text-start">
     </div>
 
     <div class="propeller-form-group">
+      <label for="company">Company</label>
+      <input id="company" name="company" type="text" required />
+    </div>
+
+    <div class="propeller-form-group">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" required />
+    </div>
+
+    <div class="propeller-form-group">
       <label for="email">Email</label>
       <input id="email" name="email" type="email" required />
     </div>

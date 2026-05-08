@@ -19,6 +19,7 @@
 }
 
 .propeller-form-wrap input[type="text"],
+.propeller-form-wrap input[type="tel"],
 .propeller-form-wrap input[type="email"],
 .propeller-form-wrap textarea {
   width: 100%;
@@ -33,6 +34,7 @@
 }
 
 .propeller-form-wrap input[type="text"],
+.propeller-form-wrap input[type="tel"],
 .propeller-form-wrap input[type="email"] {
   height: 36px;
 }
@@ -73,6 +75,37 @@
 
 .propeller-submit:hover {
   background: #263f24;
+}
+
+#contactForm {
+  transition: opacity 0.35s ease;
+}
+
+#contactForm.is-complete {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.propeller-thankyou {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.propeller-thankyou h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.propeller-thankyou p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 #status {

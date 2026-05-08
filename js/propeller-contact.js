@@ -23,6 +23,29 @@
   const statusEl = document.getElementById("status");
   if (!form || !statusEl) return;
 
+  function showThankYou() {
+    const wrap = form.closest(".propeller-form-wrap");
+    if (!wrap) return;
+
+    form.classList.add("is-complete");
+    statusEl.textContent = "";
+
+    window.setTimeout(function () {
+      form.style.display = "none";
+
+      let thankYou = wrap.querySelector(".propeller-thankyou");
+      if (!thankYou) {
+        thankYou = document.createElement("div");
+        thankYou.className = "propeller-thankyou";
+        thankYou.innerHTML = [
+          "<h3>Thank you for reaching out.</h3>",
+          "<p>We appreciate the opportunity to learn about your product, packaging, and production goals. A Propeller team member will follow up soon.</p>"
+        ].join("");
+        wrap.appendChild(thankYou);
+      }
+    }, 350);
+  }
+
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -32,6 +55,8 @@
 
     const payload = {
       name: formData.get("name"),
+      company: formData.get("company"),
+      phone: formData.get("phone"),
       email: formData.get("email"),
       message: formData.get("message"),
       marketingOptIn: formData.get("marketingOptIn") === "on"
@@ -54,8 +79,7 @@
         throw new Error(errorMessage);
       }
 
-      statusEl.textContent = "Form submitted successfully.";
-      form.reset();
+      showThankYou();
     } catch (error) {
       statusEl.textContent = "Error: " + error.message;
     }
