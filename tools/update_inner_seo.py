@@ -30,8 +30,8 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Distribution support from production to market. Propeller Co-Pack coordinates logistics with your brand.",
     ),
     "formulation": (
-        "Formulation",
-        "Formulation support for powders and nutritional products—concept through production-ready recipes. Propeller Co-Pack.",
+        "Custom Formulations",
+        "Custom formulations for powders and nutritional products—concept through production-ready recipes. Propeller Co-Pack.",
     ),
     "fulfillment": (
         "Fulfillment",
@@ -127,7 +127,7 @@ CONTACT_BLOCK = """			<div class="col-md-6 text-start">
     <div class="propeller-checkbox-row">
       <input id="marketingOptIn" name="marketingOptIn" type="checkbox" />
       <label for="marketingOptIn">
-        We can send you product updates and offers via email. It is possible to opt-out at any time.
+        Check this box to receive Propeller updates. Opt out at any time.
       </label>
     </div>
 
