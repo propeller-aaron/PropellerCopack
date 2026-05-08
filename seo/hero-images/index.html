@@ -79,29 +79,133 @@
   <script>
     (function () {
       const services = [
-        { name: "Formulation", path: "../../formulation/", imageUrl: "../../img/Ingredients.png", altText: "Formulation" },
-        { name: "Ingredient Solutions", path: "../../ingredient-solutions/", imageUrl: "../../img/Formulation.png", altText: "Ingredient solutions" },
-        { name: "Manufacturing", path: "../../manufacturing/", imageUrl: "../../img/Conveyor%20Belt.png", altText: "Powder manufacturing" },
-        { name: "Sachet Packaging", path: "../../sachet-packaging/", imageUrl: "../../img/Sachet%20Line%20Art%20%28White%29.png", altText: "Sachets" },
-        { name: "Stick Pack Packaging", path: "../../stick-pack-packaging/", imageUrl: "../../img/Stick%20Line%20Art%20%28White%29.png", altText: "Stick packs" },
-        { name: "Stand Up Pouches", path: "../../stand-up-pouches/", imageUrl: "../../img/Pouch%20Line%20Art%20%28White%29.png", altText: "Stand up pouches" },
-        { name: "Bottles and Jars", path: "../../bottles-and-jars/", imageUrl: "../../img/Jar%20Line%20Art%20%28White%29.png", altText: "Bottles and jars" },
-        { name: "Powder Blending", path: "../../powder-blending/", imageUrl: "../../img/Blending.png", altText: "Blending" },
-        { name: "Packaging Design", path: "../../packaging-design/", imageUrl: "../../img/Packaging%20Design.png", altText: "Packaging design" },
-        { name: "Quality and Compliance", path: "../../quality-compliance/", imageUrl: "../../img/FDA.png", altText: "Quality and compliance" },
-        { name: "Product Testing", path: "../../product-testing/", imageUrl: "../../img/Testing.png", altText: "Product testing and quality" },
-        { name: "Customer Service", path: "../../customer-service/", imageUrl: "../../img/Customer%20Service.png", altText: "Customer service" },
-        { name: "Low MOQs", path: "../../low-moqs/", imageUrl: "../../img/Low%20MOQs.png", altText: "Low minimum order quantities" },
-        { name: "Custom Projects", path: "../../custom-projects/", imageUrl: "../../img/Small%20Runs.png", altText: "Custom projects" },
-        { name: "Loading Docks", path: "../../loading-docks/", imageUrl: "../../img/Dock%20Doors.png", altText: "Loading docks" },
-        { name: "Fulfillment", path: "../../fulfillment/", imageUrl: "../../img/3PL.png", altText: "Fulfillment and logistics" },
-        { name: "Distribution", path: "../../distribution/", imageUrl: "../../img/Distribution.png", altText: "Distribution and logistics" },
-        { name: "40,000 Sq. Ft. Facility", path: "../../40000-sq-ft-facility/", imageUrl: "../../img/40000%20Sq.%20Ft..png", altText: "40,000 square foot manufacturing facility" },
-        { name: "Product Development", path: "../../product-development/", imageUrl: "../../img/RandD.png", altText: "Product development" },
-        { name: "White Label", path: "../../white-label/", imageUrl: "../../img/White%20Label.png", altText: "White label products" },
-        { name: "Turn-Key Co-Packing", path: "../../turn-key-co-packing/", imageUrl: "../../img/Turn%20Key%203.png", altText: "Turn-key co-manufacturing" }
-      ];
-
+        {
+                "name": "40,000 Sq. Ft. Facility",
+                "path": "../../40000-sq-ft-facility/",
+                "imageUrl": "../../img/40000%20Sq.%20Ft..png",
+                "altText": "40,000 square foot manufacturing facility"
+        },
+        {
+                "name": "Bottles / Jars",
+                "path": "../../bottles-and-jars/",
+                "imageUrl": "../../img/Jar%20Line%20Art%20%28White%29.png",
+                "altText": "Bottles and jars"
+        },
+        {
+                "name": "Custom Projects",
+                "path": "../../custom-projects/",
+                "imageUrl": "../../img/Small%20Runs.png",
+                "altText": "Custom projects"
+        },
+        {
+                "name": "Customer Service",
+                "path": "../../customer-service/",
+                "imageUrl": "../../img/Customer%20Service.png",
+                "altText": "Customer service"
+        },
+        {
+                "name": "Distribution",
+                "path": "../../distribution/",
+                "imageUrl": "../../img/Distribution.png",
+                "altText": "Distribution and logistics"
+        },
+        {
+                "name": "Formulation",
+                "path": "../../formulation/",
+                "imageUrl": "../../img/Ingredients.png",
+                "altText": "Formulation"
+        },
+        {
+                "name": "Fulfillment",
+                "path": "../../fulfillment/",
+                "imageUrl": "../../img/3PL.png",
+                "altText": "Fulfillment and logistics"
+        },
+        {
+                "name": "Ingredient Solutions",
+                "path": "../../ingredient-solutions/",
+                "imageUrl": "../../img/Formulation.png",
+                "altText": "Ingredient solutions"
+        },
+        {
+                "name": "Loading Docks",
+                "path": "../../loading-docks/",
+                "imageUrl": "../../img/Dock%20Doors.png",
+                "altText": "Loading docks"
+        },
+        {
+                "name": "Low MOQs",
+                "path": "../../low-moqs/",
+                "imageUrl": "../../img/Low%20MOQs.png",
+                "altText": "Low minimum order quantities"
+        },
+        {
+                "name": "Manufacturing",
+                "path": "../../manufacturing/",
+                "imageUrl": "../../img/Conveyor%20Belt.png",
+                "altText": "Powder manufacturing"
+        },
+        {
+                "name": "Packaging Design",
+                "path": "../../packaging-design/",
+                "imageUrl": "../../img/Packaging%20Design.png",
+                "altText": "Packaging design"
+        },
+        {
+                "name": "Blending",
+                "path": "../../powder-blending/",
+                "imageUrl": "../../img/Blending.png",
+                "altText": "Blending"
+        },
+        {
+                "name": "Product Development",
+                "path": "../../product-development/",
+                "imageUrl": "../../img/RandD.png",
+                "altText": "Product development"
+        },
+        {
+                "name": "Testing",
+                "path": "../../product-testing/",
+                "imageUrl": "../../img/Testing.png",
+                "altText": "Product testing and quality"
+        },
+        {
+                "name": "Quality & Compliance",
+                "path": "../../quality-compliance/",
+                "imageUrl": "../../img/FDA.png",
+                "altText": "Quality and compliance"
+        },
+        {
+                "name": "Sachets",
+                "path": "../../sachet-packaging/",
+                "imageUrl": "../../img/Sachet%20Line%20Art%20%28White%29.png",
+                "altText": "Sachets"
+        },
+        {
+                "name": "Stand Up Pouches",
+                "path": "../../stand-up-pouches/",
+                "imageUrl": "../../img/Pouch%20Line%20Art%20%28White%29.png",
+                "altText": "Stand up pouches"
+        },
+        {
+                "name": "Stick Packs",
+                "path": "../../stick-pack-packaging/",
+                "imageUrl": "../../img/Stick%20Line%20Art%20%28White%29.png",
+                "altText": "Stick packs"
+        },
+        {
+                "name": "Turn-Key",
+                "path": "../../turn-key-co-packing/",
+                "imageUrl": "../../img/Turn%20Key%203.png",
+                "altText": "Turn-key co-manufacturing"
+        },
+        {
+                "name": "White Label",
+                "path": "../../white-label/",
+                "imageUrl": "../../img/White%20Label.png",
+                "altText": "White label products"
+        }
+];
       const grid = document.getElementById("grid");
 
       function cardMarkup(name, path, imageUrl, altText) {
