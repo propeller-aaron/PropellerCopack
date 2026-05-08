@@ -1,5 +1,7 @@
 {
   "generated_on": "2026-05-08",
+  "inputs_hash": "27b0348205e54b32b5bec028",
+  "live_checks_source": "forced_fresh_fetch",
   "page_count": 22,
   "rows": [
     {
@@ -10,9 +12,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 201,
+      "h1_text": "POWDER MANUFACTURING",
+      "title_h1_mismatch": false,
+      "word_count": 198,
       "internal_links_raw_count": 29,
       "internal_links": [
         "/",
@@ -54,9 +59,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 197,
+      "h1_text": "40,000 Sq. Ft. Facility",
+      "title_h1_mismatch": false,
+      "word_count": 193,
       "internal_links_raw_count": 11,
       "internal_links": [
         "/40000-sq-ft-facility/",
@@ -80,9 +88,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 186,
+      "h1_text": "Bottles / Jars",
+      "title_h1_mismatch": false,
+      "word_count": 182,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/bottles-and-jars/",
@@ -104,9 +115,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 186,
+      "h1_text": "Custom Projects",
+      "title_h1_mismatch": false,
+      "word_count": 182,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/custom-projects/",
@@ -128,9 +142,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 189,
+      "h1_text": "Customer Service",
+      "title_h1_mismatch": false,
+      "word_count": 185,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/customer-service/",
@@ -152,9 +169,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 188,
+      "h1_text": "Distribution",
+      "title_h1_mismatch": false,
+      "word_count": 184,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/distribution/",
@@ -170,15 +190,18 @@
     },
     {
       "slug": "/formulation/",
-      "title_text": "Formulation | Propeller Co-Pack",
-      "description_text": "Formulation support for powders and nutritional products\u2014concept through production-ready recipes. Propeller Co-Pack.",
+      "title_text": "Custom Formulations | Propeller Co-Pack",
+      "description_text": "Custom formulations for powders and nutritional products\u2014concept through production-ready recipes. Propeller Co-Pack.",
       "canonical_path": "/formulation/",
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 188,
+      "h1_text": "Custom Formulations",
+      "title_h1_mismatch": false,
+      "word_count": 186,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/formulation/",
@@ -201,9 +224,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 188,
+      "h1_text": "Fulfillment",
+      "title_h1_mismatch": false,
+      "word_count": 184,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/fulfillment/",
@@ -225,9 +251,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 190,
+      "h1_text": "Ingredient Solutions",
+      "title_h1_mismatch": false,
+      "word_count": 186,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/ingredient-solutions/",
@@ -250,9 +279,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 185,
+      "h1_text": "Loading Docks",
+      "title_h1_mismatch": false,
+      "word_count": 181,
       "internal_links_raw_count": 11,
       "internal_links": [
         "/loading-docks/",
@@ -276,9 +308,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 193,
+      "h1_text": "Low MOQs",
+      "title_h1_mismatch": false,
+      "word_count": 189,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/low-moqs/",
@@ -300,9 +335,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 189,
+      "h1_text": "Manufacturing",
+      "title_h1_mismatch": false,
+      "word_count": 185,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/manufacturing/",
@@ -324,9 +362,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 192,
+      "h1_text": "Packaging Design",
+      "title_h1_mismatch": false,
+      "word_count": 188,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/packaging-design/",
@@ -349,9 +390,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 197,
+      "h1_text": "Blending",
+      "title_h1_mismatch": false,
+      "word_count": 193,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/powder-blending/",
@@ -373,9 +417,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 191,
+      "h1_text": "Product Development",
+      "title_h1_mismatch": false,
+      "word_count": 187,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/product-development/",
@@ -398,9 +445,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 192,
+      "h1_text": "Testing",
+      "title_h1_mismatch": false,
+      "word_count": 188,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/product-testing/",
@@ -422,9 +472,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 195,
+      "h1_text": "Quality & Compliance",
+      "title_h1_mismatch": false,
+      "word_count": 191,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/quality-compliance/",
@@ -446,9 +499,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 182,
+      "h1_text": "Sachets",
+      "title_h1_mismatch": true,
+      "word_count": 178,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/sachet-packaging/",
@@ -465,20 +521,20 @@
     {
       "slug": "/stand-up-pouches/",
       "title_text": "Stand Up Pouches | Propeller Co-Pack",
-      "description_text": "Stand-up pouch filling and <a href=",
+      "description_text": "Stand-up pouch filling and turn-key co-packing for retail-ready products. Propeller Co-Pack Utah.",
       "canonical_path": "/stand-up-pouches/",
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
-      "description_has_html": true,
+      "canonical_ok": true,
+      "description_has_html": false,
       "h1_count": 1,
-      "word_count": 207,
-      "internal_links_raw_count": 13,
+      "h1_text": "Stand Up Pouches",
+      "title_h1_mismatch": false,
+      "word_count": 182,
+      "internal_links_raw_count": 10,
       "internal_links": [
-        "/turn-key-co-packing/",
         "/stand-up-pouches/",
-        "/turn-key-co-packing/",
-        "/turn-key-co-packing/",
         "/favicon.png",
         "/css/bootstrap.min.css",
         "/style.css",
@@ -498,9 +554,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 187,
+      "h1_text": "Stick Packs",
+      "title_h1_mismatch": false,
+      "word_count": 183,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/stick-pack-packaging/",
@@ -523,9 +582,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 195,
+      "h1_text": "Turn-Key",
+      "title_h1_mismatch": false,
+      "word_count": 191,
       "internal_links_raw_count": 14,
       "internal_links": [
         "/turn-key-co-packing/",
@@ -552,9 +614,12 @@
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
+      "canonical_ok": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 190,
+      "h1_text": "White Label",
+      "title_h1_mismatch": false,
+      "word_count": 186,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/white-label/",
@@ -571,50 +636,142 @@
   ],
   "missing_meta_slugs": [],
   "bad_h1_slugs": [],
-  "desc_html_slugs": [
-    "/stand-up-pouches/"
+  "desc_html_slugs": [],
+  "canonical_mismatch_slugs": [],
+  "title_h1_mismatch_slugs": [
+    "/sachet-packaging/"
   ],
   "duplicate_slugs": [],
-  "pagerank_top": [
+  "pagerank_full": [
     [
       "/",
-      0.29472433039061513
+      0.29839462796330507
     ],
     [
       "/formulation/",
-      0.07509918022986081
+      0.07418602114686758
     ],
     [
       "/fulfillment/",
-      0.056070733394646764
+      0.055342599364212756
     ],
     [
       "/packaging-design/",
-      0.05510882932335511
+      0.05365471912670468
     ],
     [
       "/distribution/",
-      0.04510964743059432
-    ],
-    [
-      "/product-development/",
-      0.04199772336136769
+      0.045131799381343
     ],
     [
       "/ingredient-solutions/",
-      0.041997723361367686
+      0.042004794285571134
+    ],
+    [
+      "/product-development/",
+      0.042004794285571134
     ],
     [
       "/quality-compliance/",
-      0.04028757872304647
-    ],
-    [
-      "/turn-key-co-packing/",
-      0.03511886455288052
+      0.040644526543702285
     ],
     [
       "/product-testing/",
-      0.03176445814649983
+      0.03201314628549424
+    ],
+    [
+      "/stick-pack-packaging/",
+      0.031721204578792746
+    ],
+    [
+      "/stand-up-pouches/",
+      0.030957461519072128
+    ],
+    [
+      "/turn-key-co-packing/",
+      0.029925196261591572
+    ],
+    [
+      "/low-moqs/",
+      0.026724540483611864
+    ],
+    [
+      "/manufacturing/",
+      0.026724540483611864
+    ],
+    [
+      "/powder-blending/",
+      0.026724540483611864
+    ],
+    [
+      "/bottles-and-jars/",
+      0.02104557563084432
+    ],
+    [
+      "/custom-projects/",
+      0.02104557563084432
+    ],
+    [
+      "/customer-service/",
+      0.02104557563084432
+    ],
+    [
+      "/sachet-packaging/",
+      0.02104557563084432
+    ],
+    [
+      "/white-label/",
+      0.02104557563084432
+    ],
+    [
+      "/40000-sq-ft-facility/",
+      0.019308804826357162
+    ],
+    [
+      "/loading-docks/",
+      0.019308804826357162
+    ]
+  ],
+  "pagerank_top": [
+    [
+      "/",
+      0.29839462796330507
+    ],
+    [
+      "/formulation/",
+      0.07418602114686758
+    ],
+    [
+      "/fulfillment/",
+      0.055342599364212756
+    ],
+    [
+      "/packaging-design/",
+      0.05365471912670468
+    ],
+    [
+      "/distribution/",
+      0.045131799381343
+    ],
+    [
+      "/ingredient-solutions/",
+      0.042004794285571134
+    ],
+    [
+      "/product-development/",
+      0.042004794285571134
+    ],
+    [
+      "/quality-compliance/",
+      0.040644526543702285
+    ],
+    [
+      "/product-testing/",
+      0.03201314628549424
+    ],
+    [
+      "/stick-pack-packaging/",
+      0.031721204578792746
     ]
   ],
   "live_checks": {
