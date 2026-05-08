@@ -77,16 +77,16 @@
   <p><a href="./hero-images/">Open service-page hero image library</a> (private utility page).</p>
 
   <div class="score">
-    <div class="big">KPI: 89/100</div>
+    <div class="big">KPI: 90/100</div>
     <p><strong>How this score works:</strong> We combine basic SEO setup (25), page structure (20), content quality (20), internal links (15), and live site health checks (20).</p>
   </div>
 
   <h2>Current tasks (in order)</h2>
   <ul>
-    <li><strong>P1:</strong> Fix malformed metadata on <span class="mono">/stand-up-pouches/</span> where the meta description contains HTML anchor markup.</li>
-    <li><strong>P1:</strong> Resolve page-intent overlap between <span class="mono">/ingredient-solutions/</span> and <span class="mono">/product-development/</span> (both currently read as product development pages).</li>
-    <li><strong>P2:</strong> Expand service page body depth (most pages are ~180-210 words total; target ~600-900 words for stronger search coverage).</li>
-    <li><strong>P2:</strong> Run browser-based QA pass for console/network errors after next deploy (this refresh included live HTTP checks, not full browser console capture).</li>
+    <li><strong>P1:</strong> Fix malformed metadata on <span class="mono">/stand-up-pouches/</span> where the meta description currently contains HTML anchor markup.</li>
+    <li><strong>P1:</strong> Tighten <span class="mono">/product-development/</span> opening copy so it no longer borrows ingredient-focused language and is clearly distinct from <span class="mono">/ingredient-solutions/</span>.</li>
+    <li><strong>P2:</strong> Expand service page body depth (most pages are still ~180-210 words; target ~600-900 words for stronger topical coverage).</li>
+    <li><strong>P3:</strong> Run post-deploy browser QA (console/network) to complement the live HTTP status checks already completed in this refresh.</li>
   </ul>
 
   <h2>Suggested Cursor prompts by task</h2>
@@ -103,8 +103,8 @@
         <td><span class="mono">Audit all pages for invalid HTML inside metadata tags (especially <code>meta name="description"</code>). Replace with plain text only, keep intent and length similar, and verify each page still has title + meta description + canonical. Then refresh all sections of <code>seo/index.html</code>.</span></td>
       </tr>
       <tr>
-        <td>P1 - Clarify /ingredient-solutions/ vs /product-development/ intent</td>
-        <td><span class="mono">Differentiate <code>/ingredient-solutions/</code> and <code>/product-development/</code> so each has distinct H1, intro, and metadata intent. Preserve both URLs, avoid duplicate copy, and align internal links to the right page intent. Then regenerate all sections of <code>seo/index.html</code>.</span></td>
+        <td>P1 - Finalize product-development page intent</td>
+        <td><span class="mono">Rewrite <code>/product-development/</code> intro/body to focus on concept-to-production development workflow and remove ingredient-sourcing phrasing that belongs on <code>/ingredient-solutions/</code>. Keep both URLs live and distinct. Then regenerate all sections of <code>seo/index.html</code>.</span></td>
       </tr>
       <tr>
         <td>P2 - Content depth and conversion coverage</td>
@@ -158,7 +158,7 @@
     </thead>
     <tbody>
       <tr><td>/formulation/</td><td class="good">83/100</td><td>✅ Good intent match and metadata setup<br>❌ Needs deeper supporting detail and FAQ coverage</td><td><span class="mono">Expand /formulation/ with practical section depth, clearer differentiation from /product-development/, and at least 2 contextual links. Keep layout unchanged, then regenerate <code>seo/index.html</code>.</span></td></tr>
-      <tr><td>/ingredient-solutions/</td><td class="warn">76/100</td><td>✅ Technical SEO is valid and crawlable<br>❌ Intent overlaps /product-development/ and copy needs differentiation</td><td><span class="mono">Reposition /ingredient-solutions/ around sourcing/specification/compliance support, update metadata + intro + body to remove overlap with /product-development/, and preserve URL. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/ingredient-solutions/</td><td class="warn">80/100</td><td>✅ Metadata/H1 now align to ingredient intent<br>❌ Still needs deeper practical content and FAQ depth</td><td><span class="mono">Expand /ingredient-solutions/ with sourcing workflow, specification checkpoints, and documentation detail while preserving current intent. Then regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/manufacturing/</td><td class="good">84/100</td><td>✅ Strong transactional intent relevance<br>❌ Add operations/process depth and proof-oriented detail</td><td><span class="mono">Add one concise operations-focused section and one quality/process detail section to /manufacturing/, keeping claims neutral and layout unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/sachet-packaging/</td><td class="warn">78/100</td><td>✅ Clear service targeting<br>❌ Limited depth and weak use-case coverage</td><td><span class="mono">Expand /sachet-packaging/ with use-case, format considerations, and buyer decision details; keep visual structure unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/stick-pack-packaging/</td><td class="warn">79/100</td><td>✅ Good page intent and crawlability<br>❌ Needs deeper practical content and richer internal context</td><td><span class="mono">Expand /stick-pack-packaging/ with practical format guidance and stronger supporting sections. Preserve classes/layout and regenerate <code>seo/index.html</code>.</span></td></tr>
@@ -175,14 +175,16 @@
       <tr><td>/fulfillment/</td><td class="good">82/100</td><td>✅ Good intent and link position<br>❌ Needs more process detail for decision support</td><td><span class="mono">Enhance /fulfillment/ with order-to-ship workflow details and expectations content, preserving current structure. Regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/distribution/</td><td class="warn">80/100</td><td>✅ Solid logistics intent alignment<br>❌ Needs richer coordination detail and edge cases</td><td><span class="mono">Expand /distribution/ with practical routing/coordination examples and stronger internal link context. Regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/40000-sq-ft-facility/</td><td class="warn">78/100</td><td>✅ Strong facility credibility signal<br>❌ Needs more operational specifics tied to buyer outcomes</td><td><span class="mono">Add operational examples and capacity context to /40000-sq-ft-facility/ while keeping claims neutral and layout unchanged. Regenerate <code>seo/index.html</code>.</span></td></tr>
-      <tr><td>/product-development/</td><td class="warn">80/100</td><td>✅ Good internal prominence and metadata setup<br>❌ Opening copy still references ingredient-solutions framing</td><td><span class="mono">Refocus /product-development/ around concept-to-production workflow and remove ingredient-sourcing phrasing overlap. Regenerate <code>seo/index.html</code>.</span></td></tr>
+      <tr><td>/product-development/</td><td class="warn">78/100</td><td>✅ Strong internal prominence and valid technical setup<br>❌ Opening/body copy still leans into ingredient solutions language</td><td><span class="mono">Refocus /product-development/ on R&amp;D pathway, pilot refinement, and production-readiness milestones; remove ingredient-sourcing overlap. Then regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/white-label/</td><td class="warn">79/100</td><td>✅ Clear market intent<br>❌ Needs stronger qualification and buyer-path detail</td><td><span class="mono">Expand /white-label/ with clearer qualification criteria and launch path guidance; preserve existing layout. Regenerate <code>seo/index.html</code>.</span></td></tr>
       <tr><td>/turn-key-co-packing/</td><td class="good">84/100</td><td>✅ Strong internal link authority and service framing<br>❌ Needs additional concrete process detail</td><td><span class="mono">Expand /turn-key-co-packing/ with practical end-to-end process detail and concise buyer FAQ content. Regenerate <code>seo/index.html</code>.</span></td></tr>
     </tbody>
   </table>
 
   <h2>Current status</h2>
-  <p><strong>Current result:</strong> 89/100. Technical setup is strong (metadata + canonical + H1), live URL status checks passed (22/22 HTTP 200), and no stale duplicate rows remain in this report. Highest-impact opportunities are content depth and page-intent differentiation.</p>
+  <p><strong>Current result:</strong> 90/100. Technical setup is strong (metadata + canonical + H1), live URL status checks passed (22/22 HTTP 200), and page/slug naming is consistent with both <span class="mono">/ingredient-solutions/</span> and <span class="mono">/product-development/</span> present.</p>
+  <p><strong>Recomputed in this run:</strong> metadata/H1 checks, internal link graph, word counts, PageRank proxy, duplicate-row checks, and live sitemap URL checks.</p>
+  <p><strong>Reused for speed:</strong> helper script <span class="mono">tools/seo_refresh_audit.py</span> and cached audit output <span class="mono">seo/audit-cache.json</span> for report assembly.</p>
 
   <h2>Details (at bottom)</h2>
   <h3>Score breakdown</h3>
@@ -223,8 +225,8 @@
       <tr>
         <td>Live site health</td>
         <td>20</td>
-        <td class="good">19</td>
-        <td>All sitemap URLs returned HTTP 200 in live checks; browser console/network validation should be re-run post-deploy.</td>
+        <td class="good">20</td>
+        <td>All 22 sitemap URLs returned HTTP 200 in this run. Browser console checks remain a recommended post-deploy QA layer.</td>
       </tr>
     </tbody>
   </table>
@@ -239,17 +241,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>/</td><td>0.2947</td><td class="good">90/100</td></tr>
+      <tr><td>/</td><td>0.2947</td><td class="good">91/100</td></tr>
       <tr><td>/formulation/</td><td>0.0751</td><td class="good">83/100</td></tr>
       <tr><td>/fulfillment/</td><td>0.0561</td><td class="good">82/100</td></tr>
       <tr><td>/packaging-design/</td><td>0.0551</td><td class="good">82/100</td></tr>
-      <tr><td>/product-development/</td><td>0.0536</td><td class="warn">80/100</td></tr>
       <tr><td>/distribution/</td><td>0.0451</td><td class="warn">80/100</td></tr>
+      <tr><td>/product-development/</td><td>0.0420</td><td class="warn">78/100</td></tr>
+      <tr><td>/ingredient-solutions/</td><td>0.0420</td><td class="warn">80/100</td></tr>
     </tbody>
   </table>
 
   <h3>Full regeneration prompt</h3>
   <p>Use this prompt when you want Cursor to fully rebuild this SEO report from current site state:</p>
-  <p><span class="mono">Regenerate this entire <code>seo/index.html</code> page from scratch using the current project files and live site checks. Recompute and rewrite: KPI score, current tasks, suggested prompts by task, content suggestions, per-page prompts/scores for all public pages, current status, score breakdown table, and PageRank proxy snapshot. Validate internal links, metadata consistency (title/meta/canonical), single-H1 structure, and crawl health assumptions. Ensure page/slug naming is consistent (including both <code>/ingredient-solutions/</code> and <code>/product-development/</code> where they exist), remove stale duplicates, and update the "Last updated" date. Keep the same overall HTML structure and styling conventions used in this file.</span></p>
+  <p><span class="mono">Regenerate this entire <code>seo/index.html</code> page from scratch using the current project files and live site checks. Recompute and rewrite: KPI score, current tasks, suggested prompts by task, content suggestions, per-page prompts/scores for all public pages, current status, score breakdown table, and PageRank proxy snapshot. Validate internal links, metadata consistency (title/meta/canonical), single-H1 structure, and crawl health assumptions. Ensure page/slug naming is consistent (including both <code>/ingredient-solutions/</code> and <code>/product-development/</code> where they exist), remove stale duplicates, and update the "Last updated" date. Keep the same overall HTML structure and styling conventions used in this file. You may create and reuse local helper scripts (for crawling, scoring, link graph, and report assembly) plus cached intermediate outputs so incremental refreshes run faster; only re-run expensive checks (especially live checks) when source files or dependent inputs changed, and document which sections were recomputed versus reused.</span></p>
 </body>
 </html>
