@@ -4,197 +4,149 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>SEO analysis - Propeller Co-Pack</title>
+  <title>SEO KPI and Current Tasks - Propeller Co-Pack</title>
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #fff;
       --surface: #f6f8fa;
       --text: #1f2328;
       --muted: #656d76;
-      --accent: #0969da;
       --border: #d0d7de;
-      --ok: #1a7f37;
+      --accent: #0969da;
+      --good: #1a7f37;
       --warn: #9a6700;
+      --bad: #cf222e;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0 auto;
-      max-width: 64rem;
-      padding: 2rem 1.25rem 4rem;
+      max-width: 58rem;
+      padding: 2rem 1.25rem 3rem;
       font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
     }
-    h1 { margin: 0 0 0.5rem; font-size: 1.8rem; }
+    h1 { margin: 0 0 0.35rem; font-size: 1.75rem; }
     h2 {
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.3rem;
+      margin: 1.8rem 0 0.65rem;
+      padding-bottom: 0.25rem;
       border-bottom: 1px solid var(--border);
       color: var(--accent);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
-    h3 { margin: 1.25rem 0 0.5rem; font-size: 1.02rem; }
     p { margin: 0 0 1rem; color: var(--muted); }
-    ul, ol { margin: 0 0 1rem; padding-left: 1.35rem; color: var(--muted); }
+    ul { margin: 0 0 1rem; padding-left: 1.25rem; color: var(--muted); }
     li { margin-bottom: 0.35rem; }
-    strong { color: var(--text); }
-    .mono {
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 0.9em;
-      background: var(--surface);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
-    }
-    .card {
-      border: 1px solid var(--border);
-      border-left-width: 4px;
-      background: var(--surface);
-      border-radius: 6px;
-      padding: 0.8rem 1rem;
-      margin: 1rem 0;
-      color: var(--muted);
-    }
-    .ok { border-left-color: var(--ok); }
-    .warn { border-left-color: var(--warn); }
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.92rem;
-      margin: 0.75rem 0 1.25rem;
+      margin: 0.75rem 0 1rem;
+      font-size: 0.94rem;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 0.55rem 0.65rem;
+      padding: 0.55rem 0.6rem;
       text-align: left;
       vertical-align: top;
     }
-    th {
+    th { background: var(--surface); }
+    .mono {
+      font-family: ui-monospace, "Cascadia Code", monospace;
       background: var(--surface);
-      color: var(--text);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+      font-size: 0.9em;
     }
-    td { color: var(--muted); }
+    .score {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--warn);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      background: var(--surface);
+      margin-bottom: 0.75rem;
+    }
+    .big { font-size: 1.7rem; font-weight: 700; color: var(--text); }
+    .good { color: var(--good); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
   </style>
 </head>
 <body>
-  <h1>SEO analysis - Propeller Co-Pack website</h1>
-  <p><strong>Regenerated:</strong> May 8, 2026. <strong>Scope:</strong> 22 public pages (<span class="mono">index.html</span> in root + 21 section folder pages). This audit file is excluded from indexing.</p>
+  <h1>SEO KPI and Current Tasks</h1>
+  <p>Last updated: May 8, 2026. Scope: 22 public pages.</p>
 
-  <h2>Executive snapshot</h2>
-  <div class="card ok">
-    <ul style="margin-bottom:0;">
-      <li>Technical fundamentals are in place on all pages: canonical tags, unique page titles, meta descriptions, and social meta.</li>
-      <li>Content architecture is the main growth opportunity: inner pages reuse similar hero language and share a generic "POWDER MANUFACTURING" top heading.</li>
-      <li>Heading hierarchy is not ideal for search intent targeting: each inner page currently has 3 H1s.</li>
-      <li>Analytics now exists in shared JS and should be validated in production with Search Console and GA debug view.</li>
-    </ul>
+  <div class="score">
+    <div class="big">KPI: 58/100</div>
+    <p><strong>How this score is calculated:</strong> weighted blend of Technical SEO (35), Information Architecture (25), Internal Link Authority/PageRank proxy (20), and Live QA reliability (20).</p>
   </div>
 
-  <h2>Sitewide findings</h2>
+  <h2>KPI breakdown</h2>
   <table>
     <thead>
       <tr>
-        <th>Area</th>
-        <th>Current state</th>
-        <th>Impact / recommendation</th>
+        <th>Category</th>
+        <th>Weight</th>
+        <th>Current score</th>
+        <th>Why</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>Titles and descriptions</strong></td>
-        <td>All pages have filled title and description tags.</td>
-        <td>Good baseline. Continue keeping each page focused on one service intent and one primary keyword.</td>
+        <td>Technical SEO baseline</td>
+        <td>35</td>
+        <td class="good">33</td>
+        <td>22/22 titles and descriptions present; 21/22 canonical tags detected.</td>
       </tr>
       <tr>
-        <td><strong>Canonical tags</strong></td>
-        <td>Present on all audited pages.</td>
-        <td>Keep synchronized with final public URL and trailing slash format.</td>
+        <td>Information architecture</td>
+        <td>25</td>
+        <td class="bad">7</td>
+        <td>H1 structure is the main blocker (0/22 pages with a single H1, avg 3.64 H1 tags/page).</td>
       </tr>
       <tr>
-        <td><strong>H1 structure</strong></td>
-        <td>Inner pages: 3 H1s each. Homepage: 17 H1s.</td>
-        <td>Use one H1 per page, convert section/card/contact headings to H2 or H3.</td>
+        <td>Internal authority (PageRank proxy)</td>
+        <td>20</td>
+        <td class="warn">12</td>
+        <td>Internal links improved, but authority is still concentrated on home (<span class="mono">PR 0.2984</span>).</td>
       </tr>
       <tr>
-        <td><strong>Content uniqueness</strong></td>
-        <td>Many inner pages open with similar "POWDER MANUFACTURING" messaging.</td>
-        <td>Write a unique first paragraph for each service to improve topical differentiation and intent match.</td>
-      </tr>
-      <tr>
-        <td><strong>Structured data</strong></td>
-        <td>Homepage has organization/local business schema.</td>
-        <td>Add service-level schema to core service pages if rich snippet coverage is a goal.</td>
-      </tr>
-      <tr>
-        <td><strong>Conversion content</strong></td>
-        <td>Most pages rely on a single contact section CTA.</td>
-        <td>Add one mid-page CTA and one trust proof element (certs, throughput, lead times, MOQ ranges).</td>
+        <td>Live QA reliability</td>
+        <td>20</td>
+        <td class="bad">6</td>
+        <td>Live test found 3 broken routes and recurring JS console errors on many pages.</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>TODO list (priority order)</h2>
-  <ol>
-    <li>Refactor heading hierarchy across all templates to enforce one H1 per page.</li>
-    <li>Replace duplicated first-section copy on each service page with intent-specific intros (80-130 words each).</li>
-    <li>Add one unique proof block per page (numbers, process steps, compliance artifacts, outcomes).</li>
-    <li>Create internal text links between related services (ex: formulation -> ingredient solutions -> blending -> packaging).</li>
-    <li>Add FAQ sections for top 6 commercial pages and mark up with FAQ schema if policy allows.</li>
-    <li>Validate GA events and Search Console indexing after next deploy.</li>
-    <li>Refresh sitemap <span class="mono">lastmod</span> whenever service copy materially changes.</li>
-    <li>Create one case-study page and link to it from every service page as conversion support proof.</li>
-  </ol>
-
-  <h2>Per-page analysis and improvement plan</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Page</th>
-        <th>What is working</th>
-        <th>Content improvements</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>/</td><td>Strong breadth of service links and clear positioning.</td><td>Reduce number of H1s, tighten hero promise, add one proof section with quantifiable outcomes.</td></tr>
-      <tr><td>/manufacturing/</td><td>Clear service intent and matching metadata.</td><td>Add capabilities matrix (batch size, shift capacity, QA checkpoints) and lead time guidance.</td></tr>
-      <tr><td>/formulation/</td><td>Good topical alignment for R&amp;D audience.</td><td>Add "from brief to pilot to production" framework and common formulation constraints.</td></tr>
-      <tr><td>/ingredient-solutions/</td><td>Distinct sourcing angle.</td><td>Add supplier qualification process, documentation examples, and risk-mitigation approach.</td></tr>
-      <tr><td>/powder-blending/</td><td>Relevant keyword targeting exists.</td><td>Rename on-page H1 from "Blending" to "Powder Blending" and add blend uniformity/testing details.</td></tr>
-      <tr><td>/packaging-design/</td><td>Topic is now aligned in title and heading.</td><td>Add packaging workflow, dieline/label review checklist, and print production readiness criteria.</td></tr>
-      <tr><td>/quality-compliance/</td><td>Trust-oriented theme supports buyer needs.</td><td>Add compliance scope list (SOPs, lot traceability, COAs, retains, deviations handling).</td></tr>
-      <tr><td>/product-testing/</td><td>Supports quality narrative.</td><td>Add testing menu by product type and when each test occurs in production lifecycle.</td></tr>
-      <tr><td>/product-development/</td><td>Good high-level offering fit.</td><td>Add stage-gate model and expected timeline ranges by project complexity.</td></tr>
-      <tr><td>/white-label/</td><td>Commercially relevant and transactional.</td><td>Add available formats, launch package examples, and brand-ready handoff details.</td></tr>
-      <tr><td>/turn-key-co-packing/</td><td>Strong full-service positioning.</td><td>Add visual flow of handoffs across formulation, sourcing, production, and fulfillment.</td></tr>
-      <tr><td>/fulfillment/</td><td>Clear operations support messaging.</td><td>Add pick/pack SLAs, inventory visibility details, and shipping integration options.</td></tr>
-      <tr><td>/distribution/</td><td>Logistics intent is clear.</td><td>Add geography/carrier model, freight scenarios, and handoff process from plant to warehouse.</td></tr>
-      <tr><td>/loading-docks/</td><td>Facility support page is useful for operations buyers.</td><td>Add dock specs, appointment process, and inbound/outbound receiving controls.</td></tr>
-      <tr><td>/40000-sq-ft-facility/</td><td>Facility scale signal is strong.</td><td>Add zoning by function (production/storage/QA) and photo captions with buyer-relevant context.</td></tr>
-      <tr><td>/custom-projects/</td><td>Good for niche inquiries and pilots.</td><td>Add examples of atypical requests and screening criteria for project fit.</td></tr>
-      <tr><td>/low-moqs/</td><td>Strong for emerging brands.</td><td>Quantify MOQ bands and tradeoffs, then tie to upgrade path as demand grows.</td></tr>
-      <tr><td>/customer-service/</td><td>Helpful support positioning.</td><td>Add communication cadence, account ownership model, and escalation/response expectations.</td></tr>
-      <tr><td>/sachet-packaging/</td><td>Format-specific search intent coverage.</td><td>Add sachet size ranges, materials, and common use-cases by category.</td></tr>
-      <tr><td>/stick-pack-packaging/</td><td>High-intent packaging keyword supported.</td><td>Add lane/speed considerations, fill weight ranges, and seal integrity checks.</td></tr>
-      <tr><td>/stand-up-pouches/</td><td>Retail format focus is relevant.</td><td>Add pouch format options, closure types, and shelf presentation considerations.</td></tr>
-      <tr><td>/bottles-and-jars/</td><td>Format-specific targeting is clear.</td><td>Add fill/closure options, tamper-evidence options, and labeling QA checks.</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Content quality opportunities across all pages</h2>
-  <div class="card warn">
-    <ul style="margin-bottom:0;">
-      <li><strong>Differentiate intros:</strong> avoid repeating generic claims across pages; lead with the problem each page solves.</li>
-      <li><strong>Show proof:</strong> include numbers, process detail, and evidence, not only capability statements.</li>
-      <li><strong>Improve decision support:</strong> add "who this is for", "best fit", and "not a fit" micro-sections.</li>
-      <li><strong>Increase conversion depth:</strong> insert contextual CTA blocks before the final contact form section.</li>
-      <li><strong>Strengthen topical clusters:</strong> cross-link related pages with descriptive anchor text.</li>
-    </ul>
-  </div>
-
-  <h2>Next measurement checks</h2>
+  <h2>Current tasks only (in order)</h2>
   <ul>
-    <li>Confirm GA property <span class="mono">G-WFT2TFB1EX</span> receives page views on homepage and two inner pages.</li>
-    <li>Submit sitemap in Search Console and inspect 5 priority URLs for indexing and canonical validation.</li>
-    <li>Track click-through rate changes for top pages after heading/content updates.</li>
+    <li><strong>P0:</strong> Fix broken homepage route links to live pages: <span class="mono">/sachets/</span>, <span class="mono">/stick-packs/</span>, <span class="mono">/bottles-jars/</span>.</li>
+    <li><strong>P0:</strong> Fix/remove stale <span class="mono">jqBootstrapValidation</span> dependency causing console errors.</li>
+    <li><strong>P1:</strong> Resolve content rendering issues on <span class="mono">/ingredient-solutions/</span> and <span class="mono">/turn-key-co-packing/</span>.</li>
+    <li><strong>P1:</strong> Enforce one H1 per page (demote non-primary headings to H2/H3).</li>
+    <li><strong>P2:</strong> Keep new contextual internal links and add 1-2 more from top authority pages to lower-authority pages.</li>
+    <li><strong>P2:</strong> Re-run browser QA after deploy and update KPI.</li>
   </ul>
+
+  <h2>PageRank proxy snapshot</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Top internal URLs by PageRank proxy</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>/</td><td>0.2984</td></tr>
+      <tr><td>/formulation/</td><td>0.0902</td></tr>
+      <tr><td>/packaging-design/</td><td>0.0602</td></tr>
+      <tr><td>/ingredient-solutions/</td><td>0.0484</td></tr>
+      <tr><td>/fulfillment/</td><td>0.0446</td></tr>
+      <tr><td>/distribution/</td><td>0.0437</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Target to unlock next phase</h2>
+  <p>Reach <strong>75/100</strong> by closing all P0 and P1 tasks. Expected lift: +17 points.</p>
 </body>
 </html>
