@@ -1,0 +1,736 @@
+{
+  "generated_on": "2026-05-08",
+  "page_count": 22,
+  "rows": [
+    {
+      "slug": "/",
+      "title_text": "Propeller Co-Pack | Powder Blending, Packaging & Fulfillment",
+      "description_text": "Propeller Co-Pack helps food, supplement, and powder-based brands move from concept to finished product with blending, packaging design, pouch filling, stick packs, sachets, jars, and fulfillment support.",
+      "canonical_path": "/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 201,
+      "internal_links_raw_count": 29,
+      "internal_links": [
+        "/",
+        "/css/bootstrap.min.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/quality-compliance/",
+        "/stick-pack-packaging/",
+        "/formulation/",
+        "/product-development/",
+        "/manufacturing/",
+        "/sachet-packaging/",
+        "/stick-pack-packaging/",
+        "/stand-up-pouches/",
+        "/bottles-and-jars/",
+        "/powder-blending/",
+        "/packaging-design/",
+        "/quality-compliance/",
+        "/product-testing/",
+        "/customer-service/",
+        "/low-moqs/",
+        "/custom-projects/",
+        "/loading-docks/",
+        "/fulfillment/",
+        "/distribution/",
+        "/40000-sq-ft-facility/",
+        "/ingredient-solutions/",
+        "/white-label/",
+        "/turn-key-co-packing/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/40000-sq-ft-facility/",
+      "title_text": "40,000 Sq. Ft. Facility | Propeller Co-Pack",
+      "description_text": "Powder manufacturing and co-packing in a 40,000 sq. ft. Utah facility-production, packaging, storage, and logistics under one roof.",
+      "canonical_path": "/40000-sq-ft-facility/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 197,
+      "internal_links_raw_count": 11,
+      "internal_links": [
+        "/40000-sq-ft-facility/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/packaging-design/",
+        "/packaging-design/",
+        "/packaging-design/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/bottles-and-jars/",
+      "title_text": "Bottles & Jars | Propeller Co-Pack",
+      "description_text": "Bottle and jar filling for powders, capsules, and liquids. Co-packing, labeling, and packout with Propeller Co-Pack.",
+      "canonical_path": "/bottles-and-jars/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 186,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/bottles-and-jars/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/distribution/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/custom-projects/",
+      "title_text": "Custom Projects | Propeller Co-Pack",
+      "description_text": "Custom projects and small-batch production for growing brands. Propeller Co-Pack Utah co-packer.",
+      "canonical_path": "/custom-projects/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 186,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/custom-projects/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/low-moqs/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/customer-service/",
+      "title_text": "Customer Service | Propeller Co-Pack",
+      "description_text": "Support for your co-packing program from onboarding through production. Contact Propeller Co-Pack.",
+      "canonical_path": "/customer-service/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 189,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/customer-service/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/manufacturing/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/distribution/",
+      "title_text": "Distribution | Propeller Co-Pack",
+      "description_text": "Distribution support from production to market. Propeller Co-Pack coordinates logistics with your brand.",
+      "canonical_path": "/distribution/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 188,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/distribution/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/fulfillment/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/formulation/",
+      "title_text": "Formulation | Propeller Co-Pack",
+      "description_text": "Formulation support for powders and nutritional products\u2014concept through production-ready recipes. Propeller Co-Pack.",
+      "canonical_path": "/formulation/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 188,
+      "internal_links_raw_count": 10,
+      "internal_links": [
+        "/formulation/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/ingredient-solutions/",
+        "/product-development/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/fulfillment/",
+      "title_text": "Fulfillment | Propeller Co-Pack",
+      "description_text": "Fulfillment and logistics for supplement and food brands. Storage, handling, and distribution support from Propeller Co-Pack in Utah.",
+      "canonical_path": "/fulfillment/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 188,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/fulfillment/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/distribution/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/ingredient-solutions/",
+      "title_text": "Ingredient Solutions | Propeller Co-Pack",
+      "description_text": "Ingredient solutions for powder and supplement brands\u2014sourcing alignment, specification review, and documentation support for production-ready products.",
+      "canonical_path": "/ingredient-solutions/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 190,
+      "internal_links_raw_count": 10,
+      "internal_links": [
+        "/ingredient-solutions/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/formulation/",
+        "/formulation/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/loading-docks/",
+      "title_text": "Loading Docks | Propeller Co-Pack",
+      "description_text": "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",
+      "canonical_path": "/loading-docks/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 185,
+      "internal_links_raw_count": 11,
+      "internal_links": [
+        "/loading-docks/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/fulfillment/",
+        "/distribution/",
+        "/fulfillment/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/low-moqs/",
+      "title_text": "Low MOQs | Propeller Co-Pack",
+      "description_text": "Minimum order quantities built for growing brands. Propeller Co-Pack Utah co-packer.",
+      "canonical_path": "/low-moqs/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 193,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/low-moqs/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/product-development/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/manufacturing/",
+      "title_text": "Manufacturing | Propeller Co-Pack",
+      "description_text": "Contract powder manufacturing for supplements and foods\u2014production controls, equipment, and scale. Propeller Co-Pack facility in Utah.",
+      "canonical_path": "/manufacturing/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 189,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/manufacturing/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/quality-compliance/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/packaging-design/",
+      "title_text": "Packaging Design | Propeller Co-Pack",
+      "description_text": "Packaging design for production\u2014pouches, cartons, labels, and shelf-ready formats. Propeller Co-Pack.",
+      "canonical_path": "/packaging-design/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 192,
+      "internal_links_raw_count": 10,
+      "internal_links": [
+        "/packaging-design/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/stand-up-pouches/",
+        "/fulfillment/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/powder-blending/",
+      "title_text": "Powder Blending | Propeller Co-Pack",
+      "description_text": "Contract powder blending for supplements and foods. Consistent batches, documentation, and production controls with Propeller Co-Pack.",
+      "canonical_path": "/powder-blending/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 197,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/powder-blending/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/ingredient-solutions/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/product-development/",
+      "title_text": "Product Development | Propeller Co-Pack",
+      "description_text": "Product development support for powder and supplement brands\u2014concept refinement, formulation alignment, and production readiness. Propeller Co-Pack, Utah.",
+      "canonical_path": "/product-development/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 191,
+      "internal_links_raw_count": 10,
+      "internal_links": [
+        "/product-development/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/formulation/",
+        "/formulation/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/product-testing/",
+      "title_text": "Product Testing | Propeller Co-Pack",
+      "description_text": "Quality and testing coordination as part of your co-packing program. Propeller Co-Pack.",
+      "canonical_path": "/product-testing/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 192,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/product-testing/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/packaging-design/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/quality-compliance/",
+      "title_text": "Quality & Compliance | Propeller Co-Pack",
+      "description_text": "Regulatory alignment and documentation for food and supplement manufacturing. Propeller Co-Pack.",
+      "canonical_path": "/quality-compliance/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 195,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/quality-compliance/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/product-testing/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/sachet-packaging/",
+      "title_text": "Sachet Packaging | Propeller Co-Pack",
+      "description_text": "Single-serve sachet filling for powders and supplements. Co-packing with Propeller Co-Pack.",
+      "canonical_path": "/sachet-packaging/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 182,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/sachet-packaging/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/powder-blending/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/stand-up-pouches/",
+      "title_text": "Stand Up Pouches | Propeller Co-Pack",
+      "description_text": "Stand-up pouch filling and <a href=",
+      "canonical_path": "/stand-up-pouches/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": true,
+      "h1_count": 1,
+      "word_count": 207,
+      "internal_links_raw_count": 13,
+      "internal_links": [
+        "/turn-key-co-packing/",
+        "/stand-up-pouches/",
+        "/turn-key-co-packing/",
+        "/turn-key-co-packing/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/turn-key-co-packing/",
+        "/turn-key-co-packing/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/stick-pack-packaging/",
+      "title_text": "Stick Pack Packaging | Propeller Co-Pack",
+      "description_text": "Stick pack filling for on-the-go nutrition and functional blends. Propeller Co-Pack contract manufacturing.",
+      "canonical_path": "/stick-pack-packaging/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 187,
+      "internal_links_raw_count": 10,
+      "internal_links": [
+        "/stick-pack-packaging/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/formulation/",
+        "/formulation/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/turn-key-co-packing/",
+      "title_text": "Turn-Key Co-Packing | Propeller Co-Pack",
+      "description_text": "End-to-end manufacturing from formulation through fulfillment. Full-service co-packer Propeller Co-Pack.",
+      "canonical_path": "/turn-key-co-packing/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 195,
+      "internal_links_raw_count": 14,
+      "internal_links": [
+        "/turn-key-co-packing/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/formulation/",
+        "/packaging-design/",
+        "/formulation/",
+        "/packaging-design/",
+        "/fulfillment/",
+        "/packaging-design/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/white-label/",
+      "title_text": "White Label | Propeller Co-Pack",
+      "description_text": "White label and private label powder manufacturing for your brand. Propeller Co-Pack Utah.",
+      "canonical_path": "/white-label/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 190,
+      "internal_links_raw_count": 9,
+      "internal_links": [
+        "/white-label/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/packaging-design/",
+        "/"
+      ]
+    }
+  ],
+  "missing_meta_slugs": [],
+  "bad_h1_slugs": [],
+  "desc_html_slugs": [
+    "/stand-up-pouches/"
+  ],
+  "duplicate_slugs": [],
+  "pagerank_top": [
+    [
+      "/",
+      0.29472433039061513
+    ],
+    [
+      "/formulation/",
+      0.07509918022986081
+    ],
+    [
+      "/fulfillment/",
+      0.056070733394646764
+    ],
+    [
+      "/packaging-design/",
+      0.05510882932335511
+    ],
+    [
+      "/distribution/",
+      0.04510964743059432
+    ],
+    [
+      "/product-development/",
+      0.04199772336136769
+    ],
+    [
+      "/ingredient-solutions/",
+      0.041997723361367686
+    ],
+    [
+      "/quality-compliance/",
+      0.04028757872304647
+    ],
+    [
+      "/turn-key-co-packing/",
+      0.03511886455288052
+    ],
+    [
+      "/product-testing/",
+      0.03176445814649983
+    ]
+  ],
+  "live_checks": {
+    "total": 22,
+    "bad_count": 0,
+    "results": [
+      {
+        "url": "https://propellercopack.com/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/formulation/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/ingredient-solutions/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/manufacturing/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/sachet-packaging/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/stick-pack-packaging/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/stand-up-pouches/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/bottles-and-jars/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/powder-blending/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/packaging-design/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/quality-compliance/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/product-testing/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/customer-service/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/low-moqs/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/custom-projects/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/loading-docks/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/fulfillment/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/distribution/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/40000-sq-ft-facility/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/product-development/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/white-label/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/turn-key-co-packing/",
+        "status": 200,
+        "error": ""
+      }
+    ]
+  }
+}
