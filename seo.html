@@ -73,10 +73,10 @@
 </head>
 <body>
   <h1>SEO KPI and Current Tasks</h1>
-  <p>Last updated: May 8, 2026. Scope: 22 public pages.</p>
+  <p>Last updated: May 8, 2026 (full local browser QA sweep passed across homepage + all service pages). Scope: 22 public pages.</p>
 
   <div class="score">
-    <div class="big">KPI: 58/100</div>
+    <div class="big">KPI: 79/100</div>
     <p><strong>How this score is calculated:</strong> weighted blend of Technical SEO (35), Information Architecture (25), Internal Link Authority/PageRank proxy (20), and Live QA reliability (20).</p>
   </div>
 
@@ -100,33 +100,85 @@
       <tr>
         <td>Information architecture</td>
         <td>25</td>
-        <td class="bad">7</td>
-        <td>H1 structure is the main blocker (0/22 pages with a single H1, avg 3.64 H1 tags/page).</td>
+        <td class="good">13</td>
+        <td>Heading structure standardized locally to one semantic H1 per page across all 22 page templates.</td>
       </tr>
       <tr>
         <td>Internal authority (PageRank proxy)</td>
         <td>20</td>
-        <td class="warn">12</td>
-        <td>Internal links improved, but authority is still concentrated on home (<span class="mono">PR 0.2984</span>).</td>
+        <td class="warn">15</td>
+        <td>Contextual links were added from top authority pages to deeper relevant pages; authority is improving but still concentrated on home (<span class="mono">PR 0.2984</span> baseline).</td>
       </tr>
       <tr>
         <td>Live QA reliability</td>
         <td>20</td>
-        <td class="bad">6</td>
-        <td>Live test found 3 broken routes and recurring JS console errors on many pages.</td>
+        <td class="good">18</td>
+        <td>Local browser QA passed on all 22 pages with no broken links, no console errors, and no failed network requests. Post-deploy production QA is the only remaining validation step.</td>
       </tr>
     </tbody>
   </table>
 
   <h2>Current tasks only (in order)</h2>
   <ul>
-    <li><strong>P0:</strong> Fix broken homepage route links to live pages: <span class="mono">/sachets/</span>, <span class="mono">/stick-packs/</span>, <span class="mono">/bottles-jars/</span>.</li>
-    <li><strong>P0:</strong> Fix/remove stale <span class="mono">jqBootstrapValidation</span> dependency causing console errors.</li>
-    <li><strong>P1:</strong> Resolve content rendering issues on <span class="mono">/ingredient-solutions/</span> and <span class="mono">/turn-key-co-packing/</span>.</li>
-    <li><strong>P1:</strong> Enforce one H1 per page (demote non-primary headings to H2/H3).</li>
-    <li><strong>P2:</strong> Keep new contextual internal links and add 1-2 more from top authority pages to lower-authority pages.</li>
-    <li><strong>P2:</strong> Re-run browser QA after deploy and update KPI.</li>
+    <li><strong>P3:</strong> Run post-deploy production QA sweep and then refresh KPI/status in <span class="mono">seo.html</span>.</li>
   </ul>
+
+  <h2>Suggested Cursor prompts by task</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Prompt to run in Cursor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>P3 - Post-deploy production QA and KPI refresh</td>
+        <td><span class="mono">After deployment, run a full browser QA sweep on the production site covering homepage and all internal service pages. Report broken links, console/network errors, and regressions. Then regenerate and update <code>seo.html</code> with refreshed KPI and final task status.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Content suggestions and prompts</h2>
+  <p><strong>Content depth criteria:</strong> Each supporting page should target <strong>600-900 words</strong>, use a short intro (<strong>50-100 words</strong>), include clear sections of about <strong>150-250 words</strong> each, end with <strong>3-5 brief FAQs</strong>, and include at least <strong>2 internal links</strong> per page.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Content goal</th>
+        <th>Prompt to run in Cursor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Supporting page depth for ranking</td>
+        <td><span class="mono">Expand each supporting service page to 600-900 words total with this structure: intro 50-100 words, then section blocks of about 150-250 words, ending with 3-5 concise FAQs. Add at least 2 natural internal links per page using relevant anchor text. Keep readability high and avoid fluff. After completion, run local QA and regenerate <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>Strengthen service page intros</td>
+        <td><span class="mono">Rewrite the first body paragraph on each service page to be more specific to that page intent while keeping length similar and preserving existing meaning. Avoid generic repeated wording across pages. Keep tone consistent with current site copy. After completion, regenerate and update <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>Add proof-driven detail</td>
+        <td><span class="mono">Add one short proof-oriented paragraph to each high-intent service page (manufacturing, powder-blending, packaging-design, fulfillment) using existing site context and neutral claims only. Do not invent certifications or metrics. After completion, regenerate and update <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>Improve conversion clarity</td>
+        <td><span class="mono">Improve the contact-adjacent paragraph copy so it clearly states who should reach out, what information to include, and expected next step. Keep the same layout and paragraph length range. After completion, regenerate and update <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>Refine internal anchor text</td>
+        <td><span class="mono">Review internal links in body copy and upgrade anchor text to be descriptive and intent-aligned while reusing existing words where possible. Avoid generic anchors like "click here". After completion, regenerate and update <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>Metadata-copy alignment</td>
+        <td><span class="mono">Audit each page title and meta description against its visible H1 and opening paragraph. Update mismatches so metadata reflects on-page content intent without keyword stuffing. After completion, regenerate and update <code>seo.html</code> KPI/task status.</span></td>
+      </tr>
+      <tr>
+        <td>After content updates</td>
+        <td><span class="mono">After finishing content edits, run local QA for layout/console issues and regenerate <code>seo.html</code> with updated KPI and task status.</span></td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>PageRank proxy snapshot</h2>
   <table>
@@ -147,6 +199,6 @@
   </table>
 
   <h2>Target to unlock next phase</h2>
-  <p>Reach <strong>75/100</strong> by closing all P0 and P1 tasks. Expected lift: +17 points.</p>
+  <p>Reach <strong>85/100</strong> by passing final post-deploy production QA and confirming no regressions.</p>
 </body>
 </html>

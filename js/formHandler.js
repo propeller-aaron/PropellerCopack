@@ -1,5 +1,11 @@
 $(function()
 {	
+	// Some pages no longer load jqBootstrapValidation; keep forms functional without throwing console errors.
+	if (!$.fn || !$.fn.jqBootstrapValidation || typeof $.fn.jqBootstrapValidation !== 'function')
+	{
+		return;
+	}
+
 	$('[data-form-type="blocs-form"] input,[data-form-type="blocs-form"] textarea').jqBootstrapValidation(
     {
      	preventSubmit: true,
