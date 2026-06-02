@@ -281,6 +281,71 @@ def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
       color: var(--muted);
       margin-bottom: 1rem;
     }}
+    .task-groups {{
+      display: grid;
+      gap: 0.85rem;
+      margin: 0.75rem 0 1.25rem;
+    }}
+    .task-group {{
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      background: var(--surface);
+    }}
+    .task-header {{
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin-bottom: 0.35rem;
+    }}
+    .task-priority {{
+      flex: 0 0 auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+    }}
+    .task-title {{
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text);
+    }}
+    .task-summary {{
+      margin: 0 0 0.45rem;
+      color: var(--muted);
+    }}
+    .task-pages {{
+      margin: 0 0 0.55rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }}
+    .task-prompt {{
+      margin-top: 0.35rem;
+    }}
+    .task-prompt summary {{
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }}
+    .cursor-prompt {{
+      margin: 0.55rem 0 0;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }}
   </style>
 </head>
 <body>

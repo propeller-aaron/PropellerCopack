@@ -3,11 +3,252 @@ from __future__ import annotations
 
 import html
 import json
-import re
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "seo" / "audit-cache.json"
+
+
+@dataclass(frozen=True)
+class TaskGroup:
+    priority: str
+    title: str
+    summary: str
+    pages: tuple[str, ...]
+    cursor_prompt: str
+
+
+def slug_list(slugs: list[str], limit: int = 12) -> str:
+    shown = slugs[:limit]
+    text = ", ".join(shown)
+    if len(slugs) > limit:
+        text += f", … (+{len(slugs) - limit} more)"
+    return text
+
+
+def pages_by_h1_count(audit: dict) -> dict[int, list[str]]:
+    groups: dict[int, list[str]] = {}
+    for row in audit["rows"]:
+        if row["h1_count"] != 1:
+            groups.setdefault(row["h1_count"], []).append(row["slug"])
+    return groups
+
+
+def build_task_groups(audit: dict, page_scores: dict[str, int]) -> list[TaskGroup]:
+    groups: list[TaskGroup] = []
+
+    for slug in audit.get("desc_html_slugs", []):
+        groups.append(
+            TaskGroup(
+                priority="P1",
+                title="Remove HTML from meta descriptions",
+                summary=f"Meta description contains markup on {slug}.",
+                pages=(slug,),
+                cursor_prompt=(
+                    f"On {slug}, remove HTML tags from the meta description, Open Graph "
+                    "description, and Twitter description. Keep plain text only and match "
+                    "the on-page copy tone."
+                ),
+            )
+        )
+
+    for slug in audit.get("missing_meta_slugs", []):
+        groups.append(
+            TaskGroup(
+                priority="P1",
+                title="Add missing metadata",
+                summary=f"Missing title, description, or canonical on {slug}.",
+                pages=(slug,),
+                cursor_prompt=(
+                    f"On {slug}, add a unique title, meta description, canonical URL, and "
+                    "matching Open Graph / Twitter tags. Follow patterns in "
+                    "tools/update_inner_seo.py PAGE_META and existing inner pages."
+                ),
+            )
+        )
+
+    h1_groups = pages_by_h1_count(audit)
+    if three := sorted(h1_groups.get(3, [])):
+        groups.append(
+            TaskGroup(
+                priority="P1",
+                title="Fix heading hierarchy on service pages (3 H1s)",
+                summary=(
+                    f"{len(three)} pages use three H1 tags: shared hero band, service title, "
+                    "and contact heading."
+                ),
+                pages=tuple(three),
+                cursor_prompt=(
+                    "Fix heading hierarchy on these Propeller Co-Pack service pages so each "
+                    "page has exactly one H1:\n"
+                    f"{chr(10).join(three)}\n\n"
+                    "Pattern on v3 pages:\n"
+                    "- Keep the bloc-7 service title as the sole H1.\n"
+                    "- Change the shared bloc-1 banner heading ('POWDER MANUFACTURING') to h2.\n"
+                    "- Change the contact section heading ('Drop us a line...') to h2.\n"
+                    "- Do not change visible styling classes unless needed.\n"
+                    "- Preserve SEO meta, contact form, footer structure, and internal links.\n"
+                    "- Run python tools/seo_refresh_audit.py afterward to verify h1_count is 1."
+                ),
+            )
+        )
+
+    if two := sorted(h1_groups.get(2, [])):
+        homepage = "/" in two
+        others = [s for s in two if s != "/"]
+        page_lines = []
+        if homepage:
+            page_lines.append("/ (homepage)")
+        page_lines.extend(others)
+        groups.append(
+            TaskGroup(
+                priority="P1",
+                title="Fix heading hierarchy (2 H1s)",
+                summary=(
+                    f"{len(two)} pages use two H1 tags, including the homepage and "
+                    "legacy-format service pages."
+                ),
+                pages=tuple(two),
+                cursor_prompt=(
+                    "Fix heading hierarchy so each page has exactly one H1:\n"
+                    f"{chr(10).join(page_lines)}\n\n"
+                    "For inner service pages:\n"
+                    "- Keep the bloc-7 service-specific title as the only H1.\n"
+                    "- Demote the shared bloc-1 'POWDER MANUFACTURING' banner heading to h2.\n"
+                    "For the homepage:\n"
+                    "- Keep the primary page headline as the only H1.\n"
+                    "- Demote secondary hero or section headings currently marked h1 to h2.\n"
+                    "- Preserve layout, links, contact form, and SEO head tags.\n"
+                    "- Run python tools/seo_refresh_audit.py afterward to verify h1_count is 1."
+                ),
+            )
+        )
+
+    thin = sorted(
+        r["slug"] for r in audit["rows"] if r["word_count"] < 250 and r["slug"] != "/"
+    )
+    if thin:
+        groups.append(
+            TaskGroup(
+                priority="P2",
+                title="Expand thin service page content",
+                summary=(
+                    f"{len(thin)} service pages are under ~250 words; target 600-900 words "
+                    "for stronger SEO depth."
+                ),
+                pages=tuple(thin),
+                cursor_prompt=(
+                    "Expand on-page copy on these Propeller Co-Pack service pages to "
+                    "roughly 600-900 words each:\n"
+                    f"{chr(10).join(thin)}\n\n"
+                    "Requirements:\n"
+                    "- Preserve existing title, meta description, canonical, OG/Twitter tags, "
+                    "and Propeller contact form markup.\n"
+                    "- Keep the v3 bloc layout; add 2-4 substantive paragraphs or bullet sections "
+                    "within existing content areas.\n"
+                    "- Cover capabilities, ideal use cases, quality/compliance, and workflow.\n"
+                    "- Add natural internal links to related services already on the site.\n"
+                    "- Match the tone of neighboring pages; no keyword stuffing.\n"
+                    "- Run python tools/seo_refresh_audit.py afterward to confirm word counts."
+                ),
+            )
+        )
+
+    moderate = sorted(
+        r["slug"]
+        for r in audit["rows"]
+        if 250 <= r["word_count"] < 400 and r["slug"] != "/"
+    )
+    if moderate:
+        groups.append(
+            TaskGroup(
+                priority="P2",
+                title="Deepen moderate-length service pages",
+                summary=(
+                    f"{len(moderate)} pages are ~250-400 words; expand toward 600-900 words."
+                ),
+                pages=tuple(moderate),
+                cursor_prompt=(
+                    "Expand these service pages from moderate depth toward 600-900 words:\n"
+                    f"{chr(10).join(moderate)}\n\n"
+                    "Add useful, non-duplicative sections while preserving SEO head tags, "
+                    "contact form, hero images, and v3 styling. Prefer expanding bloc-7 body "
+                    "copy and adding one supporting detail section before the contact bloc."
+                ),
+            )
+        )
+
+    if audit["live_checks"].get("bad_count", 0):
+        bad_urls = [
+            item["url"]
+            for item in audit["live_checks"].get("results", [])
+            if item.get("status") != 200
+        ]
+        groups.append(
+            TaskGroup(
+                priority="P1",
+                title="Fix live sitemap URL failures",
+                summary=f"{len(bad_urls)} sitemap URLs are not returning HTTP 200.",
+                pages=tuple(bad_urls),
+                cursor_prompt=(
+                    "These sitemap URLs are failing live HTTP checks:\n"
+                    f"{chr(10).join(bad_urls)}\n\n"
+                    "Diagnose each failure (404, redirect loop, timeout, or deploy gap). "
+                    "Fix routing/deploy for live pages or update sitemap.xml if the URL should "
+                    "be removed. Re-run python tools/seo_refresh_audit.py to confirm all "
+                    "sitemap checks pass."
+                ),
+            )
+        )
+
+    if not groups:
+        groups.append(
+            TaskGroup(
+                priority="—",
+                title="No critical SEO blockers",
+                summary="No critical SEO blockers detected in this audit run.",
+                pages=(),
+                cursor_prompt=(
+                    "No SEO remediation needed from the latest audit. Re-run "
+                    "python tools/refresh_seo_all.py after future content or deploy changes."
+                ),
+            )
+        )
+
+    return groups
+
+
+def render_task_groups(groups: list[TaskGroup]) -> str:
+    blocks: list[str] = []
+    for group in groups:
+        pages_html = ""
+        if group.pages:
+            pages_html = (
+                f'<p class="task-pages"><strong>Affected:</strong> '
+                f'<span class="mono">{html.escape(slug_list(list(group.pages), limit=20))}</span></p>'
+            )
+        prompt = html.escape(group.cursor_prompt)
+        blocks.append(
+            f"""    <article class="task-group">
+      <header class="task-header">
+        <span class="task-priority">{html.escape(group.priority)}</span>
+        <h4 class="task-title">{html.escape(group.title)}</h4>
+      </header>
+      <p class="task-summary">{html.escape(group.summary)}</p>
+      {pages_html}
+      <details class="task-prompt">
+        <summary>Cursor prompt</summary>
+        <pre class="cursor-prompt">{prompt}</pre>
+      </details>
+    </article>"""
+        )
+    return "\n".join(blocks)
+
+
+def build_tasks(audit: dict, page_scores: dict[str, int]) -> list[tuple[str, str]]:
+    """Legacy flat task list used by tests or scripts."""
+    return [(group.priority, group.summary) for group in build_task_groups(audit, page_scores)]
 
 
 def score_page(row: dict) -> tuple[int, list[str], list[str]]:
@@ -80,51 +321,15 @@ def score_site(audit: dict) -> tuple[int, dict[str, int]]:
     return total, breakdown, page_scores, avg_page
 
 
-def build_tasks(audit: dict, page_scores: dict[str, int]) -> list[tuple[str, str]]:
-    tasks: list[tuple[str, str]] = []
-    for slug in audit.get("desc_html_slugs", []):
-        tasks.append(("P1", f"Fix HTML inside meta description on {slug}"))
-    for slug in audit.get("bad_h1_slugs", []):
-        tasks.append(("P1", f"Fix H1 count on {slug}"))
-    for slug in audit.get("missing_meta_slugs", []):
-        tasks.append(("P1", f"Add missing metadata on {slug}"))
-
-    thin = [r for r in audit["rows"] if r["word_count"] < 250 and r["slug"] != "/"]
-    if thin:
-        tasks.append(
-            (
-                "P2",
-                f"Expand content depth on {len(thin)} service pages (target 600-900 words)",
-            )
-        )
-
-    low = sorted(
-        ((s, sc) for s, sc in page_scores.items() if s != "/" and sc < 78),
-        key=lambda x: x[1],
-    )
-    for slug, sc in low[:3]:
-        tasks.append(("P2", f"Improve on-page quality on {slug} (score {sc}/100)"))
-
-    if audit["live_checks"].get("bad_count", 0):
-        tasks.append(("P1", "Fix non-200 sitemap URLs (see live checks table)"))
-
-    if not tasks:
-        tasks.append(("—", "No critical SEO blockers detected in this run"))
-    return tasks
-
-
 def render_report(audit: dict) -> str:
     kpi, breakdown, page_scores, avg_page = score_site(audit)
-    tasks = build_tasks(audit, page_scores)
+    task_groups = build_task_groups(audit, page_scores)
     live = audit["live_checks"]
     generated = audit["generated_on"]
     page_count = audit["page_count"]
 
     kpi_class = "good" if kpi >= 85 else "warn" if kpi >= 70 else "bad"
-
-    task_items = "\n".join(
-        f'    <li><strong>{prio}:</strong> {html.escape(msg)}</li>' for prio, msg in tasks
-    )
+    task_blocks = render_task_groups(task_groups)
 
     per_page_rows = []
     for row in sorted(audit["rows"], key=lambda r: r["slug"]):
@@ -170,9 +375,10 @@ def render_report(audit: dict) -> str:
     </div>
 
     <h3>Priority tasks</h3>
-    <ul>
-{task_items}
-    </ul>
+    <p class="muted">Grouped remediation work with copy-ready Cursor prompts. Expand a task to copy its prompt.</p>
+    <div class="task-groups">
+{task_blocks}
+    </div>
 
     <h3>Score breakdown</h3>
     <table>

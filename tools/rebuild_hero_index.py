@@ -16,17 +16,44 @@ def collect_service_pages() -> list[Path]:
     )
 
 
+def extract_h1_text(block: str) -> str | None:
+    match = re.search(r"<h1[^>]*>\s*([\s\S]*?)\s*</h1>", block, re.I)
+    if not match:
+        return None
+    text = re.sub(r"<[^>]+>", "", match.group(1))
+    text = re.sub(r"\s+", " ", text).strip()
+    return text or None
+
+
+def extract_title_tag(text: str) -> str | None:
+    match = re.search(r"<title>([^<]+)</title>", text, re.I)
+    if not match:
+        return None
+    title = match.group(1).strip()
+    for suffix in (" | Propeller Co-Pack", " - Propeller Co-Pack"):
+        if title.endswith(suffix):
+            title = title[: -len(suffix)].strip()
+    return title or None
+
+
 def extract_service_data(path: Path) -> dict | None:
     text = path.read_text(encoding="utf-8", errors="ignore")
     slug = path.parent.name
     service_path = f"../../{slug}/"
 
-    h1 = re.search(r"<h1[^>]*>\s*([^<]+?)\s*</h1>", text, re.I)
-    name = h1.group(1).strip() if h1 else slug.replace("-", " ").title()
+    bloc7 = re.search(
+        r'<div class="bloc[^"]*" id="bloc-7">([\s\S]*?)<!-- bloc-7 END -->',
+        text,
+        re.I,
+    )
+    scope = bloc7.group(1) if bloc7 else text
 
-    # Prefer the main hero image in bloc-7
-    block = re.search(r'<div class="bloc[^"]*" id="bloc-7">([\s\S]*?)<!-- bloc-7 END -->', text, re.I)
-    scope = block.group(1) if block else text
+    name = (
+        extract_h1_text(scope)
+        or extract_title_tag(text)
+        or slug.replace("-", " ").title()
+    )
+
     img = re.search(r'<img[^>]+(?:data-src|src)="([^"]+)"[^>]*alt="([^"]*)"', scope, re.I)
     if not img:
         return None
