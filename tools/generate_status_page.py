@@ -353,15 +353,15 @@ def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
   <p class="meta-bar">Status generated: <strong>{html.escape(now)}</strong> · SEO audit date: <strong>{html.escape(audit_date)}</strong></p>
 
   <nav class="nav" aria-label="Status sections">
-    <a href="#src-deploy">Src deployment</a>
     <a href="#seo-status">SEO status</a>
     <a href="#hero-status">Hero library</a>
     <a href="./hero-images/">Hero images</a>
+    <a href="#src-deploy">Src deployment</a>
   </nav>
 
-{render_deploy_section(deploy)}
 {seo_html}
 {render_hero_section(hero)}
+{render_deploy_section(deploy)}
 
   <section id="regenerate">
     <h2>Regenerate this dashboard</h2>
