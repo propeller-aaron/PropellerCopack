@@ -1,18 +1,18 @@
 {
-  "generated_on": "2026-05-08",
-  "page_count": 22,
+  "generated_on": "2026-06-02",
+  "page_count": 23,
   "rows": [
     {
       "slug": "/",
       "title_text": "Propeller Co-Pack | Powder Blending, Packaging & Fulfillment",
-      "description_text": "Propeller Co-Pack helps food, supplement, and powder-based brands move from concept to finished product with blending, packaging design, pouch filling, stick packs, sachets, jars, and fulfillment support.",
+      "description_text": "Propeller Co-Pack helps food, supplement, and powder-based brands move from concept to finished product with blending, packaging design, pouch filling, stick packs, sachets, jars, fulfillment, and 3PL support.",
       "canonical_path": "/",
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 201,
+      "h1_count": 2,
+      "word_count": 190,
       "internal_links_raw_count": 29,
       "internal_links": [
         "/",
@@ -20,8 +20,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/quality-compliance/",
-        "/stick-pack-packaging/",
         "/formulation/",
         "/product-development/",
         "/manufacturing/",
@@ -29,20 +27,22 @@
         "/stick-pack-packaging/",
         "/stand-up-pouches/",
         "/bottles-and-jars/",
-        "/powder-blending/",
-        "/packaging-design/",
-        "/quality-compliance/",
-        "/product-testing/",
-        "/customer-service/",
-        "/low-moqs/",
-        "/custom-projects/",
-        "/loading-docks/",
-        "/fulfillment/",
-        "/distribution/",
-        "/40000-sq-ft-facility/",
-        "/ingredient-solutions/",
+        "/manufacturing/",
         "/white-label/",
+        "/packaging-design/",
+        "/product-development/",
+        "/custom-projects/",
         "/turn-key-co-packing/",
+        "/fulfillment/",
+        "/loading-docks/",
+        "/formulation/",
+        "/powder-blending/",
+        "/product-testing/",
+        "/ingredient-solutions/",
+        "/quality-compliance/",
+        "/low-moqs/",
+        "/kitting-and-assembly/",
+        "/manufacturing/",
         "/"
       ]
     },
@@ -55,9 +55,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 197,
-      "internal_links_raw_count": 11,
+      "h1_count": 2,
+      "word_count": 195,
+      "internal_links_raw_count": 10,
       "internal_links": [
         "/40000-sq-ft-facility/",
         "/favicon.png",
@@ -66,7 +66,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/packaging-design/",
         "/packaging-design/",
         "/packaging-design/",
         "/"
@@ -81,8 +80,8 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 186,
+      "h1_count": 2,
+      "word_count": 184,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/bottles-and-jars/",
@@ -105,9 +104,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 186,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 189,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/custom-projects/",
         "/favicon.png",
@@ -116,7 +115,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/low-moqs/",
         "/"
       ]
     },
@@ -129,8 +127,8 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 189,
+      "h1_count": 2,
+      "word_count": 187,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/customer-service/",
@@ -153,8 +151,8 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 188,
+      "h1_count": 2,
+      "word_count": 186,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/distribution/",
@@ -170,16 +168,16 @@
     },
     {
       "slug": "/formulation/",
-      "title_text": "Formulation | Propeller Co-Pack",
-      "description_text": "Formulation support for powders and nutritional products\u2014concept through production-ready recipes. Propeller Co-Pack.",
+      "title_text": "Custom Formulations | Propeller Co-Pack",
+      "description_text": "Custom formulations for powders and nutritional products\u2014concept through production-ready recipes. Propeller Co-Pack.",
       "canonical_path": "/formulation/",
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 188,
-      "internal_links_raw_count": 10,
+      "h1_count": 3,
+      "word_count": 218,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/formulation/",
         "/favicon.png",
@@ -188,8 +186,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/ingredient-solutions/",
-        "/product-development/",
         "/"
       ]
     },
@@ -202,9 +198,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 188,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 229,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/fulfillment/",
         "/favicon.png",
@@ -213,7 +209,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/distribution/",
         "/"
       ]
     },
@@ -226,9 +221,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 190,
-      "internal_links_raw_count": 10,
+      "h1_count": 3,
+      "word_count": 194,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/ingredient-solutions/",
         "/favicon.png",
@@ -237,8 +232,29 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/formulation/",
-        "/formulation/",
+        "/"
+      ]
+    },
+    {
+      "slug": "/kitting-and-assembly/",
+      "title_text": "Kitting and Assembly | Propeller Co-Pack",
+      "description_text": "Custom projects and small-batch production for growing brands. Propeller Co-Pack Utah co-packer.",
+      "canonical_path": "/kitting-and-assembly/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 3,
+      "word_count": 215,
+      "internal_links_raw_count": 8,
+      "internal_links": [
+        "/kitting-and-assembly/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
         "/"
       ]
     },
@@ -251,9 +267,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 185,
-      "internal_links_raw_count": 11,
+      "h1_count": 3,
+      "word_count": 255,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/loading-docks/",
         "/favicon.png",
@@ -262,9 +278,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/fulfillment/",
-        "/distribution/",
-        "/fulfillment/",
         "/"
       ]
     },
@@ -277,9 +290,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 193,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 220,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/low-moqs/",
         "/favicon.png",
@@ -288,7 +301,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/product-development/",
         "/"
       ]
     },
@@ -301,9 +313,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 189,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 249,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/manufacturing/",
         "/favicon.png",
@@ -312,7 +324,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/quality-compliance/",
         "/"
       ]
     },
@@ -325,9 +336,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 192,
-      "internal_links_raw_count": 10,
+      "h1_count": 3,
+      "word_count": 232,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/packaging-design/",
         "/favicon.png",
@@ -336,8 +347,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/stand-up-pouches/",
-        "/fulfillment/",
         "/"
       ]
     },
@@ -350,9 +359,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 197,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 214,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/powder-blending/",
         "/favicon.png",
@@ -361,7 +370,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/ingredient-solutions/",
         "/"
       ]
     },
@@ -374,9 +382,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 191,
-      "internal_links_raw_count": 10,
+      "h1_count": 3,
+      "word_count": 235,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/product-development/",
         "/favicon.png",
@@ -385,8 +393,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/formulation/",
-        "/formulation/",
         "/"
       ]
     },
@@ -399,9 +405,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 192,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 226,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/product-testing/",
         "/favicon.png",
@@ -410,7 +416,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/packaging-design/",
         "/"
       ]
     },
@@ -423,9 +428,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 195,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 223,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/quality-compliance/",
         "/favicon.png",
@@ -434,7 +439,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/product-testing/",
         "/"
       ]
     },
@@ -447,8 +451,8 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 182,
+      "h1_count": 2,
+      "word_count": 180,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/sachet-packaging/",
@@ -465,20 +469,17 @@
     {
       "slug": "/stand-up-pouches/",
       "title_text": "Stand Up Pouches | Propeller Co-Pack",
-      "description_text": "Stand-up pouch filling and <a href=",
+      "description_text": "Stand-up pouch filling and co-packing for retail-ready products. Propeller Co-Pack Utah.",
       "canonical_path": "/stand-up-pouches/",
       "title_present": true,
       "description_present": true,
       "canonical_present": true,
-      "description_has_html": true,
-      "h1_count": 1,
-      "word_count": 207,
-      "internal_links_raw_count": 13,
+      "description_has_html": false,
+      "h1_count": 2,
+      "word_count": 184,
+      "internal_links_raw_count": 10,
       "internal_links": [
-        "/turn-key-co-packing/",
         "/stand-up-pouches/",
-        "/turn-key-co-packing/",
-        "/turn-key-co-packing/",
         "/favicon.png",
         "/css/bootstrap.min.css",
         "/style.css",
@@ -499,9 +500,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 187,
-      "internal_links_raw_count": 10,
+      "h1_count": 2,
+      "word_count": 184,
+      "internal_links_raw_count": 9,
       "internal_links": [
         "/stick-pack-packaging/",
         "/favicon.png",
@@ -510,7 +511,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/formulation/",
         "/formulation/",
         "/"
       ]
@@ -524,9 +524,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 195,
-      "internal_links_raw_count": 14,
+      "h1_count": 3,
+      "word_count": 210,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/turn-key-co-packing/",
         "/favicon.png",
@@ -535,12 +535,6 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/formulation/",
-        "/packaging-design/",
-        "/formulation/",
-        "/packaging-design/",
-        "/fulfillment/",
-        "/packaging-design/",
         "/"
       ]
     },
@@ -553,9 +547,9 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 1,
-      "word_count": 190,
-      "internal_links_raw_count": 9,
+      "h1_count": 3,
+      "word_count": 216,
+      "internal_links_raw_count": 8,
       "internal_links": [
         "/white-label/",
         "/favicon.png",
@@ -564,57 +558,78 @@
         "/css/all.min.css",
         "/css/contact-form.css",
         "/",
-        "/packaging-design/",
         "/"
       ]
     }
   ],
   "missing_meta_slugs": [],
-  "bad_h1_slugs": [],
-  "desc_html_slugs": [
-    "/stand-up-pouches/"
+  "bad_h1_slugs": [
+    "/",
+    "/40000-sq-ft-facility/",
+    "/bottles-and-jars/",
+    "/custom-projects/",
+    "/customer-service/",
+    "/distribution/",
+    "/formulation/",
+    "/fulfillment/",
+    "/ingredient-solutions/",
+    "/kitting-and-assembly/",
+    "/loading-docks/",
+    "/low-moqs/",
+    "/manufacturing/",
+    "/packaging-design/",
+    "/powder-blending/",
+    "/product-development/",
+    "/product-testing/",
+    "/quality-compliance/",
+    "/sachet-packaging/",
+    "/stand-up-pouches/",
+    "/stick-pack-packaging/",
+    "/turn-key-co-packing/",
+    "/white-label/"
   ],
+  "desc_html_slugs": [],
   "duplicate_slugs": [],
   "pagerank_top": [
     [
       "/",
-      0.29472433039061513
+      0.37644516912439396
+    ],
+    [
+      "/manufacturing/",
+      0.063072777758871
     ],
     [
       "/formulation/",
-      0.07509918022986081
-    ],
-    [
-      "/fulfillment/",
-      0.056070733394646764
-    ],
-    [
-      "/packaging-design/",
-      0.05510882932335511
-    ],
-    [
-      "/distribution/",
-      0.04510964743059432
+      0.050534225827050624
     ],
     [
       "/product-development/",
-      0.04199772336136769
-    ],
-    [
-      "/ingredient-solutions/",
-      0.041997723361367686
-    ],
-    [
-      "/quality-compliance/",
-      0.04028757872304647
+      0.043444830316785976
     ],
     [
       "/turn-key-co-packing/",
-      0.03511886455288052
+      0.03703468058551443
     ],
     [
-      "/product-testing/",
-      0.03176445814649983
+      "/powder-blending/",
+      0.03336186122477492
+    ],
+    [
+      "/fulfillment/",
+      0.03064106004121643
+    ],
+    [
+      "/packaging-design/",
+      0.03000021797735336
+    ],
+    [
+      "/custom-projects/",
+      0.02627246571451028
+    ],
+    [
+      "/ingredient-solutions/",
+      0.02627246571451028
     ]
   ],
   "live_checks": {

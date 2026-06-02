@@ -1,0 +1,130 @@
+{
+  "generated_on": "2026-06-02 16:09",
+  "src_label": "PropellerCopack v.3",
+  "src_path": "src/PropellerCopack v.3/",
+  "src_version_id": "b1ac576506ac",
+  "src_last_modified": "2026-05-28 19:59",
+  "src_page_count": 16,
+  "live_service_count": 22,
+  "live_public_count": 23,
+  "mapped_page_count": 15,
+  "mapping_rows": [
+    {
+      "src_slug": "3pl-logistics",
+      "live_slug": "fulfillment",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "contract-manufacturing",
+      "live_slug": "manufacturing",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "custom-formulation-and-testing",
+      "live_slug": "product-testing",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "custom-product-development",
+      "live_slug": "custom-projects",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "distribution-center",
+      "live_slug": "loading-docks",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "ingredient-solutions",
+      "live_slug": "ingredient-solutions",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "kitting-and-assembly",
+      "live_slug": "kitting-and-assembly",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "new-product-development",
+      "live_slug": "product-development",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "packaging-design",
+      "live_slug": "packaging-design",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "powder-blending",
+      "live_slug": "powder-blending",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "product-reformulation",
+      "live_slug": "formulation",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "quality-and-compliance",
+      "live_slug": "quality-compliance",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "startup-friendly-low-moqs",
+      "live_slug": "low-moqs",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "turnkey-solutions",
+      "live_slug": "turn-key-co-packing",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    },
+    {
+      "src_slug": "white-label",
+      "live_slug": "white-label",
+      "src_exists": true,
+      "live_exists": true,
+      "status": "synced"
+    }
+  ],
+  "live_only_pages": [
+    "40000-sq-ft-facility",
+    "bottles-and-jars",
+    "customer-service",
+    "distribution",
+    "sachet-packaging",
+    "stand-up-pouches",
+    "stick-pack-packaging"
+  ],
+  "src_only_pages": [
+    "contract-supplement-manufacturing"
+  ]
+}
