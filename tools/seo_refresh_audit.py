@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITEMAP = ROOT / "sitemap.xml"
 CACHE = ROOT / "seo" / "audit-cache.json"
-EXCLUDE = {"seo", "img", "js", "css", "fonts", "includes", "tools"}
+EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
 
 
 def slug_from_path(path: Path) -> str:

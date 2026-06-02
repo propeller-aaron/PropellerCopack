@@ -41,6 +41,10 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Ingredient Solutions",
         "Ingredient sourcing and solutions for powder and supplement brands—quality, documentation, and supply alignment. Propeller Co-Pack.",
     ),
+    "kitting-and-assembly": (
+        "Kitting and Assembly",
+        "Kitting and assembly for marketing kits, product launches, and fulfillment programs. Propeller Co-Pack Utah.",
+    ),
     "loading-docks": (
         "Loading Docks",
         "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",

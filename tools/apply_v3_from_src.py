@@ -12,12 +12,11 @@ SRC = ROOT / "src" / "PropellerCopack v.3"
 SLUG_MAP: dict[str, str] = {
     "3pl-logistics": "fulfillment",
     "contract-manufacturing": "manufacturing",
-    "contract-supplement-manufacturing": "product-development",
     "custom-formulation-and-testing": "product-testing",
     "custom-product-development": "custom-projects",
     "distribution-center": "loading-docks",
     "ingredient-solutions": "ingredient-solutions",
-    "kitting-and-assembly": "custom-projects",
+    "kitting-and-assembly": "kitting-and-assembly",
     "new-product-development": "product-development",
     "packaging-design": "packaging-design",
     "powder-blending": "powder-blending",
@@ -168,8 +167,6 @@ def update_contact_header(html: str, *, is_root: bool) -> str:
     )
     if is_root:
         html = html.replace('href="#bloc-5"', 'href="#bloc-6"')
-    html = html.replace("./kitting-and-assembly/", "./custom-projects/")
-    html = html.replace("../kitting-and-assembly/", "../custom-projects/")
     return html
 
 
@@ -403,6 +400,7 @@ def patch_unmapped_pages() -> None:
         "includes",
         "tools",
         "seo",
+        "status",
         "worker",
         "src",
     }

@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SEO_HERO = ROOT / "seo" / "hero-images" / "index.html"
-EXCLUDE = {"seo", "img", "js", "css", "fonts", "includes", "tools"}
+STATUS_HERO = ROOT / "status" / "hero-images" / "index.html"
+EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
 
 
 def collect_service_pages() -> list[Path]:
@@ -118,7 +118,7 @@ def build_html(services: list[dict]) -> str:
 <body>
   <h1>Service Page Hero Images</h1>
   <p>Private internal page. Agent-built hero image inventory sourced from service page <span class="meta">picture</span> tags.</p>
-  <p><a href="../">Back to SEO KPI page</a></p>
+  <p><a href="../">← Back to site status dashboard</a></p>
   <div id="grid" class="grid" aria-live="polite"></div>
 
   <script>
@@ -173,7 +173,8 @@ def main() -> None:
         info = extract_service_data(page)
         if info:
             services.append(info)
-    SEO_HERO.write_text(build_html(services), encoding="utf-8")
+    STATUS_HERO.parent.mkdir(parents=True, exist_ok=True)
+    STATUS_HERO.write_text(build_html(services), encoding="utf-8")
     print(f"hero index rebuilt with {len(services)} services")
 
 
