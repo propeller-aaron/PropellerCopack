@@ -90,11 +90,76 @@
       color: var(--muted);
       margin-bottom: 1rem;
     }
+    .task-groups {
+      display: grid;
+      gap: 0.85rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .task-group {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      background: var(--surface);
+    }
+    .task-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin-bottom: 0.35rem;
+    }
+    .task-priority {
+      flex: 0 0 auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+    }
+    .task-title {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .task-summary {
+      margin: 0 0 0.45rem;
+      color: var(--muted);
+    }
+    .task-pages {
+      margin: 0 0 0.55rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .task-prompt {
+      margin-top: 0.35rem;
+    }
+    .task-prompt summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .cursor-prompt {
+      margin: 0.55rem 0 0;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
   <h1>Site status dashboard</h1>
-  <p class="meta-bar">Status generated: <strong>2026-06-02 16:09</strong> · SEO audit date: <strong>2026-06-02</strong></p>
+  <p class="meta-bar">Status generated: <strong>2026-06-02 16:16</strong> · SEO audit date: <strong>2026-06-02</strong></p>
 
   <nav class="nav" aria-label="Status sections">
     <a href="#src-deploy">Src deployment</a>
@@ -140,35 +205,129 @@
     </div>
 
     <h3>Priority tasks</h3>
-    <ul>
-    <li><strong>P1:</strong> Fix H1 count on /</li>
-    <li><strong>P1:</strong> Fix H1 count on /40000-sq-ft-facility/</li>
-    <li><strong>P1:</strong> Fix H1 count on /bottles-and-jars/</li>
-    <li><strong>P1:</strong> Fix H1 count on /custom-projects/</li>
-    <li><strong>P1:</strong> Fix H1 count on /customer-service/</li>
-    <li><strong>P1:</strong> Fix H1 count on /distribution/</li>
-    <li><strong>P1:</strong> Fix H1 count on /formulation/</li>
-    <li><strong>P1:</strong> Fix H1 count on /fulfillment/</li>
-    <li><strong>P1:</strong> Fix H1 count on /ingredient-solutions/</li>
-    <li><strong>P1:</strong> Fix H1 count on /kitting-and-assembly/</li>
-    <li><strong>P1:</strong> Fix H1 count on /loading-docks/</li>
-    <li><strong>P1:</strong> Fix H1 count on /low-moqs/</li>
-    <li><strong>P1:</strong> Fix H1 count on /manufacturing/</li>
-    <li><strong>P1:</strong> Fix H1 count on /packaging-design/</li>
-    <li><strong>P1:</strong> Fix H1 count on /powder-blending/</li>
-    <li><strong>P1:</strong> Fix H1 count on /product-development/</li>
-    <li><strong>P1:</strong> Fix H1 count on /product-testing/</li>
-    <li><strong>P1:</strong> Fix H1 count on /quality-compliance/</li>
-    <li><strong>P1:</strong> Fix H1 count on /sachet-packaging/</li>
-    <li><strong>P1:</strong> Fix H1 count on /stand-up-pouches/</li>
-    <li><strong>P1:</strong> Fix H1 count on /stick-pack-packaging/</li>
-    <li><strong>P1:</strong> Fix H1 count on /turn-key-co-packing/</li>
-    <li><strong>P1:</strong> Fix H1 count on /white-label/</li>
-    <li><strong>P2:</strong> Expand content depth on 21 service pages (target 600-900 words)</li>
-    <li><strong>P2:</strong> Improve on-page quality on /40000-sq-ft-facility/ (score 68/100)</li>
-    <li><strong>P2:</strong> Improve on-page quality on /bottles-and-jars/ (score 68/100)</li>
-    <li><strong>P2:</strong> Improve on-page quality on /custom-projects/ (score 68/100)</li>
-    </ul>
+    <p class="muted">Grouped remediation work with copy-ready Cursor prompts. Expand a task to copy its prompt.</p>
+    <div class="task-groups">
+    <article class="task-group">
+      <header class="task-header">
+        <span class="task-priority">P1</span>
+        <h4 class="task-title">Fix heading hierarchy on service pages (3 H1s)</h4>
+      </header>
+      <p class="task-summary">15 pages use three H1 tags: shared hero band, service title, and contact heading.</p>
+      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/custom-projects/, /formulation/, /fulfillment/, /ingredient-solutions/, /kitting-and-assembly/, /loading-docks/, /low-moqs/, /manufacturing/, /packaging-design/, /powder-blending/, /product-development/, /product-testing/, /quality-compliance/, /turn-key-co-packing/, /white-label/</span></p>
+      <details class="task-prompt">
+        <summary>Cursor prompt</summary>
+        <pre class="cursor-prompt">Fix heading hierarchy on these Propeller Co-Pack service pages so each page has exactly one H1:
+/custom-projects/
+/formulation/
+/fulfillment/
+/ingredient-solutions/
+/kitting-and-assembly/
+/loading-docks/
+/low-moqs/
+/manufacturing/
+/packaging-design/
+/powder-blending/
+/product-development/
+/product-testing/
+/quality-compliance/
+/turn-key-co-packing/
+/white-label/
+
+Pattern on v3 pages:
+- Keep the bloc-7 service title as the sole H1.
+- Change the shared bloc-1 banner heading (&#x27;POWDER MANUFACTURING&#x27;) to h2.
+- Change the contact section heading (&#x27;Drop us a line...&#x27;) to h2.
+- Do not change visible styling classes unless needed.
+- Preserve SEO meta, contact form, footer structure, and internal links.
+- Run python tools/seo_refresh_audit.py afterward to verify h1_count is 1.</pre>
+      </details>
+    </article>
+    <article class="task-group">
+      <header class="task-header">
+        <span class="task-priority">P1</span>
+        <h4 class="task-title">Fix heading hierarchy (2 H1s)</h4>
+      </header>
+      <p class="task-summary">8 pages use two H1 tags, including the homepage and legacy-format service pages.</p>
+      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/, /40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /distribution/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</span></p>
+      <details class="task-prompt">
+        <summary>Cursor prompt</summary>
+        <pre class="cursor-prompt">Fix heading hierarchy so each page has exactly one H1:
+/ (homepage)
+/40000-sq-ft-facility/
+/bottles-and-jars/
+/customer-service/
+/distribution/
+/sachet-packaging/
+/stand-up-pouches/
+/stick-pack-packaging/
+
+For inner service pages:
+- Keep the bloc-7 service-specific title as the only H1.
+- Demote the shared bloc-1 &#x27;POWDER MANUFACTURING&#x27; banner heading to h2.
+For the homepage:
+- Keep the primary page headline as the only H1.
+- Demote secondary hero or section headings currently marked h1 to h2.
+- Preserve layout, links, contact form, and SEO head tags.
+- Run python tools/seo_refresh_audit.py afterward to verify h1_count is 1.</pre>
+      </details>
+    </article>
+    <article class="task-group">
+      <header class="task-header">
+        <span class="task-priority">P2</span>
+        <h4 class="task-title">Expand thin service page content</h4>
+      </header>
+      <p class="task-summary">21 service pages are under ~250 words; target 600-900 words for stronger SEO depth.</p>
+      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/40000-sq-ft-facility/, /bottles-and-jars/, /custom-projects/, /customer-service/, /distribution/, /formulation/, /fulfillment/, /ingredient-solutions/, /kitting-and-assembly/, /low-moqs/, /manufacturing/, /packaging-design/, /powder-blending/, /product-development/, /product-testing/, /quality-compliance/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/, /turn-key-co-packing/, … (+1 more)</span></p>
+      <details class="task-prompt">
+        <summary>Cursor prompt</summary>
+        <pre class="cursor-prompt">Expand on-page copy on these Propeller Co-Pack service pages to roughly 600-900 words each:
+/40000-sq-ft-facility/
+/bottles-and-jars/
+/custom-projects/
+/customer-service/
+/distribution/
+/formulation/
+/fulfillment/
+/ingredient-solutions/
+/kitting-and-assembly/
+/low-moqs/
+/manufacturing/
+/packaging-design/
+/powder-blending/
+/product-development/
+/product-testing/
+/quality-compliance/
+/sachet-packaging/
+/stand-up-pouches/
+/stick-pack-packaging/
+/turn-key-co-packing/
+/white-label/
+
+Requirements:
+- Preserve existing title, meta description, canonical, OG/Twitter tags, and Propeller contact form markup.
+- Keep the v3 bloc layout; add 2-4 substantive paragraphs or bullet sections within existing content areas.
+- Cover capabilities, ideal use cases, quality/compliance, and workflow.
+- Add natural internal links to related services already on the site.
+- Match the tone of neighboring pages; no keyword stuffing.
+- Run python tools/seo_refresh_audit.py afterward to confirm word counts.</pre>
+      </details>
+    </article>
+    <article class="task-group">
+      <header class="task-header">
+        <span class="task-priority">P2</span>
+        <h4 class="task-title">Deepen moderate-length service pages</h4>
+      </header>
+      <p class="task-summary">1 pages are ~250-400 words; expand toward 600-900 words.</p>
+      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/loading-docks/</span></p>
+      <details class="task-prompt">
+        <summary>Cursor prompt</summary>
+        <pre class="cursor-prompt">Expand these service pages from moderate depth toward 600-900 words:
+/loading-docks/
+
+Add useful, non-duplicative sections while preserving SEO head tags, contact form, hero images, and v3 styling. Prefer expanding bloc-7 body copy and adding one supporting detail section before the contact bloc.</pre>
+      </details>
+    </article>
+    </div>
 
     <h3>Score breakdown</h3>
     <table>
