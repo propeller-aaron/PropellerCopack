@@ -104,7 +104,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 189,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -175,7 +175,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 218,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -198,7 +198,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 229,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -221,7 +221,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 194,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -244,7 +244,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 215,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -267,7 +267,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 255,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -290,7 +290,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 220,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -313,7 +313,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 249,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -336,7 +336,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 232,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -359,7 +359,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 214,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -382,7 +382,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 235,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -405,7 +405,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 226,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -428,7 +428,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 223,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -524,7 +524,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 210,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -547,7 +547,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 3,
+      "h1_count": 1,
       "word_count": 216,
       "internal_links_raw_count": 8,
       "internal_links": [
@@ -567,26 +567,11 @@
     "/",
     "/40000-sq-ft-facility/",
     "/bottles-and-jars/",
-    "/custom-projects/",
     "/customer-service/",
     "/distribution/",
-    "/formulation/",
-    "/fulfillment/",
-    "/ingredient-solutions/",
-    "/kitting-and-assembly/",
-    "/loading-docks/",
-    "/low-moqs/",
-    "/manufacturing/",
-    "/packaging-design/",
-    "/powder-blending/",
-    "/product-development/",
-    "/product-testing/",
-    "/quality-compliance/",
     "/sachet-packaging/",
     "/stand-up-pouches/",
-    "/stick-pack-packaging/",
-    "/turn-key-co-packing/",
-    "/white-label/"
+    "/stick-pack-packaging/"
   ],
   "desc_html_slugs": [],
   "duplicate_slugs": [],
