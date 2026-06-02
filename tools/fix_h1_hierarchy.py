@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 THREE_H1_SLUGS = (
     "custom-projects",
+    "distribution-center",
     "formulation",
     "fulfillment",
     "ingredient-solutions",

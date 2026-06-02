@@ -49,6 +49,10 @@ PAGE_META: dict[str, tuple[str, str]] = {
         "Loading Docks",
         "Receiving and shipping with dock access for materials and finished goods. Utah manufacturing facility.",
     ),
+    "distribution-center": (
+        "Distribution Center",
+        "40,000 sq. ft. distribution center in Utah—warehousing, cross-docking, fulfillment, and carrier integrations for growing brands.",
+    ),
     "low-moqs": (
         "Low MOQs",
         "Minimum order quantities built for growing brands. Propeller Co-Pack Utah co-packer.",

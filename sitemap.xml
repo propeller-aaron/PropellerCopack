@@ -259,6 +259,20 @@
 	</image:image>
 </url>
 <url>
+	<loc>https://propellercopack.com/distribution-center/</loc>
+	<lastmod>2026-06-02</lastmod>
+	<changefreq>Weekly</changefreq>
+	<priority>0.5</priority>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Dock%20Doors.png</image:loc>
+	<image:title>Distribution Center</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Dock%20Doors.webp</image:loc>
+	<image:title>Distribution Center</image:title>
+	</image:image>
+</url>
+<url>
 	<loc>https://propellercopack.com/loading-docks/</loc>
 	<lastmod>2026-05-07</lastmod>
 	<changefreq>Weekly</changefreq>

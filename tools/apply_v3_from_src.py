@@ -14,7 +14,7 @@ SLUG_MAP: dict[str, str] = {
     "contract-manufacturing": "manufacturing",
     "custom-formulation-and-testing": "product-testing",
     "custom-product-development": "custom-projects",
-    "distribution-center": "loading-docks",
+    "distribution-center": "distribution-center",
     "ingredient-solutions": "ingredient-solutions",
     "kitting-and-assembly": "kitting-and-assembly",
     "new-product-development": "product-development",
