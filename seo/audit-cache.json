@@ -11,7 +11,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 190,
       "internal_links_raw_count": 29,
       "internal_links": [
@@ -55,7 +55,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 195,
       "internal_links_raw_count": 10,
       "internal_links": [
@@ -80,7 +80,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 184,
       "internal_links_raw_count": 9,
       "internal_links": [
@@ -127,7 +127,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 187,
       "internal_links_raw_count": 9,
       "internal_links": [
@@ -151,7 +151,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 186,
       "internal_links_raw_count": 9,
       "internal_links": [
@@ -451,7 +451,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 180,
       "internal_links_raw_count": 9,
       "internal_links": [
@@ -475,7 +475,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 184,
       "internal_links_raw_count": 10,
       "internal_links": [
@@ -500,7 +500,7 @@
       "description_present": true,
       "canonical_present": true,
       "description_has_html": false,
-      "h1_count": 2,
+      "h1_count": 1,
       "word_count": 184,
       "internal_links_raw_count": 9,
       "internal_links": [
@@ -563,16 +563,7 @@
     }
   ],
   "missing_meta_slugs": [],
-  "bad_h1_slugs": [
-    "/",
-    "/40000-sq-ft-facility/",
-    "/bottles-and-jars/",
-    "/customer-service/",
-    "/distribution/",
-    "/sachet-packaging/",
-    "/stand-up-pouches/",
-    "/stick-pack-packaging/"
-  ],
+  "bad_h1_slugs": [],
   "desc_html_slugs": [],
   "duplicate_slugs": [],
   "pagerank_top": [

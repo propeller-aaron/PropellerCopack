@@ -159,7 +159,7 @@
 </head>
 <body>
   <h1>Site status dashboard</h1>
-  <p class="meta-bar">Status generated: <strong>2026-06-02 16:21</strong> · SEO audit date: <strong>2026-06-02</strong></p>
+  <p class="meta-bar">Status generated: <strong>2026-06-02 16:23</strong> · SEO audit date: <strong>2026-06-02</strong></p>
 
   <nav class="nav" aria-label="Status sections">
     <a href="#seo-status">SEO status</a>
@@ -171,44 +171,15 @@
 
   <section id="seo-status">
     <h2>SEO status</h2>
-    <p>Audit date: <strong>2026-06-02</strong>. Covers <strong>23</strong> public pages. Average page score: <strong>81/100</strong>.</p>
+    <p>Audit date: <strong>2026-06-02</strong>. Covers <strong>23</strong> public pages. Average page score: <strong>88/100</strong>.</p>
     <div class="score">
-      <div class="big warn">KPI: 74/100</div>
+      <div class="big good">KPI: 86/100</div>
       <p>Combines metadata setup, H1 structure, content depth, internal link graph, and live sitemap HTTP checks.</p>
     </div>
 
     <h3>Priority tasks</h3>
     <p class="muted">Grouped remediation work with copy-ready Cursor prompts. Expand a task to copy its prompt.</p>
     <div class="task-groups">
-    <article class="task-group">
-      <header class="task-header">
-        <span class="task-priority">P1</span>
-        <h4 class="task-title">Fix heading hierarchy (2 H1s)</h4>
-      </header>
-      <p class="task-summary">8 pages use two H1 tags, including the homepage and legacy-format service pages.</p>
-      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/, /40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /distribution/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</span></p>
-      <details class="task-prompt">
-        <summary>Cursor prompt</summary>
-        <pre class="cursor-prompt">Fix heading hierarchy so each page has exactly one H1:
-/ (homepage)
-/40000-sq-ft-facility/
-/bottles-and-jars/
-/customer-service/
-/distribution/
-/sachet-packaging/
-/stand-up-pouches/
-/stick-pack-packaging/
-
-For inner service pages:
-- Keep the bloc-7 service-specific title as the only H1.
-- Demote the shared bloc-1 &#x27;POWDER MANUFACTURING&#x27; banner heading to h2.
-For the homepage:
-- Keep the primary page headline as the only H1.
-- Demote secondary hero or section headings currently marked h1 to h2.
-- Preserve layout, links, contact form, and SEO head tags.
-- Run python tools/seo_refresh_audit.py afterward to verify h1_count is 1.</pre>
-      </details>
-    </article>
     <article class="task-group">
       <header class="task-header">
         <span class="task-priority">P2</span>
@@ -272,7 +243,7 @@ Add useful, non-duplicative sections while preserving SEO head tags, contact for
       <thead><tr><th>Category</th><th>Weight</th><th>Score</th></tr></thead>
       <tbody>
         <tr><td>Basic SEO setup</td><td>25</td><td class="good">25</td></tr>
-        <tr><td>Page structure</td><td>20</td><td class="warn">8</td></tr>
+        <tr><td>Page structure</td><td>20</td><td class="good">20</td></tr>
         <tr><td>Content quality</td><td>20</td><td class="warn">8</td></tr>
         <tr><td>Internal links</td><td>15</td><td class="good">13</td></tr>
         <tr><td>Live site health</td><td>20</td><td class="good">20</td></tr>
@@ -283,7 +254,7 @@ Add useful, non-duplicative sections while preserving SEO head tags, contact for
     <table>
       <thead><tr><th>Page</th><th>Score</th><th>Status</th><th>Words</th></tr></thead>
       <tbody>
-        <tr><td>/40000-sq-ft-facility/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~195 words)</td><td><span class="mono">~195 words</span></td></tr><tr><td>/bottles-and-jars/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/custom-projects/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~189 words)</td><td><span class="mono">~189 words</span></td></tr><tr><td>/customer-service/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~187 words)</td><td><span class="mono">~187 words</span></td></tr><tr><td>/distribution/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~186 words)</td><td><span class="mono">~186 words</span></td></tr><tr><td>/formulation/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~218 words)</td><td><span class="mono">~218 words</span></td></tr><tr><td>/fulfillment/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~229 words)</td><td><span class="mono">~229 words</span></td></tr><tr><td>/ingredient-solutions/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~194 words)</td><td><span class="mono">~194 words</span></td></tr><tr><td>/kitting-and-assembly/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~215 words)</td><td><span class="mono">~215 words</span></td></tr><tr><td>/loading-docks/</td><td class="good">94/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Moderate depth (~255 words)</td><td><span class="mono">~255 words</span></td></tr><tr><td>/low-moqs/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~220 words)</td><td><span class="mono">~220 words</span></td></tr><tr><td>/manufacturing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~249 words)</td><td><span class="mono">~249 words</span></td></tr><tr><td>/packaging-design/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~232 words)</td><td><span class="mono">~232 words</span></td></tr><tr><td>/powder-blending/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~214 words)</td><td><span class="mono">~214 words</span></td></tr><tr><td>/product-development/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~235 words)</td><td><span class="mono">~235 words</span></td></tr><tr><td>/product-testing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~226 words)</td><td><span class="mono">~226 words</span></td></tr><tr><td>/quality-compliance/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~223 words)</td><td><span class="mono">~223 words</span></td></tr><tr><td>/sachet-packaging/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~180 words)</td><td><span class="mono">~180 words</span></td></tr><tr><td>/stand-up-pouches/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/stick-pack-packaging/</td><td class="bad">68/100</td><td>✅ Metadata complete<br>✅ Clean meta description<br>❌ H1 count is 2 (expected 1)<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/turn-key-co-packing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~210 words)</td><td><span class="mono">~210 words</span></td></tr><tr><td>/white-label/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~216 words)</td><td><span class="mono">~216 words</span></td></tr>
+        <tr><td>/40000-sq-ft-facility/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~195 words)</td><td><span class="mono">~195 words</span></td></tr><tr><td>/bottles-and-jars/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/custom-projects/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~189 words)</td><td><span class="mono">~189 words</span></td></tr><tr><td>/customer-service/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~187 words)</td><td><span class="mono">~187 words</span></td></tr><tr><td>/distribution/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~186 words)</td><td><span class="mono">~186 words</span></td></tr><tr><td>/formulation/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~218 words)</td><td><span class="mono">~218 words</span></td></tr><tr><td>/fulfillment/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~229 words)</td><td><span class="mono">~229 words</span></td></tr><tr><td>/ingredient-solutions/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~194 words)</td><td><span class="mono">~194 words</span></td></tr><tr><td>/kitting-and-assembly/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~215 words)</td><td><span class="mono">~215 words</span></td></tr><tr><td>/loading-docks/</td><td class="good">94/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Moderate depth (~255 words)</td><td><span class="mono">~255 words</span></td></tr><tr><td>/low-moqs/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~220 words)</td><td><span class="mono">~220 words</span></td></tr><tr><td>/manufacturing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~249 words)</td><td><span class="mono">~249 words</span></td></tr><tr><td>/packaging-design/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~232 words)</td><td><span class="mono">~232 words</span></td></tr><tr><td>/powder-blending/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~214 words)</td><td><span class="mono">~214 words</span></td></tr><tr><td>/product-development/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~235 words)</td><td><span class="mono">~235 words</span></td></tr><tr><td>/product-testing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~226 words)</td><td><span class="mono">~226 words</span></td></tr><tr><td>/quality-compliance/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~223 words)</td><td><span class="mono">~223 words</span></td></tr><tr><td>/sachet-packaging/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~180 words)</td><td><span class="mono">~180 words</span></td></tr><tr><td>/stand-up-pouches/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/stick-pack-packaging/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~184 words)</td><td><span class="mono">~184 words</span></td></tr><tr><td>/turn-key-co-packing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~210 words)</td><td><span class="mono">~210 words</span></td></tr><tr><td>/white-label/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~216 words)</td><td><span class="mono">~216 words</span></td></tr>
       </tbody>
     </table>
 
@@ -291,7 +262,7 @@ Add useful, non-duplicative sections while preserving SEO head tags, contact for
     <table>
       <thead><tr><th>URL</th><th>PageRank proxy</th><th>Page score</th></tr></thead>
       <tbody>
-        <tr><td>/</td><td>0.3764</td><td class="warn">68/100</td></tr><tr><td>/manufacturing/</td><td>0.0631</td><td class="good">88/100</td></tr><tr><td>/formulation/</td><td>0.0505</td><td class="good">88/100</td></tr><tr><td>/product-development/</td><td>0.0434</td><td class="good">88/100</td></tr><tr><td>/turn-key-co-packing/</td><td>0.0370</td><td class="good">88/100</td></tr><tr><td>/powder-blending/</td><td>0.0334</td><td class="good">88/100</td></tr><tr><td>/fulfillment/</td><td>0.0306</td><td class="good">88/100</td></tr><tr><td>/packaging-design/</td><td>0.0300</td><td class="good">88/100</td></tr>
+        <tr><td>/</td><td>0.3764</td><td class="good">88/100</td></tr><tr><td>/manufacturing/</td><td>0.0631</td><td class="good">88/100</td></tr><tr><td>/formulation/</td><td>0.0505</td><td class="good">88/100</td></tr><tr><td>/product-development/</td><td>0.0434</td><td class="good">88/100</td></tr><tr><td>/turn-key-co-packing/</td><td>0.0370</td><td class="good">88/100</td></tr><tr><td>/powder-blending/</td><td>0.0334</td><td class="good">88/100</td></tr><tr><td>/fulfillment/</td><td>0.0306</td><td class="good">88/100</td></tr><tr><td>/packaging-design/</td><td>0.0300</td><td class="good">88/100</td></tr>
       </tbody>
     </table>
 
