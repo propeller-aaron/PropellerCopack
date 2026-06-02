@@ -219,6 +219,18 @@ HOMEPAGE_FORM_INNER = """<div class="propeller-form-wrap">
 </div>"""
 
 
+def fix_homepage_bloc6_structure(body: str) -> str:
+    """Ensure bloc-6 form column closes before the footer."""
+    broken = "</div></div>\n\t\t</div>\n\t</div>\n</div>\n<!-- bloc-6 END -->"
+    fixed = (
+        "</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n<!-- bloc-6 END -->"
+    )
+    if broken in body:
+        body = body.replace(broken, fixed)
+        print("  fixed homepage bloc-6 div structure")
+    return body
+
+
 def replace_forms(html: str, *, is_root: bool = False) -> str:
     html = INLINE_FORM_STYLE.sub("", html)
     html = INLINE_FORM_SCRIPT.sub("", html)
@@ -226,6 +238,7 @@ def replace_forms(html: str, *, is_root: bool = False) -> str:
         html, home_count = HOMEPAGE_FORM_WRAP.subn(HOMEPAGE_FORM_INNER, html, count=1)
         if home_count:
             print(f"  replaced homepage contact form")
+        html = fix_homepage_bloc6_structure(html)
     html, count = FORM_PATTERN.subn(CONTACT_BLOCK, html)
     if count:
         print(f"  replaced {count} legacy form(s)")
@@ -253,10 +266,104 @@ def replace_scripts(html: str, *, is_root: bool) -> str:
     )
 
 
+def add_homepage_feature_links(body: str) -> str:
+    linked = """<!-- bloc-2 -->
+<div class="bloc bgc-6037 d-bloc" id="bloc-2">
+	<div class="container bloc-lg bloc-sm-lg">
+		<div class="row">
+			<div class="col-md-4">
+				<a href="./formulation/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Ingredients.webp"><img src="img/lazyload-ph.png" data-src="img/Ingredients.png" class="img-fluid mx-auto d-block lazyload" alt="Custom Formulations" width="312" height="312"></picture>
+				<h3 class="mg-md h3-1-feature-title-style text-lg-center mx-auto d-block text-center">
+					Custom Formulations
+				</h3>
+				</a>
+			</div>
+			<div class="col-md-4">
+				<a href="./product-development/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Formulation.webp"><img src="img/lazyload-ph.png" data-src="img/Formulation.png" class="img-fluid mx-auto d-block lazyload" alt="Product Development" width="312" height="312"></picture>
+				<h3 class="mg-md h3-feature-title-style text-lg-center mx-auto d-block text-center">
+					Product Development
+				</h3>
+				</a>
+			</div>
+			<div class="col-md-4">
+				<a href="./manufacturing/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Conveyor%20Belt.webp"><img src="img/lazyload-ph.png" data-src="img/Conveyor%20Belt.png" class="img-fluid img-manufacturi-style mx-auto d-block lazyload" alt="Manufacturing" width="312" height="312"></picture>
+				<h3 class="mg-md h3-3-style text-lg-center mx-auto d-block text-center">
+					Manufacturing
+				</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-2 END -->
+
+<!-- bloc-3 -->
+<div class="bloc bgc-5265 d-bloc" id="bloc-3">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col text-center">
+				<h2 class="mg-md h3-style">
+					CUSTOM PACKAGING OPTIONS<br>
+				</h2>
+			</div>
+		</div>
+		<div class="row voffset">
+			<div class="col-lg-3 col-md-6 text-center">
+				<a href="./sachet-packaging/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Sachet%20Line%20Art%20%28White%29.webp"><img src="img/lazyload-ph.png" data-src="img/Sachet%20Line%20Art%20%28White%29.png" class="img-fluid mx-auto d-block lazyload" alt="Sachet line art (white)" width="267" height="267"></picture>
+				<h4 class="mg-md h3-john-doe-style">
+					Sachets
+				</h4>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<a href="./stick-pack-packaging/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Stick%20Line%20Art%20%28White%29.webp"><img src="img/lazyload-ph.png" data-src="img/Stick%20Line%20Art%20%28White%29.png" class="img-fluid mx-auto d-block lazyload" alt="Stick line art (white)" width="267" height="258"></picture>
+				<h4 class="mg-md h3-stick-packs-style">
+					Stick Packs
+				</h4>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<a href="./stand-up-pouches/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Pouch%20Line%20Art%20%28White%29.webp"><img src="img/lazyload-ph.png" data-src="img/Pouch%20Line%20Art%20%28White%29.png" class="img-fluid mx-auto d-block lazyload" alt="Pouch line art (white)" width="267" height="267"></picture>
+				<h4 class="mg-md h3-1-style">
+					Stand Up Pouches
+				</h4>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<a href="./bottles-and-jars/" class="text-decoration-none text-reset d-block">
+				<picture><source type="image/webp" srcset="img/lazyload-ph.png" data-srcset="img/Jar%20Line%20Art%20%28White%29.webp"><img src="img/lazyload-ph.png" data-src="img/Jar%20Line%20Art%20%28White%29.png" class="img-fluid mx-auto d-block lazyload" alt="Jar line art (white)" width="267" height="267"></picture>
+				<h4 class="mg-md h3-2-style">
+					Bottles / Jars
+				</h4>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-3 END -->"""
+    updated, count = re.subn(
+        r"<!-- bloc-2 -->[\s\S]*?<!-- bloc-3 END -->",
+        linked,
+        body,
+        count=1,
+    )
+    if count:
+        print("  added homepage feature/packaging links")
+    return updated
+
+
 def transform_body(body: str, *, is_root: bool) -> str:
     body = rewrite_slug_hrefs(body, is_root=is_root)
     body = update_contact_header(body, is_root=is_root)
     body = replace_forms(body, is_root=is_root)
+    if is_root:
+        body = add_homepage_feature_links(body)
     body = fix_footer(body)
     body = replace_scripts(body, is_root=is_root)
     return body
