@@ -54,11 +54,16 @@ def extract_service_data(path: Path) -> dict | None:
         or slug.replace("-", " ").title()
     )
 
-    img = re.search(r'<img[^>]+(?:data-src|src)="([^"]+)"[^>]*alt="([^"]*)"', scope, re.I)
+    img = re.search(r"<picture>[\s\S]*?</picture>", scope, re.I)
     if not img:
         return None
-    image_url = img.group(1).replace("../", "../../")
-    alt_text = img.group(2).strip() or f"{name} hero image"
+    tag = img.group(0)
+    data_src = re.search(r'data-src="([^"]+)"', tag, re.I)
+    if not data_src:
+        return None
+    image_url = data_src.group(1).replace("../", "../../")
+    alt_match = re.search(r'alt="([^"]*)"', tag, re.I)
+    alt_text = alt_match.group(1).strip() if alt_match else f"{name} hero image"
 
     return {
         "name": name,

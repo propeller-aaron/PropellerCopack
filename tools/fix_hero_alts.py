@@ -25,6 +25,10 @@ ALT: dict[str, str] = {
     "quality-compliance": "Quality and compliance",
     "turn-key-co-packing": "Turn-key co-manufacturing",
     "white-label": "White label products",
+    "sachet-packaging": "Sachets",
+    "stick-pack-packaging": "Stick packs",
+    "stand-up-pouches": "Stand up pouches",
+    "bottles-and-jars": "Bottles and jars",
 }
 
 

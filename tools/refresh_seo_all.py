@@ -17,6 +17,7 @@ def run(script: str) -> None:
 
 def main() -> None:
     run("seo_refresh_audit.py")
+    run("sync_hero_from_src.py")
     run("rebuild_hero_index.py")
     run("generate_status_page.py")
     print("\nAll status artifacts regenerated.")
