@@ -156,17 +156,24 @@ def rewrite_slug_hrefs(html: str, *, is_root: bool) -> str:
     return html
 
 
+CONTACT3_PICTURE_LINK = re.compile(
+    r'<a href="#(?:bloc-5|bloc-6)">(\s*<picture>[\s\S]*?Contact3\.[\s\S]*?</picture>\s*)</a>'
+)
+CONTACT3_TEL = "tel:+18007888689"
+
+
 def update_contact_header(html: str, *, is_root: bool) -> str:
-    contact_anchor = "#bloc-6" if is_root else "#bloc-5"
+    del is_root  # Contact3 graphic always dials toll-free number shown in the image
     html = html.replace("Contact2.webp", "Contact3.webp")
     html = html.replace("Contact2.png", "Contact3.png")
-    html = re.sub(
-        r'<a href="tel:\+18007888689">(\s*<picture>[\s\S]*?</picture>\s*)</a>',
-        f'<a href="{contact_anchor}">\\1</a>',
+    html = CONTACT3_PICTURE_LINK.sub(
+        f'<a href="{CONTACT3_TEL}">\\1</a>',
         html,
     )
-    if is_root:
-        html = html.replace('href="#bloc-5"', 'href="#bloc-6"')
+    html = html.replace(
+        'alt="Contact" width="338" height="110">',
+        'alt="Call 800-788-8689" width="338" height="110">',
+    )
     return html
 
 
