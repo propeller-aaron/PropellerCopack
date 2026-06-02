@@ -1,12 +1,12 @@
 {
-  "generated_on": "2026-06-02 16:45",
+  "generated_on": "2026-06-02 16:48",
   "src_label": "PropellerCopack v.3",
   "src_path": "src/PropellerCopack v.3/",
   "src_version_id": "b1ac576506ac",
   "src_last_modified": "2026-05-28 19:59",
   "src_page_count": 16,
-  "live_service_count": 22,
-  "live_public_count": 23,
+  "live_service_count": 23,
+  "live_public_count": 24,
   "mapped_page_count": 15,
   "mapping_rows": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "src_slug": "distribution-center",
-      "live_slug": "loading-docks",
+      "live_slug": "distribution-center",
       "src_exists": true,
       "live_exists": true,
       "status": "synced"
@@ -120,6 +120,7 @@
     "bottles-and-jars",
     "customer-service",
     "distribution",
+    "loading-docks",
     "sachet-packaging",
     "stand-up-pouches",
     "stick-pack-packaging"
