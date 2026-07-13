@@ -1,6 +1,6 @@
 {
-  "generated_on": "2026-06-02",
-  "page_count": 23,
+  "generated_on": "2026-07-13",
+  "page_count": 24,
   "rows": [
     {
       "slug": "/",
@@ -12,7 +12,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 190,
+      "word_count": 172,
       "internal_links_raw_count": 29,
       "internal_links": [
         "/",
@@ -34,7 +34,7 @@
         "/custom-projects/",
         "/turn-key-co-packing/",
         "/fulfillment/",
-        "/loading-docks/",
+        "/distribution-center/",
         "/formulation/",
         "/powder-blending/",
         "/product-testing/",
@@ -56,7 +56,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 195,
+      "word_count": 177,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/40000-sq-ft-facility/",
@@ -81,7 +81,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 184,
+      "word_count": 166,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/bottles-and-jars/",
@@ -105,7 +105,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 189,
+      "word_count": 171,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/custom-projects/",
@@ -128,7 +128,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 187,
+      "word_count": 169,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/customer-service/",
@@ -143,6 +143,29 @@
       ]
     },
     {
+      "slug": "/distribution-center/",
+      "title_text": "Distribution Center | Propeller Co-Pack",
+      "description_text": "40,000 sq. ft. distribution center in Utah\u2014warehousing, cross-docking, fulfillment, and carrier integrations for growing brands.",
+      "canonical_path": "/distribution-center/",
+      "title_present": true,
+      "description_present": true,
+      "canonical_present": true,
+      "description_has_html": false,
+      "h1_count": 1,
+      "word_count": 237,
+      "internal_links_raw_count": 8,
+      "internal_links": [
+        "/distribution-center/",
+        "/favicon.png",
+        "/css/bootstrap.min.css",
+        "/style.css",
+        "/css/all.min.css",
+        "/css/contact-form.css",
+        "/",
+        "/"
+      ]
+    },
+    {
       "slug": "/distribution/",
       "title_text": "Distribution | Propeller Co-Pack",
       "description_text": "Distribution support from production to market. Propeller Co-Pack coordinates logistics with your brand.",
@@ -152,7 +175,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 186,
+      "word_count": 168,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/distribution/",
@@ -176,7 +199,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 218,
+      "word_count": 200,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/formulation/",
@@ -199,7 +222,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 229,
+      "word_count": 211,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/fulfillment/",
@@ -222,7 +245,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 194,
+      "word_count": 176,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/ingredient-solutions/",
@@ -245,7 +268,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 215,
+      "word_count": 197,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/kitting-and-assembly/",
@@ -268,7 +291,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 255,
+      "word_count": 164,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/loading-docks/",
@@ -291,7 +314,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 220,
+      "word_count": 202,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/low-moqs/",
@@ -314,7 +337,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 249,
+      "word_count": 231,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/manufacturing/",
@@ -337,7 +360,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 232,
+      "word_count": 214,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/packaging-design/",
@@ -360,7 +383,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 214,
+      "word_count": 196,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/powder-blending/",
@@ -383,7 +406,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 235,
+      "word_count": 217,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/product-development/",
@@ -406,7 +429,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 226,
+      "word_count": 208,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/product-testing/",
@@ -429,7 +452,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 223,
+      "word_count": 205,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/quality-compliance/",
@@ -452,7 +475,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 180,
+      "word_count": 162,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/sachet-packaging/",
@@ -476,7 +499,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 184,
+      "word_count": 166,
       "internal_links_raw_count": 10,
       "internal_links": [
         "/stand-up-pouches/",
@@ -501,7 +524,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 184,
+      "word_count": 166,
       "internal_links_raw_count": 9,
       "internal_links": [
         "/stick-pack-packaging/",
@@ -525,7 +548,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 210,
+      "word_count": 192,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/turn-key-co-packing/",
@@ -548,7 +571,7 @@
       "canonical_present": true,
       "description_has_html": false,
       "h1_count": 1,
-      "word_count": 216,
+      "word_count": 198,
       "internal_links_raw_count": 8,
       "internal_links": [
         "/white-label/",
@@ -569,47 +592,47 @@
   "pagerank_top": [
     [
       "/",
-      0.37644516912439396
+      0.37653489234781495
     ],
     [
       "/manufacturing/",
-      0.063072777758871
+      0.06260356968709166
     ],
     [
       "/formulation/",
-      0.050534225827050624
+      0.050062029274109535
     ],
     [
       "/product-development/",
-      0.043444830316785976
+      0.04307384527681341
     ],
     [
       "/turn-key-co-packing/",
-      0.03703468058551443
+      0.03650595623250881
     ],
     [
       "/powder-blending/",
-      0.03336186122477492
+      0.032885571751981896
     ],
     [
       "/fulfillment/",
-      0.03064106004121643
+      0.030136355086551225
     ],
     [
       "/packaging-design/",
-      0.03000021797735336
+      0.029469817006577068
     ],
     [
       "/custom-projects/",
-      0.02627246571451028
+      0.025897387754685777
     ],
     [
-      "/ingredient-solutions/",
-      0.02627246571451028
+      "/distribution-center/",
+      0.025897387754685777
     ]
   ],
   "live_checks": {
-    "total": 22,
+    "total": 23,
     "bad_count": 0,
     "results": [
       {
@@ -684,6 +707,11 @@
       },
       {
         "url": "https://propellercopack.com/custom-projects/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/distribution-center/",
         "status": 200,
         "error": ""
       },
