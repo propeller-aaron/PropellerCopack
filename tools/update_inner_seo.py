@@ -103,49 +103,7 @@ PAGE_META: dict[str, tuple[str, str]] = {
     ),
 }
 
-CONTACT_BLOCK = """			<div class="col-md-6 text-start">
-				<div>
-<div class="propeller-form-wrap">
-  <form id="contactForm">
-    <div class="propeller-form-group">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="company">Company</label>
-      <input id="company" name="company" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <div class="propeller-checkbox-row">
-      <input id="marketingOptIn" name="marketingOptIn" type="checkbox" />
-      <label for="marketingOptIn">
-        Check this box to receive Propeller updates. Opt out at any time.
-      </label>
-    </div>
-
-    <button class="propeller-submit" type="submit">Submit</button>
-  </form>
-
-  <p id="status" aria-live="polite"></p>
-</div>
-				</div>
-			</div>"""
+from hubspot_contact_form import CONTACT_BLOCK, HUBSPOT_SCRIPT  # noqa: E402
 
 FORM_PATTERN = re.compile(
     r'<div class="col-md-6 text-start">\s*<form id="form_[^"]*"[\s\S]*?</form>\s*</div>',
@@ -214,7 +172,7 @@ def process_file(path: Path) -> None:
         "blending, filling options,",
     )
 
-    if "propeller-form-wrap" not in text:
+    if "hs-form-frame" not in text:
         text, n = FORM_PATTERN.subn(CONTACT_BLOCK, text, count=1)
         if n != 1:
             print(f"WARN form replace count={n}: {path}")
@@ -230,11 +188,14 @@ def process_file(path: Path) -> None:
     text = text.replace('<script src="../js/formHandler.js?6181"></script>\n', "")
     text = text.replace('<script src="../js/formHandler.js?6181"></script>\r\n', "")
 
-    if "propeller-contact.js" not in text:
+    text = text.replace(
+        '<script src="../js/propeller-contact.js" defer></script>\n',
+        "",
+    )
+    if HUBSPOT_SCRIPT not in text:
         text = text.replace(
-            '<script src="../js/blocs.min.js?2597"></script>\n',
-            '<script src="../js/blocs.min.js?2597"></script>\n'
-            '<script src="../js/propeller-contact.js" defer></script>\n',
+            "<!-- Additional JS END -->",
+            f"{HUBSPOT_SCRIPT}\n<!-- Additional JS END -->",
             1,
         )
 

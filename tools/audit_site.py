@@ -44,14 +44,12 @@ def audit_page(path: Path) -> list[str]:
         issues.append("still uses Contact2 image")
     if "jqBootstrapValidation" in text:
         issues.append("legacy jqBootstrapValidation script")
-    if "formHandler.js" in text and "propeller-contact.js" not in text:
-        issues.append("formHandler without propeller-contact.js")
-    if 'id="contactForm"' not in text:
-        issues.append("missing contactForm")
-    if "contact-form.css" not in text:
-        issues.append("missing contact-form.css")
-    if "propeller-contact.js" not in text:
-        issues.append("missing propeller-contact.js")
+    if "formHandler.js" in text and "hsforms.net" not in text:
+        issues.append("legacy formHandler without HubSpot embed")
+    if 'class="hs-form-frame"' not in text:
+        issues.append("missing HubSpot contact form")
+    if "js-na2.hsforms.net/forms/embed/246245836.js" not in text:
+        issues.append("missing HubSpot form script")
     if 'alt="Blending"' in text and "powder-blending" not in rel:
         issues.append('hero alt still "Blending"')
     if "Contact3." not in text:

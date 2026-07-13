@@ -27,49 +27,12 @@ SLUG_MAP: dict[str, str] = {
     "white-label": "white-label",
 }
 
-CONTACT_BLOCK = """			<div class="col-md-6 text-start">
-				<div>
-<div class="propeller-form-wrap">
-  <form id="contactForm">
-    <div class="propeller-form-group">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="company">Company</label>
-      <input id="company" name="company" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <div class="propeller-checkbox-row">
-      <input id="marketingOptIn" name="marketingOptIn" type="checkbox" />
-      <label for="marketingOptIn">
-        Check this box to receive Propeller updates. Opt out at any time.
-      </label>
-    </div>
-
-    <button class="propeller-submit" type="submit">Submit</button>
-  </form>
-
-  <p id="status" aria-live="polite"></p>
-</div>
-				</div>
-			</div>"""
+from hubspot_contact_form import (  # noqa: E402
+    CONTACT_BLOCK,
+    HOMEPAGE_FORM_INNER,
+    HUBSPOT_SCRIPT,
+    apply_to_html,
+)
 
 FORM_PATTERN = re.compile(
     r'<div class="col-md-6 text-start">\s*<form id="form_[^"]*"[\s\S]*?</form>\s*</div>',
@@ -89,21 +52,21 @@ INLINE_FORM_SCRIPT = re.compile(
 HEAD_RE = re.compile(r"<head>[\s\S]*?</head>", re.IGNORECASE)
 BODY_RE = re.compile(r"(<body[^>]*>)([\s\S]*)(</body>)", re.IGNORECASE)
 
-ROOT_SCRIPTS = """<!-- Additional JS --><script src="./js/jquery.min.js"></script>
+ROOT_SCRIPTS = f"""<!-- Additional JS --><script src="./js/jquery.min.js"></script>
 
 
 <script src="./js/bootstrap.bundle.min.js?3128"></script>
 <script src="./js/blocs.min.js?2597"></script>
-<script src="./js/propeller-contact.js" defer></script>
+{HUBSPOT_SCRIPT}
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->"""
 
-INNER_SCRIPTS = """<!-- Additional JS --><script src="../js/jquery.min.js"></script>
+INNER_SCRIPTS = f"""<!-- Additional JS --><script src="../js/jquery.min.js"></script>
 
 
 <script src="../js/bootstrap.bundle.min.js?3128"></script>
 <script src="../js/blocs.min.js?2597"></script>
-<script src="../js/propeller-contact.js" defer></script>
+{HUBSPOT_SCRIPT}
 <script src="../js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->"""
 
@@ -182,46 +145,6 @@ HOMEPAGE_FORM_WRAP = re.compile(
     re.MULTILINE,
 )
 
-HOMEPAGE_FORM_INNER = """<div class="propeller-form-wrap">
-  <form id="contactForm">
-    <div class="propeller-form-group">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="company">Company</label>
-      <input id="company" name="company" type="text" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
-    </div>
-
-    <div class="propeller-form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <div class="propeller-checkbox-row">
-      <input id="marketingOptIn" name="marketingOptIn" type="checkbox" />
-      <label for="marketingOptIn">
-        Check this box to receive Propeller updates. Opt out at any time.
-      </label>
-    </div>
-
-    <button class="propeller-submit" type="submit">Submit</button>
-  </form>
-
-  <p id="status" aria-live="polite"></p>
-</div>"""
-
 
 def fix_homepage_bloc6_structure(body: str) -> str:
     """Ensure bloc-6 form column closes before the footer."""
@@ -246,6 +169,7 @@ def replace_forms(html: str, *, is_root: bool = False) -> str:
     html, count = FORM_PATTERN.subn(CONTACT_BLOCK, html)
     if count:
         print(f"  replaced {count} legacy form(s)")
+    html, _ = apply_to_html(html, is_root=is_root)
     return html
 
 
