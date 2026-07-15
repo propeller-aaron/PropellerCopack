@@ -44,7 +44,7 @@ INLINE_HUBSPOT_SCRIPT_RE = re.compile(
     re.MULTILINE,
 )
 
-EXCLUDE = {"seo", "status", "it", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
+EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
 
 
 def replace_form_markup(html: str) -> tuple[str, bool]:

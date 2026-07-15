@@ -18,7 +18,7 @@ STATUS_HTML = ROOT / "status" / "index.html"
 DEPLOY_CACHE = ROOT / "status" / "deploy-status.json"
 AUDIT_CACHE = ROOT / "seo" / "audit-cache.json"
 HERO_INDEX = ROOT / "status" / "hero-images" / "index.html"
-EXCLUDE = {"seo", "status", "it", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
+EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
 
 try:
     from apply_v3_from_src import SLUG_MAP

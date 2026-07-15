@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CONTENT_DIR = ROOT / "content"
 PAGES_DIR = CONTENT_DIR / "pages"
 SHARED_DIR = CONTENT_DIR / "shared"
-SKIP = {"css", "js", "img", "fonts", "includes", "tools", "seo", "status", "it", "worker", "src", "content"}
+SKIP = {"css", "js", "img", "fonts", "includes", "tools", "seo", "status", "worker", "src", "content"}
 
 
 def iter_page_paths() -> list[Path]:

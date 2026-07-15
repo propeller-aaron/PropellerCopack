@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {"css", "js", "img", "fonts", "includes", "tools", "seo", "status", "it", "worker", "src"}
+SKIP = {"css", "js", "img", "fonts", "includes", "tools", "seo", "status", "worker", "src"}
 
 
 def iter_pages() -> list[Path]:
