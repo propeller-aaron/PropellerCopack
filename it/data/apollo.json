@@ -1,0 +1,234 @@
+{
+  "id": "apollo",
+  "name": "Apollo.io",
+  "fetched_at": "2026-07-15T14:03:33.624003+00:00",
+  "kpi": {
+    "label": "Lead credits remaining",
+    "value": 5220,
+    "limit": 5220,
+    "consumed": 0,
+    "unit": "credits",
+    "status": "good",
+    "display": "5,220 / 5,220"
+  },
+  "cycle": {
+    "start_date": "2026-07-10T23:03:40.000+00:00",
+    "end_date": "2026-08-10T23:03:40.000+00:00"
+  },
+  "credits": [
+    {
+      "key": "lead_credit",
+      "label": "Lead / email credits",
+      "limit": 5220,
+      "consumed": 0,
+      "left_over": 5220,
+      "status": "good"
+    },
+    {
+      "key": "direct_dial_credit",
+      "label": "Mobile / direct dial credits (via unified lead pool)",
+      "limit": 5000,
+      "consumed": 5000,
+      "left_over": 0,
+      "status": "muted"
+    },
+    {
+      "key": "export_credit",
+      "label": "Export credits",
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0,
+      "status": "muted"
+    },
+    {
+      "key": "conversation_credit",
+      "label": "Conversation credits",
+      "limit": 300,
+      "consumed": 0,
+      "left_over": 300,
+      "status": "good"
+    },
+    {
+      "key": "ai_credit",
+      "label": "AI credits",
+      "limit": 500000,
+      "consumed": 0,
+      "left_over": 500000,
+      "status": "good"
+    },
+    {
+      "key": "power_up_credit",
+      "label": "Power-up credits",
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0,
+      "status": "muted"
+    },
+    {
+      "key": "inbound_website_visitor_credit",
+      "label": "Inbound website visitor credits",
+      "limit": 100,
+      "consumed": 0,
+      "left_over": 100,
+      "status": "good"
+    },
+    {
+      "key": "dialer",
+      "label": "Dialer minutes",
+      "limit": 1300,
+      "consumed": 0,
+      "left_over": 1300,
+      "status": "good"
+    },
+    {
+      "key": "web_search_record_credit",
+      "label": "Web search record credits",
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0,
+      "status": "muted"
+    },
+    {
+      "key": "contact_website_visitor_credit",
+      "label": "Contact website visitor credits",
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0,
+      "status": "muted"
+    }
+  ],
+  "credit_usage_stats": {
+    "lead_credit": {
+      "limit": 5220,
+      "consumed": 0,
+      "left_over": 5220
+    },
+    "direct_dial_credit": {
+      "limit": 5000,
+      "consumed": 5000,
+      "left_over": 0
+    },
+    "export_credit": {
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0
+    },
+    "conversation_credit": {
+      "limit": 300,
+      "consumed": 0,
+      "left_over": 300
+    },
+    "ai_credit": {
+      "limit": 500000,
+      "consumed": 0,
+      "left_over": 500000
+    },
+    "power_up_credit": {
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0
+    },
+    "inbound_website_visitor_credit": {
+      "limit": 100,
+      "consumed": 0,
+      "left_over": 100
+    },
+    "dialer": {
+      "limit": 1300,
+      "consumed": 0,
+      "left_over": 1300
+    },
+    "web_search_record_credit": {
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0
+    },
+    "contact_website_visitor_credit": {
+      "limit": 0,
+      "consumed": 0,
+      "left_over": 0
+    }
+  },
+  "profile": {
+    "id": "6a2ae6ed461a8500101cda33",
+    "name": "Konika Saha",
+    "email": "konikas@propellerinc.com",
+    "team_id": "6a2ae6ed461a8500101cd8e0",
+    "num_credits_remaining": 5220,
+    "effective_num_lead_credits": 5220,
+    "num_lead_credits_used": 0,
+    "total_unified_credits_used": 0
+  },
+  "team": {
+    "id": "6a2ae6ed461a8500101cd8e0",
+    "name": "Propeller",
+    "domain": "propellerinc.com",
+    "status": "paying",
+    "using_unified_credits": true,
+    "billing_cycle_price": 130.0,
+    "seats_limit": 2,
+    "current_billing_cycle_start_date": "2026-07-10T23:03:40.000+00:00",
+    "current_billing_cycle_end_date": "2026-08-10T23:03:40.000+00:00",
+    "effective_num_lead_credits": 5220,
+    "num_lead_credits_used": 0,
+    "total_unified_credits_used": 0,
+    "num_credits": 5000,
+    "additional_email_credits": 220
+  },
+  "users": [
+    {
+      "id": "6a4c4a853890cb0020b4d19b",
+      "name": "Propeller Inc",
+      "email": "apollo@propellerinc.com",
+      "credit_limit": null,
+      "direct_dial_credit_limit": 5,
+      "export_credit_limit": null,
+      "ai_credit_limit": null,
+      "num_credits_remaining": 5220,
+      "effective_num_lead_credits": 5220,
+      "num_lead_credits_used": 0,
+      "effective_num_direct_dial_credits": 5,
+      "num_direct_dial_credits_used": 0,
+      "effective_num_export_credits": 0,
+      "num_export_credits_used": 0,
+      "effective_num_ai_credits": 500000,
+      "num_ai_credits_used": 0,
+      "total_unified_credits_used": 0
+    },
+    {
+      "id": "6a2ae6ed461a8500101cda33",
+      "name": "Konika Saha",
+      "email": "konikas@propellerinc.com",
+      "credit_limit": null,
+      "direct_dial_credit_limit": null,
+      "export_credit_limit": null,
+      "ai_credit_limit": null,
+      "num_credits_remaining": 5220,
+      "effective_num_lead_credits": 5220,
+      "num_lead_credits_used": 0,
+      "effective_num_direct_dial_credits": 5000,
+      "num_direct_dial_credits_used": 0,
+      "effective_num_export_credits": 0,
+      "num_export_credits_used": 0,
+      "effective_num_ai_credits": 500000,
+      "num_ai_credits_used": 0,
+      "total_unified_credits_used": 0
+    }
+  ],
+  "history": {
+    "min_date": "2026-04-16",
+    "max_date": "2026-07-15",
+    "pagination": {
+      "page": 1,
+      "per_page": 100,
+      "total_entries": 0,
+      "total_pages": 1
+    },
+    "data_requests": []
+  },
+  "links": {
+    "apollo_history": "https://app.apollo.io/#/settings/credits/history?minDate=2026-04-16&maxDate=2026-07-15&datePreset=last_90_days&includeRefunds=yes",
+    "apollo_credits": "https://app.apollo.io/#/settings/credits/plans",
+    "detail": "/it/apollo/"
+  }
+}

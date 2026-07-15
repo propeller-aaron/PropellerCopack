@@ -9,7 +9,7 @@ CONTACT3_PICTURE_LINK = re.compile(
     r'<a href="#(?:bloc-5|bloc-6)">(\s*<picture>[\s\S]*?Contact3\.[\s\S]*?</picture>\s*)</a>'
 )
 CONTACT3_TEL = "tel:+18007888689"
-EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
+EXCLUDE = {"seo", "status", "it", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
 
 
 def fix_contact3_link(html: str) -> tuple[str, bool]:

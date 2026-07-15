@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Apollo.io - SAAS Status</title>
+  <link rel="stylesheet" href="/it/css/it-dashboard.css">
+</head>
+<body>
+  <h1>Apollo.io</h1>
+  <p>Team credit usage for the Propeller Apollo workspace.</p>
+
+  <nav class="nav" aria-label="IT sections">
+    <a href="/it/">← SAAS status</a>
+    <a href="#credits">Credits</a>
+    <a href="#users">Team members</a>
+    <a href="#history">Usage history</a>
+  </nav>
+
+  <p class="meta-bar" id="apollo-updated">Loading…</p>
+
+  <section class="key-panel" aria-labelledby="apollo-key-heading">
+    <h2 id="apollo-key-heading">API key</h2>
+    <p class="muted">Enter your Apollo master API key to load live credit usage. Saved only in this browser.</p>
+    <form id="apollo-key-form" class="key-form" autocomplete="off">
+      <label for="apollo-api-key">Apollo API key</label>
+      <div class="key-row">
+        <input id="apollo-api-key" name="apollo-api-key" type="password" spellcheck="false" autocomplete="off" placeholder="Paste Apollo API key">
+        <button type="submit" class="btn primary" id="apollo-key-save">Save &amp; refresh</button>
+        <button type="button" class="btn" id="apollo-key-refresh">Refresh</button>
+        <button type="button" class="btn" id="apollo-key-clear">Clear</button>
+      </div>
+      <p class="muted" id="apollo-key-meta">Checking saved key…</p>
+      <p class="key-status" id="apollo-key-status" role="status"></p>
+    </form>
+  </section>
+
+  <div id="apollo-detail">
+    <h2>Latest KPI</h2>
+    <div id="apollo-kpi" class="loading">Loading…</div>
+    <div class="actions" id="apollo-actions"></div>
+
+    <h2>Team</h2>
+    <div id="apollo-team" class="loading">Loading…</div>
+
+    <h2 id="credits">Credit balances</h2>
+    <p class="muted">Current billing-cycle balances from Apollo.</p>
+    <div id="apollo-credits" class="loading">Loading…</div>
+
+    <h2 id="users">Team members</h2>
+    <p class="muted">Per-user credit usage for the current cycle.</p>
+    <div id="apollo-users" class="loading">Loading…</div>
+
+    <h2 id="history">Credit usage history</h2>
+    <p class="muted" id="apollo-history-range">Last 90 days</p>
+    <div id="apollo-history" class="loading">Loading…</div>
+  </div>
+
+  <script src="/it/js/apollo-client.js"></script>
+  <script src="/it/js/it-dashboard.js"></script>
+</body>
+</html>
