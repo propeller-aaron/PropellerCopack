@@ -4,192 +4,1107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Site Status - Propeller Co-Pack</title>
+  <title>SEO Status - Propeller Co-Pack</title>
   <style>
-    :root {
-      --bg: #fff;
-      --surface: #f6f8fa;
-      --text: #1f2328;
-      --muted: #656d76;
-      --border: #d0d7de;
-      --accent: #0969da;
-      --good: #1a7f37;
-      --warn: #9a6700;
-      --bad: #cf222e;
-    }
     * { box-sizing: border-box; }
     body {
       margin: 0 auto;
       max-width: 72rem;
-      padding: 2rem 1.25rem 3rem;
+      padding: 0 1.25rem 3rem;
       font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      color: #2c2c2c;
+      background: #fff;
     }
-    h1 { margin: 0 0 0.35rem; font-size: 1.85rem; }
-    h2 {
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-    h3 { margin: 1.25rem 0 0.5rem; font-size: 1.05rem; color: var(--text); }
-    p { margin: 0 0 0.85rem; color: var(--muted); }
-    p.muted { font-size: 0.92rem; }
-    ul { margin: 0 0 1rem; padding-left: 1.25rem; color: var(--muted); }
-    li { margin-bottom: 0.35rem; }
-    a { color: var(--accent); }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.75rem 0 1rem;
-      font-size: 0.92rem;
-    }
-    th, td {
-      border: 1px solid var(--border);
-      padding: 0.5rem 0.6rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    th { background: var(--surface); width: 12rem; }
-    thead th { width: auto; }
-    .mono {
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      background: var(--surface);
-      border-radius: 4px;
-      padding: 0.1em 0.35em;
-      font-size: 0.88em;
-    }
-    .score {
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 0.8rem 1rem;
-      background: var(--surface);
-      margin: 0.75rem 0 1rem;
-    }
-    .big { font-size: 1.65rem; font-weight: 700; }
-    .good { color: var(--good); }
-    .warn { color: var(--warn); }
-    .bad { color: var(--bad); }
-    .nav {
+    a { color: #0b3a5b; }
+    .status-subnav {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem 1.25rem;
-      margin: 1rem 0 1.5rem;
+      margin: 0 0 1rem;
       padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #f7fbff;
+      border: 1px solid #e5e5e5;
       border-radius: 8px;
     }
-    .nav a { text-decoration: none; font-weight: 600; }
-    .nav a:hover { text-decoration: underline; }
-    .meta-bar {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .task-groups {
-      display: grid;
-      gap: 0.85rem;
-      margin: 0.75rem 0 1.25rem;
-    }
-    .task-group {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
-      background: var(--surface);
-    }
-    .task-header {
-      display: flex;
-      align-items: baseline;
-      gap: 0.65rem;
-      margin-bottom: 0.35rem;
-    }
-    .task-priority {
-      flex: 0 0 auto;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.1rem 0.45rem;
-    }
-    .task-title {
-      margin: 0;
-      font-size: 1rem;
-      color: var(--text);
-    }
-    .task-summary {
-      margin: 0 0 0.45rem;
-      color: var(--muted);
-    }
-    .task-pages {
-      margin: 0 0 0.55rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .task-prompt {
-      margin-top: 0.35rem;
-    }
-    .task-prompt summary {
-      cursor: pointer;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.92rem;
-    }
-    .cursor-prompt {
-      margin: 0.55rem 0 0;
-      padding: 0.75rem 0.85rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 0.82rem;
-      line-height: 1.45;
-      white-space: pre-wrap;
-      overflow-x: auto;
-    }
+    .status-subnav a { text-decoration: none; font-weight: 600; }
+    .status-subnav a:hover { text-decoration: underline; }
+    
+.utility-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.status-shell {
+  padding: 2rem 0 4rem;
+}
+
+.status-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.status-kicker {
+  margin: 0 0 0.35rem;
+  color: #666;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-header h1 {
+  margin: 0 0 0.35rem;
+  color: #0b3a5b;
+}
+
+.status-meta {
+  margin: 0;
+  color: #666;
+}
+
+.status-score {
+  display: grid;
+  place-items: center;
+  min-width: 6rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #0b3a5b;
+  border-radius: 8px;
+  background: #f7fbff;
+}
+
+.status-score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #0b3a5b;
+}
+
+.status-score-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.status-card,
+.status-panel {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.status-panel {
+  margin-bottom: 1.5rem;
+}
+
+.status-panel h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  color: #0b3a5b;
+}
+
+.status-metric {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0b3a5b;
+}
+
+.status-detail {
+  margin: 0.35rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.status-checks,
+.status-rank-list,
+.status-findings,
+.status-suggestions,
+.status-meta-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.status-check {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.status-check:last-child {
+  border-bottom: 0;
+}
+
+.status-check.is-ok .status-check-label::before {
+  content: "✓ ";
+  color: #1b7f3b;
+}
+
+.status-check.is-fail .status-check-label::before {
+  content: "✕ ";
+  color: #b42318;
+}
+
+.status-check-detail {
+  color: #666;
+  text-align: right;
+}
+
+.status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+  margin: 0;
+}
+
+.status-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.status-summary dt,
+.status-summary dd {
+  margin: 0;
+}
+
+.status-summary dd {
+  font-weight: 700;
+  color: #0b3a5b;
+}
+
+.status-rank-list li,
+.status-prompts details {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.status-rank-list li:last-child,
+.status-prompts details:last-child {
+  border-bottom: 0;
+}
+
+.status-rank-list a {
+  font-weight: 600;
+}
+
+.status-rank-list span {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.status-prompts summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #0b3a5b;
+}
+
+.status-prompts p {
+  margin: 0.65rem 0 0;
+  color: #2c2c2c;
+}
+
+.status-pages-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.status-pages-head h2 {
+  margin: 0;
+}
+
+.status-filter input {
+  width: min(100%, 320px);
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.status-table-wrap {
+  overflow-x: auto;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.status-table th,
+.status-table td {
+  padding: 0.75rem;
+  border-top: 1px solid #e5e5e5;
+  vertical-align: top;
+  text-align: left;
+}
+
+.status-table thead th {
+  border-top: 0;
+  background: #f5f5f5;
+  color: #0b3a5b;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-page-cell code,
+.status-source {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.status-page-cell code {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.status-rank-badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #eef4fa;
+  color: #0b3a5b;
+  font-weight: 700;
+}
+
+.status-rank-detail,
+.status-muted {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.82rem;
+}
+
+.status-ok-label {
+  color: #1b7f3b;
+  font-weight: 600;
+}
+
+.status-findings li {
+  display: inline-block;
+  margin: 0 0.35rem 0.35rem 0;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.status-findings .severity-high {
+  background: #fde8e8;
+  color: #9b1c1c;
+}
+
+.status-findings .severity-medium {
+  background: #fff4e5;
+  color: #9a6700;
+}
+
+.status-findings .severity-low {
+  background: #eef4fa;
+  color: #0b3a5b;
+}
+
+.status-suggestions li + li {
+  margin-top: 0.45rem;
+}
+
+.status-suggestions li {
+  color: #2c2c2c;
+}
+
+.status-dashboard {
+  margin-bottom: 1.5rem;
+}
+
+.status-dashboard-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.status-odometer-card,
+.status-gauge-card {
+  background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  text-align: center;
+}
+
+.status-odometer-card-gain {
+  background: linear-gradient(180deg, #f4fff8 0%, #fff 100%);
+}
+
+.status-odometer-kicker {
+  margin: 0 0 0.75rem;
+  color: #666;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-odometer-caption {
+  margin: 0.75rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.status-odometer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.8rem;
+  border: 2px solid #0b3a5b;
+  border-radius: 8px;
+  background: #0b3a5b;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.status-odometer-gain {
+  border-color: #1b7f3b;
+  background: #145a2a;
+}
+
+.status-odometer-prefix {
+  color: #9fe8b8;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.status-odometer-wheel {
+  display: inline-block;
+  width: 1.35rem;
+  height: 2.4rem;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #052238;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.status-odometer-gain .status-odometer-wheel {
+  background: #0d3d1d;
+}
+
+.status-odometer-strip {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.status-odometer-strip span {
+  display: grid;
+  place-items: center;
+  height: 2.4rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-gauge-svg {
+  width: min(100%, 160px);
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.status-gauge-ring {
+  fill: none;
+  stroke-width: 10;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.status-gauge-ring-bg {
+  stroke: #edf2f7;
+}
+
+.status-gauge-ring-potential {
+  stroke: #dbeafe;
+}
+
+.status-gauge-ring-current {
+  stroke: #0b3a5b;
+  stroke-linecap: round;
+}
+
+.status-gauge-value,
+.status-gauge-sub {
+  text-anchor: middle;
+  fill: #0b3a5b;
+  font-weight: 700;
+}
+
+.status-gauge-value {
+  font-size: 1.55rem;
+}
+
+.status-gauge-sub {
+  font-size: 0.72rem;
+  fill: #666;
+  font-weight: 600;
+}
+
+.status-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.status-kpi {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 0.85rem 0.95rem;
+}
+
+.status-kpi-label {
+  margin: 0;
+  color: #666;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-kpi-value {
+  margin: 0.25rem 0 0;
+  color: #0b3a5b;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.status-kpi-detail {
+  margin: 0.25rem 0 0.55rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.status-kpi-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: #eef2f6;
+  overflow: hidden;
+}
+
+.status-kpi-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #0b3a5b;
+}
+
+.status-kpi-warn .status-kpi-bar span {
+  background: #d68910;
+}
+
+.status-kpi-good .status-kpi-bar span {
+  background: #1b7f3b;
+}
+
+.status-kpi-gain .status-kpi-bar span {
+  background: #27ae60;
+}
+
+.status-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.status-chart-panel {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+
+.status-chart-panel h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  color: #0b3a5b;
+}
+
+.status-donut-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 0.85rem;
+}
+
+.status-donut {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.status-donut-center {
+  position: absolute;
+  inset: 22%;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+}
+
+.status-donut-center strong {
+  color: #0b3a5b;
+  font-size: 1.35rem;
+}
+
+.status-donut-center span {
+  color: #666;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-legend,
+.status-health-legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.status-legend li,
+.status-health-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  color: #2c2c2c;
+  font-size: 0.9rem;
+}
+
+.status-legend-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.status-bar-chart {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.status-bar-row {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.status-bar-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: #2c2c2c;
+}
+
+.status-bar-label strong {
+  color: #0b3a5b;
+}
+
+.status-bar-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #eef2f6;
+  overflow: hidden;
+}
+
+.status-bar-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #d68910;
+}
+
+.status-bar-track-score span {
+  background: #0b3a5b;
+}
+
+.status-health-chart {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.status-health-bar {
+  display: flex;
+  height: 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #eef2f6;
+}
+
+.status-health-clean {
+  background: #1b7f3b;
+}
+
+.status-health-issues {
+  background: #d68910;
+}
+
+.status-health-clean-swatch {
+  background: #1b7f3b;
+}
+
+.status-health-issues-swatch {
+  background: #d68910;
+}
+
+.status-metric-trigger {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.status-metric-trigger:hover,
+.status-metric-trigger:focus-visible {
+  outline: 2px solid #0b3a5b;
+  outline-offset: 2px;
+}
+
+.status-kpi-trigger .status-kpi {
+  display: block;
+  width: 100%;
+}
+
+.status-hero-trigger {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.status-hero-trigger .status-odometer-card,
+.status-hero-trigger .status-gauge-card {
+  display: block;
+  width: 100%;
+}
+
+.status-card-trigger .status-card {
+  display: block;
+  height: 100%;
+}
+
+.status-card-heading {
+  display: block;
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  color: #0b3a5b;
+  font-weight: 700;
+}
+
+.status-donut-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.status-donut-trigger .status-donut,
+.status-donut-trigger .status-donut-center {
+  pointer-events: none;
+}
+
+.status-donut-trigger .status-donut-center {
+  position: absolute;
+  inset: 22%;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+}
+
+.status-bar-trigger,
+.status-legend-trigger,
+.status-check-trigger,
+.status-summary-trigger,
+.status-rank-trigger {
+  width: 100%;
+  text-align: left;
+}
+
+.status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+}
+
+.status-summary-trigger .status-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.status-summary-value {
+  font-weight: 700;
+  color: #0b3a5b;
+}
+
+.status-rank-url {
+  display: block;
+  font-weight: 600;
+  color: #0b3a5b;
+}
+
+.status-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.status-modal[hidden] {
+  display: none;
+}
+
+body.status-modal-open {
+  overflow: hidden;
+}
+
+.status-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 58, 91, 0.55);
+}
+
+.status-modal-dialog {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(85vh, 900px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.status-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: #eef2f6;
+  color: #0b3a5b;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.status-modal-kicker {
+  margin: 0 0 0.35rem;
+  color: #666;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-modal-dialog h2 {
+  margin: 0 0 0.35rem;
+  color: #0b3a5b;
+  font-size: 1.35rem;
+  padding-right: 2rem;
+}
+
+.status-modal-value {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0b3a5b;
+}
+
+.status-modal-desc {
+  margin: 0 0 1rem;
+  color: #666;
+}
+
+.status-modal-section-title {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  color: #0b3a5b;
+}
+
+.status-modal-culprits {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+.status-modal-culprits li {
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.status-modal-culprits li:last-child {
+  border-bottom: 0;
+}
+
+.status-modal-culprit-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.status-modal-culprits code {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.status-modal-culprits p {
+  margin: 0.35rem 0 0;
+  color: #2c2c2c;
+  font-size: 0.9rem;
+}
+
+.status-modal-culprits a {
+  font-weight: 600;
+}
+
+.status-modal-severity {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-modal-severity.severity-high {
+  background: #fde8e8;
+  color: #9b1c1c;
+}
+
+.status-modal-severity.severity-medium {
+  background: #fff4e5;
+  color: #9a6700;
+}
+
+.status-modal-severity.severity-low {
+  background: #eef4fa;
+  color: #0b3a5b;
+}
+
+.status-modal-empty {
+  color: #666;
+}
+
+.status-modal-prompt pre {
+  margin: 0 0 0.75rem;
+  padding: 0.85rem;
+  border-radius: 8px;
+  background: #f7fbff;
+  border: 1px solid #dbe7f3;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #2c2c2c;
+}
+
+.status-copy-prompt {
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-radius: 6px;
+  background: #0b3a5b;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-copy-prompt:hover,
+.status-copy-prompt:focus-visible {
+  filter: brightness(1.08);
+}
+
+.status-copy-feedback {
+  margin-left: 0.65rem;
+  color: #1b7f3b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .status-header,
+  .status-pages-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-score {
+    justify-self: start;
+  }
+
+  .status-dashboard-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body>
-  <h1>Site status dashboard</h1>
-  <p class="meta-bar">Status generated: <strong>2026-07-13 07:43</strong> · SEO audit date: <strong>2026-07-13</strong></p>
-
-  <nav class="nav" aria-label="Status sections">
-    <a href="#seo-status">SEO status</a>
+  <nav class="status-subnav" aria-label="Status sections">
+    <a href="#status-dashboard">SEO dashboard</a>
     <a href="#hero-status">Hero library</a>
     <a href="./hero-images/">Hero images</a>
     <a href="#src-deploy">Src deployment</a>
   </nav>
 
-
-  <section id="seo-status">
-    <h2>SEO status</h2>
-    <p>Audit date: <strong>2026-07-13</strong>. Covers <strong>24</strong> public pages. Average page score: <strong>88/100</strong>.</p>
-    <div class="score">
-      <div class="big good">KPI: 86/100</div>
-      <p>Combines metadata setup, H1 structure, content depth, internal link graph, and live sitemap HTTP checks.</p>
+<div class="status-shell">
+  <header class="status-header">
+    <div>
+      <p class="status-kicker">Internal tooling · not indexed</p>
+      <p class="status-meta">Generated July 22, 2026 · 24 pages · 26 findings · click any metric for culprits and fix prompts</p>
     </div>
-
-    <h3>Priority tasks</h3>
-    <p class="muted">Grouped remediation work with copy-ready Cursor prompts. Expand a task to copy its prompt.</p>
-    <div class="task-groups">
-    <article class="task-group">
-      <header class="task-header">
-        <span class="task-priority">P2</span>
-        <h4 class="task-title">Expand thin service page content</h4>
-      </header>
-      <p class="task-summary">23 service pages are under ~250 words; target 600-900 words for stronger SEO depth.</p>
-      <p class="task-pages"><strong>Affected:</strong> <span class="mono">/40000-sq-ft-facility/, /bottles-and-jars/, /custom-projects/, /customer-service/, /distribution-center/, /distribution/, /formulation/, /fulfillment/, /ingredient-solutions/, /kitting-and-assembly/, /loading-docks/, /low-moqs/, /manufacturing/, /packaging-design/, /powder-blending/, /product-development/, /product-testing/, /quality-compliance/, /sachet-packaging/, /stand-up-pouches/, … (+3 more)</span></p>
-      <details class="task-prompt">
-        <summary>Cursor prompt</summary>
-        <pre class="cursor-prompt">Expand on-page copy on these Propeller Co-Pack service pages to roughly 600-900 words each:
+  </header>
+  <section class="status-dashboard" id="status-dashboard" aria-label="SEO dashboard">
+    <div class="status-dashboard-hero">
+      <button type="button" class="status-metric-trigger status-hero-trigger" data-metric-id="seo-score"><span class="status-odometer-card">
+        <span class="status-odometer-kicker">Current SEO score</span>
+        <div class="status-odometer status-odometer-score" data-target="86" aria-hidden="true"><span class="status-odometer-wheel" data-digit="8" data-index="0"><span class="status-odometer-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="status-odometer-wheel" data-digit="6" data-index="1"><span class="status-odometer-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></div>
+        <span class="status-odometer-caption">out of 100 · click for details</span>
+      </span></button>
+      <button type="button" class="status-metric-trigger status-hero-trigger" data-metric-id="improvement-headroom"><span class="status-odometer-card status-odometer-card-gain">
+        <span class="status-odometer-kicker">Improvement headroom</span>
+        <div class="status-odometer status-odometer-gain" data-target="14" aria-hidden="true"><span class="status-odometer-prefix">+</span><span class="status-odometer-wheel" data-digit="1" data-index="0"><span class="status-odometer-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="status-odometer-wheel" data-digit="4" data-index="1"><span class="status-odometer-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></div>
+        <span class="status-odometer-caption">points available if issues are fixed</span>
+      </span></button>
+      <button type="button" class="status-metric-trigger status-hero-trigger" data-metric-id="score-vs-optimal"><span class="status-gauge-card">
+        <span class="status-odometer-kicker">Score vs optimal</span>
+        <svg class="status-gauge-svg" viewBox="0 0 120 120" role="img" aria-label="SEO score 86 out of 100">
+    <circle class="status-gauge-ring status-gauge-ring-bg" cx="60" cy="60" r="46" />
+    <circle class="status-gauge-ring status-gauge-ring-potential" cx="60" cy="60" r="46" stroke-dasharray="289.02652413026095" stroke-dashoffset="0.0" />
+    <circle class="status-gauge-ring status-gauge-ring-current" cx="60" cy="60" r="46" stroke-dasharray="289.02652413026095" stroke-dashoffset="40.463713378236534" />
+    <text x="60" y="56" class="status-gauge-value">86</text>
+    <text x="60" y="74" class="status-gauge-sub">of 100</text>
+  </svg>
+        <span class="status-odometer-caption">14 points to reach 100</span>
+      </span></button>
+    </div>
+    <div class="status-kpi-grid" aria-label="Key performance indicators"><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-total-findings"><span class="status-kpi status-kpi-warn">
+        <span class="status-kpi-label">Total findings</span>
+        <span class="status-kpi-value">26</span>
+        <span class="status-kpi-detail">0 high priority</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:17.333333333333332%"></span></span>
+      </span></button><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-pages-needing-work"><span class="status-kpi status-kpi-warn">
+        <span class="status-kpi-label">Pages needing work</span>
+        <span class="status-kpi-value">23</span>
+        <span class="status-kpi-detail">1 pages clean</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:96%"></span></span>
+      </span></button><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-link-coverage"><span class="status-kpi status-kpi-good">
+        <span class="status-kpi-label">Link coverage</span>
+        <span class="status-kpi-value">100.0%</span>
+        <span class="status-kpi-detail">73 internal edges</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:100.0%"></span></span>
+      </span></button><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-site-pagerank"><span class="status-kpi status-kpi-good">
+        <span class="status-kpi-label">Site PageRank</span>
+        <span class="status-kpi-value">0.8/10</span>
+        <span class="status-kpi-detail">Simulated authority</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:8.0%"></span></span>
+      </span></button><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-site-checks"><span class="status-kpi status-kpi-good">
+        <span class="status-kpi-label">Site checks passing</span>
+        <span class="status-kpi-value">5/5</span>
+        <span class="status-kpi-detail">Infrastructure readiness</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:100%"></span></span>
+      </span></button><button type="button" class="status-metric-trigger status-kpi-trigger" data-metric-id="kpi-improvement"><span class="status-kpi status-kpi-gain">
+        <span class="status-kpi-label">Improvement available</span>
+        <span class="status-kpi-value">+14</span>
+        <span class="status-kpi-detail">Points to optimal score</span>
+        <span class="status-kpi-bar" aria-hidden="true"><span style="width:14%"></span></span>
+      </span></button></div>
+    <div class="status-charts-grid">
+      <article class="status-chart-panel">
+        <h3>Findings by severity</h3>
+        <div class="status-donut-wrap">
+          <button type="button" class="status-metric-trigger status-donut-trigger" data-metric-id="findings-total"><span class="status-donut" style="background:conic-gradient(#d68910 0.0% 100.0%)"></span><span class="status-donut-center"><strong>26</strong><span>findings</span></span></button>
+        </div>
+        <ul class="status-legend"><li><button type="button" class="status-metric-trigger status-legend-trigger" data-metric-id="severity-high"><span class="status-legend-swatch" style="background:#c0392b"></span>High <strong>0</strong></button></li><li><button type="button" class="status-metric-trigger status-legend-trigger" data-metric-id="severity-medium"><span class="status-legend-swatch" style="background:#d68910"></span>Medium <strong>26</strong></button></li><li><button type="button" class="status-metric-trigger status-legend-trigger" data-metric-id="severity-low"><span class="status-legend-swatch" style="background:#2980b9"></span>Low <strong>0</strong></button></li></ul>
+      </article>
+      <article class="status-chart-panel">
+        <h3>Top issue categories</h3>
+        <div class="status-bar-chart"><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="issue-thin-content"><span class="status-bar-row"><span class="status-bar-label"><span>Thin content</span><strong>23</strong></span><span class="status-bar-track"><span style="width:100%"></span></span></span></button><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="issue-pagerank-orphan"><span class="status-bar-row"><span class="status-bar-label"><span>Orphan pages</span><strong>3</strong></span><span class="status-bar-track"><span style="width:13%"></span></span></span></button></div>
+      </article>
+      <article class="status-chart-panel">
+        <h3>Score breakdown</h3>
+        <div class="status-bar-chart"><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="score-basic-seo"><span class="status-bar-row"><span class="status-bar-label"><span>Basic SEO setup</span><strong>25/25</strong></span><span class="status-bar-track status-bar-track-score"><span style="width:100%"></span></span></span></button><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="score-structure"><span class="status-bar-row"><span class="status-bar-label"><span>Page structure</span><strong>20/20</strong></span><span class="status-bar-track status-bar-track-score"><span style="width:100%"></span></span></span></button><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="score-content"><span class="status-bar-row"><span class="status-bar-label"><span>Content quality</span><strong>8/20</strong></span><span class="status-bar-track status-bar-track-score"><span style="width:40%"></span></span></span></button><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="score-links"><span class="status-bar-row"><span class="status-bar-label"><span>Internal links</span><strong>13/15</strong></span><span class="status-bar-track status-bar-track-score"><span style="width:87%"></span></span></span></button><button type="button" class="status-metric-trigger status-bar-trigger" data-metric-id="score-health"><span class="status-bar-row"><span class="status-bar-label"><span>Live site health</span><strong>20/20</strong></span><span class="status-bar-track status-bar-track-score"><span style="width:100%"></span></span></span></button></div>
+      </article>
+      <article class="status-chart-panel">
+        <h3>Page health</h3>
+        <div class="status-health-chart">
+          <div class="status-health-bar" aria-hidden="true">
+            <span class="status-health-clean" style="width:4%"></span>
+            <span class="status-health-issues" style="width:96%"></span>
+          </div>
+          <ul class="status-health-legend">
+            <li><button type="button" class="status-metric-trigger status-legend-trigger" data-metric-id="page-health-clean"><span class="status-legend-swatch status-health-clean-swatch"></span>Clean pages <strong>1</strong></button></li>
+            <li><button type="button" class="status-metric-trigger status-legend-trigger" data-metric-id="page-health-issues"><span class="status-legend-swatch status-health-issues-swatch"></span>Needs work <strong>23</strong></button></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="status-grid" aria-label="Site metrics">
+    <button type="button" class="status-metric-trigger status-card-trigger" data-metric-id="metric-site-pagerank"><span class="status-card"><span class="status-card-heading">Site PageRank</span><span class="status-metric">0.8/10</span><span class="status-detail">Simulated sitewide authority</span></span></button>
+    <button type="button" class="status-metric-trigger status-card-trigger" data-metric-id="metric-home-pagerank"><span class="status-card"><span class="status-card-heading">Home PageRank</span><span class="status-metric">10.0/10</span><span class="status-detail">Homepage toolbar score</span></span></button>
+    <button type="button" class="status-metric-trigger status-card-trigger" data-metric-id="metric-link-coverage"><span class="status-card"><span class="status-card-heading">Link coverage</span><span class="status-metric">100.0%</span><span class="status-detail">24 pages · 73 edges</span></span></button>
+    <button type="button" class="status-metric-trigger status-card-trigger" data-metric-id="metric-content-files"><span class="status-card"><span class="status-card-heading">Content pages</span><span class="status-metric">24</span><span class="status-detail">23 thin-content pages</span></span></button>
+  </section>
+  <section class="status-panel"><h2>Site checks</h2><ul class="status-checks"><li class="status-check is-ok"><button type="button" class="status-metric-trigger status-check-trigger" data-metric-id="site-check-robots"><span class="status-check-label">robots.txt present</span><span class="status-check-detail">Found robots.txt with sitemap reference</span></button></li><li class="status-check is-ok"><button type="button" class="status-metric-trigger status-check-trigger" data-metric-id="site-check-sitemap"><span class="status-check-label">XML sitemap present</span><span class="status-check-detail">sitemap.xml found at repo root</span></button></li><li class="status-check is-ok"><button type="button" class="status-metric-trigger status-check-trigger" data-metric-id="site-check-live-http"><span class="status-check-label">Live sitemap HTTP checks</span><span class="status-check-detail">23/23 URLs return HTTP 200</span></button></li><li class="status-check is-ok"><button type="button" class="status-metric-trigger status-check-trigger" data-metric-id="site-check-link-coverage"><span class="status-check-label">Internal link coverage</span><span class="status-check-detail">100.0% of pages receive at least one internal link</span></button></li><li class="status-check is-ok"><button type="button" class="status-metric-trigger status-check-trigger" data-metric-id="site-check-metadata"><span class="status-check-label">Metadata completeness</span><span class="status-check-detail">All pages have title, description, and canonical</span></button></li></ul></section>
+  <section class="status-panel"><h2>Summary</h2><div class="status-summary"><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-missing-meta"><span class="status-summary-row"><span class="status-summary-label">Missing metadata</span><span class="status-summary-value">0</span></span></button><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-bad-h1"><span class="status-summary-row"><span class="status-summary-label">Bad H1 count</span><span class="status-summary-value">0</span></span></button><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-thin-content"><span class="status-summary-row"><span class="status-summary-label">Thin content</span><span class="status-summary-value">23</span></span></button><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-title-too-long"><span class="status-summary-row"><span class="status-summary-label">Titles too long</span><span class="status-summary-value">0</span></span></button><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-live-failures"><span class="status-summary-row"><span class="status-summary-label">Live URL failures</span><span class="status-summary-value">0</span></span></button><button type="button" class="status-metric-trigger status-summary-trigger" data-metric-id="summary-orphan-pages"><span class="status-summary-row"><span class="status-summary-label">Orphan pages</span><span class="status-summary-value">3</span></span></button></div></section>
+  <section class="status-panel"><h2>Top PageRank pages</h2><ul class="status-rank-list"><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-home"><span class="status-rank-url">/</span><span>10.0/10 · 24 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-manufacturing"><span class="status-rank-url">/manufacturing/</span><span>1.7/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-formulation"><span class="status-rank-url">/formulation/</span><span>1.3/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-product-development"><span class="status-rank-url">/product-development/</span><span>1.1/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-turn-key-co-packing"><span class="status-rank-url">/turn-key-co-packing/</span><span>1.0/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-powder-blending"><span class="status-rank-url">/powder-blending/</span><span>0.9/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-fulfillment"><span class="status-rank-url">/fulfillment/</span><span>0.8/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-packaging-design"><span class="status-rank-url">/packaging-design/</span><span>0.8/10 · 3 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-custom-projects"><span class="status-rank-url">/custom-projects/</span><span>0.7/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-distribution-center"><span class="status-rank-url">/distribution-center/</span><span>0.7/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-bottles-and-jars"><span class="status-rank-url">/bottles-and-jars/</span><span>0.1/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-distribution"><span class="status-rank-url">/distribution/</span><span>0.1/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-ingredient-solutions"><span class="status-rank-url">/ingredient-solutions/</span><span>0.1/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-kitting-and-assembly"><span class="status-rank-url">/kitting-and-assembly/</span><span>0.1/10 · 2 inbound</span></button></li><li><button type="button" class="status-metric-trigger status-rank-trigger" data-metric-id="rank-low-moqs"><span class="status-rank-url">/low-moqs/</span><span>0.1/10 · 2 inbound</span></button></li></ul></section>
+  <section class="status-panel"><h2>Global improvement prompts</h2><div class="status-prompts"><details><summary>Expand thin service page content</summary><p>Expand on-page copy on these Propeller Co-Pack service pages to roughly 600-900 words each:
 /40000-sq-ft-facility/
 /bottles-and-jars/
 /custom-projects/
@@ -212,97 +1127,228 @@
 /stand-up-pouches/
 /stick-pack-packaging/
 /turn-key-co-packing/
-/white-label/
-
-Requirements:
-- Preserve existing title, meta description, canonical, OG/Twitter tags, and Propeller contact form markup.
-- Keep the v3 bloc layout; add 2-4 substantive paragraphs or bullet sections within existing content areas.
-- Cover capabilities, ideal use cases, quality/compliance, and workflow.
-- Add natural internal links to related services already on the site.
-- Match the tone of neighboring pages; no keyword stuffing.
-- Run python tools/seo_refresh_audit.py afterward to confirm word counts.</pre>
-      </details>
-    </article>
+/white-label/</p></details></div></section>
+  <section class="status-panel status-pages">
+    <div class="status-pages-head">
+      <h2>Page-by-page suggestions</h2>
+      <label class="status-filter"><span class="utility-sr-only">Filter pages</span><input type="search" id="status-filter" placeholder="Filter by URL, title, or issue…" /></label>
     </div>
-
-    <h3>Score breakdown</h3>
-    <table>
-      <thead><tr><th>Category</th><th>Weight</th><th>Score</th></tr></thead>
-      <tbody>
-        <tr><td>Basic SEO setup</td><td>25</td><td class="good">25</td></tr>
-        <tr><td>Page structure</td><td>20</td><td class="good">20</td></tr>
-        <tr><td>Content quality</td><td>20</td><td class="warn">8</td></tr>
-        <tr><td>Internal links</td><td>15</td><td class="good">13</td></tr>
-        <tr><td>Live site health</td><td>20</td><td class="good">20</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Per-page scores</h3>
-    <table>
-      <thead><tr><th>Page</th><th>Score</th><th>Status</th><th>Words</th></tr></thead>
-      <tbody>
-        <tr><td>/40000-sq-ft-facility/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~177 words)</td><td><span class="mono">~177 words</span></td></tr><tr><td>/bottles-and-jars/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~166 words)</td><td><span class="mono">~166 words</span></td></tr><tr><td>/custom-projects/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~171 words)</td><td><span class="mono">~171 words</span></td></tr><tr><td>/customer-service/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~169 words)</td><td><span class="mono">~169 words</span></td></tr><tr><td>/distribution-center/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~237 words)</td><td><span class="mono">~237 words</span></td></tr><tr><td>/distribution/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~168 words)</td><td><span class="mono">~168 words</span></td></tr><tr><td>/formulation/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~200 words)</td><td><span class="mono">~200 words</span></td></tr><tr><td>/fulfillment/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~211 words)</td><td><span class="mono">~211 words</span></td></tr><tr><td>/ingredient-solutions/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~176 words)</td><td><span class="mono">~176 words</span></td></tr><tr><td>/kitting-and-assembly/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~197 words)</td><td><span class="mono">~197 words</span></td></tr><tr><td>/loading-docks/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~164 words)</td><td><span class="mono">~164 words</span></td></tr><tr><td>/low-moqs/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~202 words)</td><td><span class="mono">~202 words</span></td></tr><tr><td>/manufacturing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~231 words)</td><td><span class="mono">~231 words</span></td></tr><tr><td>/packaging-design/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~214 words)</td><td><span class="mono">~214 words</span></td></tr><tr><td>/powder-blending/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~196 words)</td><td><span class="mono">~196 words</span></td></tr><tr><td>/product-development/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~217 words)</td><td><span class="mono">~217 words</span></td></tr><tr><td>/product-testing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~208 words)</td><td><span class="mono">~208 words</span></td></tr><tr><td>/quality-compliance/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~205 words)</td><td><span class="mono">~205 words</span></td></tr><tr><td>/sachet-packaging/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~162 words)</td><td><span class="mono">~162 words</span></td></tr><tr><td>/stand-up-pouches/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~166 words)</td><td><span class="mono">~166 words</span></td></tr><tr><td>/stick-pack-packaging/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~166 words)</td><td><span class="mono">~166 words</span></td></tr><tr><td>/turn-key-co-packing/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~192 words)</td><td><span class="mono">~192 words</span></td></tr><tr><td>/white-label/</td><td class="good">88/100</td><td>✅ Metadata complete<br>✅ Single H1<br>❌ Thin content (~198 words)</td><td><span class="mono">~198 words</span></td></tr>
-      </tbody>
-    </table>
-
-    <h3>PageRank proxy (top internal URLs)</h3>
-    <table>
-      <thead><tr><th>URL</th><th>PageRank proxy</th><th>Page score</th></tr></thead>
-      <tbody>
-        <tr><td>/</td><td>0.3765</td><td class="good">88/100</td></tr><tr><td>/manufacturing/</td><td>0.0626</td><td class="good">88/100</td></tr><tr><td>/formulation/</td><td>0.0501</td><td class="good">88/100</td></tr><tr><td>/product-development/</td><td>0.0431</td><td class="good">88/100</td></tr><tr><td>/turn-key-co-packing/</td><td>0.0365</td><td class="good">88/100</td></tr><tr><td>/powder-blending/</td><td>0.0329</td><td class="good">88/100</td></tr><tr><td>/fulfillment/</td><td>0.0301</td><td class="good">88/100</td></tr><tr><td>/packaging-design/</td><td>0.0295</td><td class="good">88/100</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Live sitemap checks (23/23 OK)</h3>
-    <table>
-      <thead><tr><th>URL</th><th>HTTP</th><th>Error</th></tr></thead>
-      <tbody>
-        <tr><td>https://propellercopack.com/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/formulation/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/ingredient-solutions/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/manufacturing/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/sachet-packaging/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/stick-pack-packaging/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/stand-up-pouches/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/bottles-and-jars/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/powder-blending/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/packaging-design/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/quality-compliance/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/product-testing/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/customer-service/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/low-moqs/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/custom-projects/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/distribution-center/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/loading-docks/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/fulfillment/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/distribution/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/40000-sq-ft-facility/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/product-development/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/white-label/</td><td class="good">200</td><td></td></tr><tr><td>https://propellercopack.com/turn-key-co-packing/</td><td class="good">200</td><td></td></tr>
-      </tbody>
-    </table>
+    <div class="status-table-wrap">
+      <table class="status-table" id="status-table">
+        <thead><tr><th scope="col">Page</th><th scope="col">Meta</th><th scope="col">Rank</th><th scope="col">Findings</th><th scope="col">Suggestions</th></tr></thead>
+        <tbody><tr data-search="/ Propeller Co-Pack | Powder Blending, Packaging &amp; Fulfillment index.html"><td class="status-page-cell"><a href="/"><strong>Propeller Co-Pack | Powder Blending, Packaging &amp; Fulfillment</strong></a><code>/</code><span class="status-source">index.html</span></td><td><ul class="status-meta-list"><li>Title: 60 chars</li><li>Description: 209 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">10.0/10</span><span class="status-rank-detail">24 in · 20 out</span></td><td><span class="status-ok-label">None</span></td><td><ul class="status-suggestions"><li>Metadata looks healthy. Review annually for keyword freshness and add one new contextual internal link if possible.</li></ul></td></tr><tr data-search="/40000-sq-ft-facility/ 40,000 Sq. Ft. Facility | Propeller Co-Pack 40000-sq-ft-facility/index.html thin-content pagerank-orphan Thin content (~177 words) Few inbound internal links; page may be hard to discover"><td class="status-page-cell"><a href="/40000-sq-ft-facility/"><strong>40,000 Sq. Ft. Facility | Propeller Co-Pack</strong></a><code>/40000-sq-ft-facility/</code><span class="status-source">40000-sq-ft-facility/index.html</span></td><td><ul class="status-meta-list"><li>Title: 43 chars</li><li>Description: 131 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">1 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li><li class="severity-medium">pagerank-orphan</li></ul></td><td><ul class="status-suggestions"><li>Low simulated PageRank (0.1/10). Link to this page from related service content and the homepage.</li><li>Expand on-page copy (~177 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/bottles-and-jars/ Bottles &amp; Jars | Propeller Co-Pack bottles-and-jars/index.html thin-content Thin content (~166 words)"><td class="status-page-cell"><a href="/bottles-and-jars/"><strong>Bottles &amp; Jars | Propeller Co-Pack</strong></a><code>/bottles-and-jars/</code><span class="status-source">bottles-and-jars/index.html</span></td><td><ul class="status-meta-list"><li>Title: 34 chars</li><li>Description: 116 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~166 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/custom-projects/ Custom Projects | Propeller Co-Pack custom-projects/index.html thin-content Thin content (~171 words)"><td class="status-page-cell"><a href="/custom-projects/"><strong>Custom Projects | Propeller Co-Pack</strong></a><code>/custom-projects/</code><span class="status-source">custom-projects/index.html</span></td><td><ul class="status-meta-list"><li>Title: 35 chars</li><li>Description: 96 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.7/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~171 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/customer-service/ Customer Service | Propeller Co-Pack customer-service/index.html thin-content pagerank-orphan Thin content (~169 words) Few inbound internal links; page may be hard to discover"><td class="status-page-cell"><a href="/customer-service/"><strong>Customer Service | Propeller Co-Pack</strong></a><code>/customer-service/</code><span class="status-source">customer-service/index.html</span></td><td><ul class="status-meta-list"><li>Title: 36 chars</li><li>Description: 98 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">1 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li><li class="severity-medium">pagerank-orphan</li></ul></td><td><ul class="status-suggestions"><li>Low simulated PageRank (0.1/10). Link to this page from related service content and the homepage.</li><li>Expand on-page copy (~169 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/distribution-center/ Distribution Center | Propeller Co-Pack distribution-center/index.html thin-content Thin content (~237 words)"><td class="status-page-cell"><a href="/distribution-center/"><strong>Distribution Center | Propeller Co-Pack</strong></a><code>/distribution-center/</code><span class="status-source">distribution-center/index.html</span></td><td><ul class="status-meta-list"><li>Title: 39 chars</li><li>Description: 128 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.7/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~237 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/distribution/ Distribution | Propeller Co-Pack distribution/index.html thin-content Thin content (~168 words)"><td class="status-page-cell"><a href="/distribution/"><strong>Distribution | Propeller Co-Pack</strong></a><code>/distribution/</code><span class="status-source">distribution/index.html</span></td><td><ul class="status-meta-list"><li>Title: 32 chars</li><li>Description: 104 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~168 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/formulation/ Custom Formulations | Propeller Co-Pack formulation/index.html thin-content Thin content (~200 words)"><td class="status-page-cell"><a href="/formulation/"><strong>Custom Formulations | Propeller Co-Pack</strong></a><code>/formulation/</code><span class="status-source">formulation/index.html</span></td><td><ul class="status-meta-list"><li>Title: 39 chars</li><li>Description: 117 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">1.3/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~200 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/fulfillment/ Fulfillment | Propeller Co-Pack fulfillment/index.html thin-content Thin content (~211 words)"><td class="status-page-cell"><a href="/fulfillment/"><strong>Fulfillment | Propeller Co-Pack</strong></a><code>/fulfillment/</code><span class="status-source">fulfillment/index.html</span></td><td><ul class="status-meta-list"><li>Title: 31 chars</li><li>Description: 133 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.8/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~211 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/ingredient-solutions/ Ingredient Solutions | Propeller Co-Pack ingredient-solutions/index.html thin-content Thin content (~176 words)"><td class="status-page-cell"><a href="/ingredient-solutions/"><strong>Ingredient Solutions | Propeller Co-Pack</strong></a><code>/ingredient-solutions/</code><span class="status-source">ingredient-solutions/index.html</span></td><td><ul class="status-meta-list"><li>Title: 40 chars</li><li>Description: 152 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~176 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/kitting-and-assembly/ Kitting and Assembly | Propeller Co-Pack kitting-and-assembly/index.html thin-content Thin content (~197 words)"><td class="status-page-cell"><a href="/kitting-and-assembly/"><strong>Kitting and Assembly | Propeller Co-Pack</strong></a><code>/kitting-and-assembly/</code><span class="status-source">kitting-and-assembly/index.html</span></td><td><ul class="status-meta-list"><li>Title: 40 chars</li><li>Description: 96 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~197 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/loading-docks/ Loading Docks | Propeller Co-Pack loading-docks/index.html thin-content pagerank-orphan Thin content (~164 words) Few inbound internal links; page may be hard to discover"><td class="status-page-cell"><a href="/loading-docks/"><strong>Loading Docks | Propeller Co-Pack</strong></a><code>/loading-docks/</code><span class="status-source">loading-docks/index.html</span></td><td><ul class="status-meta-list"><li>Title: 33 chars</li><li>Description: 102 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">1 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li><li class="severity-medium">pagerank-orphan</li></ul></td><td><ul class="status-suggestions"><li>Low simulated PageRank (0.1/10). Link to this page from related service content and the homepage.</li><li>Expand on-page copy (~164 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/low-moqs/ Low MOQs | Propeller Co-Pack low-moqs/index.html thin-content Thin content (~202 words)"><td class="status-page-cell"><a href="/low-moqs/"><strong>Low MOQs | Propeller Co-Pack</strong></a><code>/low-moqs/</code><span class="status-source">low-moqs/index.html</span></td><td><ul class="status-meta-list"><li>Title: 28 chars</li><li>Description: 84 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~202 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/manufacturing/ Manufacturing | Propeller Co-Pack manufacturing/index.html thin-content Thin content (~231 words)"><td class="status-page-cell"><a href="/manufacturing/"><strong>Manufacturing | Propeller Co-Pack</strong></a><code>/manufacturing/</code><span class="status-source">manufacturing/index.html</span></td><td><ul class="status-meta-list"><li>Title: 33 chars</li><li>Description: 134 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">1.7/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~231 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/packaging-design/ Packaging Design | Propeller Co-Pack packaging-design/index.html thin-content Thin content (~214 words)"><td class="status-page-cell"><a href="/packaging-design/"><strong>Packaging Design | Propeller Co-Pack</strong></a><code>/packaging-design/</code><span class="status-source">packaging-design/index.html</span></td><td><ul class="status-meta-list"><li>Title: 36 chars</li><li>Description: 101 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.8/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~214 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/powder-blending/ Powder Blending | Propeller Co-Pack powder-blending/index.html thin-content Thin content (~196 words)"><td class="status-page-cell"><a href="/powder-blending/"><strong>Powder Blending | Propeller Co-Pack</strong></a><code>/powder-blending/</code><span class="status-source">powder-blending/index.html</span></td><td><ul class="status-meta-list"><li>Title: 35 chars</li><li>Description: 134 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.9/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~196 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/product-development/ Product Development | Propeller Co-Pack product-development/index.html thin-content Thin content (~217 words)"><td class="status-page-cell"><a href="/product-development/"><strong>Product Development | Propeller Co-Pack</strong></a><code>/product-development/</code><span class="status-source">product-development/index.html</span></td><td><ul class="status-meta-list"><li>Title: 39 chars</li><li>Description: 154 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">1.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~217 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/product-testing/ Product Testing | Propeller Co-Pack product-testing/index.html thin-content Thin content (~208 words)"><td class="status-page-cell"><a href="/product-testing/"><strong>Product Testing | Propeller Co-Pack</strong></a><code>/product-testing/</code><span class="status-source">product-testing/index.html</span></td><td><ul class="status-meta-list"><li>Title: 35 chars</li><li>Description: 87 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~208 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/quality-compliance/ Quality &amp; Compliance | Propeller Co-Pack quality-compliance/index.html thin-content Thin content (~205 words)"><td class="status-page-cell"><a href="/quality-compliance/"><strong>Quality &amp; Compliance | Propeller Co-Pack</strong></a><code>/quality-compliance/</code><span class="status-source">quality-compliance/index.html</span></td><td><ul class="status-meta-list"><li>Title: 40 chars</li><li>Description: 96 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~205 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/sachet-packaging/ Sachet Packaging | Propeller Co-Pack sachet-packaging/index.html thin-content Thin content (~162 words)"><td class="status-page-cell"><a href="/sachet-packaging/"><strong>Sachet Packaging | Propeller Co-Pack</strong></a><code>/sachet-packaging/</code><span class="status-source">sachet-packaging/index.html</span></td><td><ul class="status-meta-list"><li>Title: 36 chars</li><li>Description: 91 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~162 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/stand-up-pouches/ Stand Up Pouches | Propeller Co-Pack stand-up-pouches/index.html thin-content Thin content (~166 words)"><td class="status-page-cell"><a href="/stand-up-pouches/"><strong>Stand Up Pouches | Propeller Co-Pack</strong></a><code>/stand-up-pouches/</code><span class="status-source">stand-up-pouches/index.html</span></td><td><ul class="status-meta-list"><li>Title: 36 chars</li><li>Description: 88 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~166 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/stick-pack-packaging/ Stick Pack Packaging | Propeller Co-Pack stick-pack-packaging/index.html thin-content Thin content (~166 words)"><td class="status-page-cell"><a href="/stick-pack-packaging/"><strong>Stick Pack Packaging | Propeller Co-Pack</strong></a><code>/stick-pack-packaging/</code><span class="status-source">stick-pack-packaging/index.html</span></td><td><ul class="status-meta-list"><li>Title: 40 chars</li><li>Description: 107 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 3 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~166 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/turn-key-co-packing/ Turn-Key Co-Packing | Propeller Co-Pack turn-key-co-packing/index.html thin-content Thin content (~192 words)"><td class="status-page-cell"><a href="/turn-key-co-packing/"><strong>Turn-Key Co-Packing | Propeller Co-Pack</strong></a><code>/turn-key-co-packing/</code><span class="status-source">turn-key-co-packing/index.html</span></td><td><ul class="status-meta-list"><li>Title: 39 chars</li><li>Description: 104 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">1.0/10</span><span class="status-rank-detail">3 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~192 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr><tr data-search="/white-label/ White Label | Propeller Co-Pack white-label/index.html thin-content Thin content (~198 words)"><td class="status-page-cell"><a href="/white-label/"><strong>White Label | Propeller Co-Pack</strong></a><code>/white-label/</code><span class="status-source">white-label/index.html</span></td><td><ul class="status-meta-list"><li>Title: 31 chars</li><li>Description: 90 chars</li><li>Score: 88/100</li></ul></td><td><span class="status-rank-badge">0.1/10</span><span class="status-rank-detail">2 in · 2 out</span></td><td><ul class="status-findings"><li class="severity-medium">thin-content</li></ul></td><td><ul class="status-suggestions"><li>Expand on-page copy (~198 words now) toward 600-900 words while preserving layout and SEO head tags.</li></ul></td></tr></tbody>
+      </table>
+    </div>
   </section>
+  <div class="status-modal" id="status-modal" hidden>
+  <div class="status-modal-backdrop" data-close-modal tabindex="-1"></div>
+  <div class="status-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="status-modal-title">
+    <button type="button" class="status-modal-close" data-close-modal aria-label="Close">&times;</button>
+    <p class="status-modal-kicker">Metric detail</p>
+    <h2 id="status-modal-title"></h2>
+    <p class="status-modal-value"></p>
+    <p class="status-modal-desc"></p>
+    <h3 class="status-modal-section-title">Culprits</h3>
+    <ul class="status-modal-culprits" id="status-modal-culprits"></ul>
+    <div class="status-modal-prompt">
+      <h3 class="status-modal-section-title">Suggested Cursor prompt</h3>
+      <pre id="status-modal-prompt"></pre>
+      <button type="button" class="status-copy-prompt" id="status-copy-prompt">Copy prompt</button>
+      <span class="status-copy-feedback" id="status-copy-feedback" hidden>Copied</span>
+    </div>
+  </div>
+</div>
+  <script type="application/json" id="status-metrics-json">{"seo-score": {"id": "seo-score", "title": "Current SEO score", "value": "86/100", "description": "Composite score from metadata, H1 structure, content depth, internal links, and live HTTP checks.", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "improvement-headroom": {"id": "improvement-headroom", "title": "Improvement headroom", "value": "+14", "description": "Points available if all score-deducting issues are resolved.", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "score-vs-optimal": {"id": "score-vs-optimal", "title": "Score vs optimal", "value": "86 of 100", "description": "Gap between current composite score and the maximum possible score.", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "kpi-total-findings": {"id": "kpi-total-findings", "title": "Total findings", "value": "26", "description": "0 high \u00b7 26 medium \u00b7 0 low priority", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "kpi-pages-needing-work": {"id": "kpi-pages-needing-work", "title": "Pages needing work", "value": "23", "description": "1 pages pass all automated checks", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "kpi-link-coverage": {"id": "kpi-link-coverage", "title": "Link coverage", "value": "100.0%", "description": "24 pages \u00b7 73 internal edges", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}], "prompt": "Add contextual internal links from high-authority pages (homepage, related services) to orphan URLs listed on /status/.\n\nAffected pages:\n- /40000-sq-ft-facility/\n- /customer-service/\n- /loading-docks/"}, "kpi-site-pagerank": {"id": "kpi-site-pagerank", "title": "Site PageRank", "value": "0.8/10", "description": "Simulated sitewide authority based on internal link graph.", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}], "prompt": "Add contextual internal links from high-authority pages (homepage, related services) to orphan URLs listed on /status/.\n\nAffected pages:\n- /40000-sq-ft-facility/\n- /customer-service/\n- /loading-docks/"}, "kpi-site-checks": {"id": "kpi-site-checks", "title": "Site checks passing", "value": "5/5", "description": "Infrastructure readiness: robots.txt, sitemap, live HTTP checks, link coverage", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "All infrastructure checks pass."}], "prompt": "All infrastructure checks pass."}, "kpi-improvement": {"id": "kpi-improvement", "title": "Improvement available", "value": "+14", "description": "Points between current score and a perfect score of 100", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "severity-high": {"id": "severity-high", "title": "High severity findings", "value": "0", "description": "Findings classified as high priority", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "No high-severity findings."}], "prompt": "No high-severity findings to fix."}, "severity-medium": {"id": "severity-medium", "title": "Medium severity findings", "value": "26", "description": "Findings classified as medium priority", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "/bottles-and-jars/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "/custom-projects/", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "/distribution-center/", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "/distribution/", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "/formulation/", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "/fulfillment/", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "/ingredient-solutions/", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "/kitting-and-assembly/", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "/low-moqs/", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "/manufacturing/", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "/packaging-design/", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "/powder-blending/", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "/product-development/", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "/product-testing/", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "/quality-compliance/", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "/sachet-packaging/", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "/stand-up-pouches/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "/stick-pack-packaging/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "/turn-key-co-packing/", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "/white-label/", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "severity-low": {"id": "severity-low", "title": "Low severity findings", "value": "0", "description": "Findings classified as low priority", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "No low-severity findings."}], "prompt": "No low-severity findings to fix."}, "findings-total": {"id": "findings-total", "title": "All findings", "value": "26", "description": "Total automated SEO findings across metadata, structure, content, and links", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "issue-thin-content": {"id": "issue-thin-content", "title": "Thin content", "value": "23", "description": "23 findings in this category", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "/bottles-and-jars/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "/custom-projects/", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "/distribution-center/", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "/distribution/", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "/formulation/", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "/fulfillment/", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "/ingredient-solutions/", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "/kitting-and-assembly/", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "/low-moqs/", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "/manufacturing/", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "/packaging-design/", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "/powder-blending/", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "/product-development/", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "/product-testing/", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "/quality-compliance/", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "/sachet-packaging/", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "/stand-up-pouches/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "/stick-pack-packaging/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "/turn-key-co-packing/", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "/white-label/", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Expand thin service pages to roughly 600-900 words. Preserve SEO head tags, contact form, hero images, and v3 bloc layout.\n\n23 affected pages \u2014 filter /status/ by \"thin-content\" for the full list."}, "issue-pagerank-orphan": {"id": "issue-pagerank-orphan", "title": "Orphan pages", "value": "3", "description": "3 findings in this category", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}], "prompt": "Add contextual internal links from high-authority pages (homepage, related services) to orphan URLs listed on /status/.\n\nAffected pages:\n- /40000-sq-ft-facility/\n- /customer-service/\n- /loading-docks/"}, "score-basic-seo": {"id": "score-basic-seo", "title": "Basic SEO setup", "value": "25/25", "description": "Score component contributing up to 25 points", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Full 25/25 points \u2014 no culprits."}], "prompt": "Maintain Basic SEO setup quality."}, "score-structure": {"id": "score-structure", "title": "Page structure", "value": "20/20", "description": "Score component contributing up to 20 points", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Full 20/20 points \u2014 no culprits."}], "prompt": "Maintain Page structure quality."}, "score-content": {"id": "score-content", "title": "Content quality", "value": "8/20", "description": "Score component contributing up to 20 points", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "/bottles-and-jars/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "/custom-projects/", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "/distribution-center/", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "/distribution/", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "/formulation/", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "/fulfillment/", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "/ingredient-solutions/", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "/kitting-and-assembly/", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "/low-moqs/", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "/manufacturing/", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "/packaging-design/", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "/powder-blending/", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "/product-development/", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "/product-testing/", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "/quality-compliance/", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "/sachet-packaging/", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "/stand-up-pouches/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "/stick-pack-packaging/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "/turn-key-co-packing/", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "/white-label/", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Expand thin service pages to roughly 600-900 words. Preserve SEO head tags, contact form, hero images, and v3 bloc layout.\n\n23 affected pages \u2014 filter /status/ by \"thin-content\" for the full list."}, "score-links": {"id": "score-links", "title": "Internal links", "value": "13/15", "description": "Score component contributing up to 15 points", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}], "prompt": "Add contextual internal links from high-authority pages (homepage, related services) to orphan URLs listed on /status/.\n\nAffected pages:\n- /40000-sq-ft-facility/\n- /customer-service/\n- /loading-docks/"}, "score-health": {"id": "score-health", "title": "Live site health", "value": "20/20", "description": "Score component contributing up to 20 points", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Full 20/20 points \u2014 no culprits."}], "prompt": "Maintain Live site health quality."}, "page-health-clean": {"id": "page-health-clean", "title": "Clean pages", "value": "1", "description": "Pages with zero automated findings", "culprits": [{"file": "index.html", "url": "/", "title": "Propeller Co-Pack | Powder Blending, Packaging & Fulfillment", "detail": "Passes all automated checks"}], "prompt": "These pages pass automated checks. Review annually for keyword freshness."}, "page-health-issues": {"id": "page-health-issues", "title": "Pages needing work", "value": "23", "description": "Pages with one or more automated findings", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "40,000 Sq. Ft. Facility | Propeller Co-Pack", "detail": "thin-content, pagerank-orphan"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "Bottles & Jars | Propeller Co-Pack", "detail": "thin-content"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "Custom Projects | Propeller Co-Pack", "detail": "thin-content"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "Customer Service | Propeller Co-Pack", "detail": "thin-content, pagerank-orphan"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "Distribution Center | Propeller Co-Pack", "detail": "thin-content"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "Distribution | Propeller Co-Pack", "detail": "thin-content"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "Custom Formulations | Propeller Co-Pack", "detail": "thin-content"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "Fulfillment | Propeller Co-Pack", "detail": "thin-content"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "Ingredient Solutions | Propeller Co-Pack", "detail": "thin-content"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "Kitting and Assembly | Propeller Co-Pack", "detail": "thin-content"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "Loading Docks | Propeller Co-Pack", "detail": "thin-content, pagerank-orphan"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "Low MOQs | Propeller Co-Pack", "detail": "thin-content"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "Manufacturing | Propeller Co-Pack", "detail": "thin-content"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "Packaging Design | Propeller Co-Pack", "detail": "thin-content"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "Powder Blending | Propeller Co-Pack", "detail": "thin-content"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "Product Development | Propeller Co-Pack", "detail": "thin-content"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "Product Testing | Propeller Co-Pack", "detail": "thin-content"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "Quality & Compliance | Propeller Co-Pack", "detail": "thin-content"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "Sachet Packaging | Propeller Co-Pack", "detail": "thin-content"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "Stand Up Pouches | Propeller Co-Pack", "detail": "thin-content"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "Stick Pack Packaging | Propeller Co-Pack", "detail": "thin-content"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "Turn-Key Co-Packing | Propeller Co-Pack", "detail": "thin-content"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "White Label | Propeller Co-Pack", "detail": "thin-content"}], "prompt": "Fix all remaining SEO findings (26 total) on /status/. Prioritize high-severity items first.\n\nIssue types: pagerank-orphan, thin-content"}, "site-check-robots": {"id": "site-check-robots", "title": "robots.txt present", "value": "Pass", "description": "Found robots.txt with sitemap reference", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Found robots.txt with sitemap reference"}], "prompt": "Maintain: robots.txt present \u2014 Found robots.txt with sitemap reference"}, "site-check-sitemap": {"id": "site-check-sitemap", "title": "XML sitemap present", "value": "Pass", "description": "sitemap.xml found at repo root", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "sitemap.xml found at repo root"}], "prompt": "Maintain: XML sitemap present \u2014 sitemap.xml found at repo root"}, "site-check-live-http": {"id": "site-check-live-http", "title": "Live sitemap HTTP checks", "value": "Pass", "description": "23/23 URLs return HTTP 200", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "23/23 URLs return HTTP 200"}], "prompt": "Maintain: Live sitemap HTTP checks \u2014 23/23 URLs return HTTP 200"}, "site-check-link-coverage": {"id": "site-check-link-coverage", "title": "Internal link coverage", "value": "Pass", "description": "100.0% of pages receive at least one internal link", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "100.0% of pages receive at least one internal link"}], "prompt": "Maintain: Internal link coverage \u2014 100.0% of pages receive at least one internal link"}, "site-check-metadata": {"id": "site-check-metadata", "title": "Metadata completeness", "value": "Pass", "description": "All pages have title, description, and canonical", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "All pages have title, description, and canonical"}], "prompt": "Maintain: Metadata completeness \u2014 All pages have title, description, and canonical"}, "summary-missing-meta": {"id": "summary-missing-meta", "title": "Missing metadata", "value": "0", "description": "0 pages in this category", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Zero missing metadata."}], "prompt": "No missing metadata to fix."}, "summary-bad-h1": {"id": "summary-bad-h1", "title": "Bad H1 count", "value": "0", "description": "0 pages in this category", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Zero bad h1 count."}], "prompt": "No bad h1 count to fix."}, "summary-thin-content": {"id": "summary-thin-content", "title": "Thin content", "value": "23", "description": "23 pages in this category", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Thin content (~177 words)", "severity": "medium"}, {"file": "bottles-and-jars/index.html", "url": "/bottles-and-jars/", "title": "/bottles-and-jars/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "custom-projects/index.html", "url": "/custom-projects/", "title": "/custom-projects/", "detail": "Thin content (~171 words)", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Thin content (~169 words)", "severity": "medium"}, {"file": "distribution-center/index.html", "url": "/distribution-center/", "title": "/distribution-center/", "detail": "Thin content (~237 words)", "severity": "medium"}, {"file": "distribution/index.html", "url": "/distribution/", "title": "/distribution/", "detail": "Thin content (~168 words)", "severity": "medium"}, {"file": "formulation/index.html", "url": "/formulation/", "title": "/formulation/", "detail": "Thin content (~200 words)", "severity": "medium"}, {"file": "fulfillment/index.html", "url": "/fulfillment/", "title": "/fulfillment/", "detail": "Thin content (~211 words)", "severity": "medium"}, {"file": "ingredient-solutions/index.html", "url": "/ingredient-solutions/", "title": "/ingredient-solutions/", "detail": "Thin content (~176 words)", "severity": "medium"}, {"file": "kitting-and-assembly/index.html", "url": "/kitting-and-assembly/", "title": "/kitting-and-assembly/", "detail": "Thin content (~197 words)", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Thin content (~164 words)", "severity": "medium"}, {"file": "low-moqs/index.html", "url": "/low-moqs/", "title": "/low-moqs/", "detail": "Thin content (~202 words)", "severity": "medium"}, {"file": "manufacturing/index.html", "url": "/manufacturing/", "title": "/manufacturing/", "detail": "Thin content (~231 words)", "severity": "medium"}, {"file": "packaging-design/index.html", "url": "/packaging-design/", "title": "/packaging-design/", "detail": "Thin content (~214 words)", "severity": "medium"}, {"file": "powder-blending/index.html", "url": "/powder-blending/", "title": "/powder-blending/", "detail": "Thin content (~196 words)", "severity": "medium"}, {"file": "product-development/index.html", "url": "/product-development/", "title": "/product-development/", "detail": "Thin content (~217 words)", "severity": "medium"}, {"file": "product-testing/index.html", "url": "/product-testing/", "title": "/product-testing/", "detail": "Thin content (~208 words)", "severity": "medium"}, {"file": "quality-compliance/index.html", "url": "/quality-compliance/", "title": "/quality-compliance/", "detail": "Thin content (~205 words)", "severity": "medium"}, {"file": "sachet-packaging/index.html", "url": "/sachet-packaging/", "title": "/sachet-packaging/", "detail": "Thin content (~162 words)", "severity": "medium"}, {"file": "stand-up-pouches/index.html", "url": "/stand-up-pouches/", "title": "/stand-up-pouches/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "stick-pack-packaging/index.html", "url": "/stick-pack-packaging/", "title": "/stick-pack-packaging/", "detail": "Thin content (~166 words)", "severity": "medium"}, {"file": "turn-key-co-packing/index.html", "url": "/turn-key-co-packing/", "title": "/turn-key-co-packing/", "detail": "Thin content (~192 words)", "severity": "medium"}, {"file": "white-label/index.html", "url": "/white-label/", "title": "/white-label/", "detail": "Thin content (~198 words)", "severity": "medium"}], "prompt": "Expand thin service pages to roughly 600-900 words. Preserve SEO head tags, contact form, hero images, and v3 bloc layout.\n\n23 affected pages \u2014 filter /status/ by \"thin-content\" for the full list."}, "summary-title-too-long": {"id": "summary-title-too-long", "title": "Titles too long", "value": "0", "description": "0 pages in this category", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Zero titles too long."}], "prompt": "No titles too long to fix."}, "summary-live-failures": {"id": "summary-live-failures", "title": "Live URL failures", "value": "0", "description": "0 pages in this category", "culprits": [{"title": "No issues", "url": "", "file": "", "detail": "Zero live url failures."}], "prompt": "No live url failures to fix."}, "summary-orphan-pages": {"id": "summary-orphan-pages", "title": "Orphan pages", "value": "3", "description": "3 pages in this category", "culprits": [{"file": "40000-sq-ft-facility/index.html", "url": "/40000-sq-ft-facility/", "title": "/40000-sq-ft-facility/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "customer-service/index.html", "url": "/customer-service/", "title": "/customer-service/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}, {"file": "loading-docks/index.html", "url": "/loading-docks/", "title": "/loading-docks/", "detail": "Few inbound internal links; page may be hard to discover", "severity": "medium"}], "prompt": "Add contextual internal links from high-authority pages (homepage, related services) to orphan URLs listed on /status/.\n\nAffected pages:\n- /40000-sq-ft-facility/\n- /customer-service/\n- /loading-docks/"}, "rank-home": {"id": "rank-home", "title": "/", "value": "10.0/10", "description": "24 inbound \u00b7 20 outbound links", "culprits": [{"title": "Propeller Co-Pack | Powder Blending, Packaging & Fulfillment", "url": "/", "file": "index.html", "detail": "Metadata looks healthy. Review annually for keyword freshness and add one new contextual internal link if possible."}], "prompt": "Metadata looks healthy. Review annually for keyword freshness and add one new contextual internal link if possible."}, "rank-manufacturing": {"id": "rank-manufacturing", "title": "/manufacturing/", "value": "1.7/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Manufacturing | Propeller Co-Pack", "url": "/manufacturing/", "file": "manufacturing/index.html", "detail": "Expand on-page copy (~231 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~231 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-formulation": {"id": "rank-formulation", "title": "/formulation/", "value": "1.3/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Custom Formulations | Propeller Co-Pack", "url": "/formulation/", "file": "formulation/index.html", "detail": "Expand on-page copy (~200 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~200 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-product-development": {"id": "rank-product-development", "title": "/product-development/", "value": "1.1/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Product Development | Propeller Co-Pack", "url": "/product-development/", "file": "product-development/index.html", "detail": "Expand on-page copy (~217 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~217 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-turn-key-co-packing": {"id": "rank-turn-key-co-packing", "title": "/turn-key-co-packing/", "value": "1.0/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Turn-Key Co-Packing | Propeller Co-Pack", "url": "/turn-key-co-packing/", "file": "turn-key-co-packing/index.html", "detail": "Expand on-page copy (~192 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~192 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-powder-blending": {"id": "rank-powder-blending", "title": "/powder-blending/", "value": "0.9/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Powder Blending | Propeller Co-Pack", "url": "/powder-blending/", "file": "powder-blending/index.html", "detail": "Expand on-page copy (~196 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~196 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-fulfillment": {"id": "rank-fulfillment", "title": "/fulfillment/", "value": "0.8/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Fulfillment | Propeller Co-Pack", "url": "/fulfillment/", "file": "fulfillment/index.html", "detail": "Expand on-page copy (~211 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~211 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-packaging-design": {"id": "rank-packaging-design", "title": "/packaging-design/", "value": "0.8/10", "description": "3 inbound \u00b7 2 outbound links", "culprits": [{"title": "Packaging Design | Propeller Co-Pack", "url": "/packaging-design/", "file": "packaging-design/index.html", "detail": "Expand on-page copy (~214 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~214 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-custom-projects": {"id": "rank-custom-projects", "title": "/custom-projects/", "value": "0.7/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Custom Projects | Propeller Co-Pack", "url": "/custom-projects/", "file": "custom-projects/index.html", "detail": "Expand on-page copy (~171 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~171 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-distribution-center": {"id": "rank-distribution-center", "title": "/distribution-center/", "value": "0.7/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Distribution Center | Propeller Co-Pack", "url": "/distribution-center/", "file": "distribution-center/index.html", "detail": "Expand on-page copy (~237 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~237 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-bottles-and-jars": {"id": "rank-bottles-and-jars", "title": "/bottles-and-jars/", "value": "0.1/10", "description": "2 inbound \u00b7 3 outbound links", "culprits": [{"title": "Bottles & Jars | Propeller Co-Pack", "url": "/bottles-and-jars/", "file": "bottles-and-jars/index.html", "detail": "Expand on-page copy (~166 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~166 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-distribution": {"id": "rank-distribution", "title": "/distribution/", "value": "0.1/10", "description": "2 inbound \u00b7 3 outbound links", "culprits": [{"title": "Distribution | Propeller Co-Pack", "url": "/distribution/", "file": "distribution/index.html", "detail": "Expand on-page copy (~168 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~168 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-ingredient-solutions": {"id": "rank-ingredient-solutions", "title": "/ingredient-solutions/", "value": "0.1/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Ingredient Solutions | Propeller Co-Pack", "url": "/ingredient-solutions/", "file": "ingredient-solutions/index.html", "detail": "Expand on-page copy (~176 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~176 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-kitting-and-assembly": {"id": "rank-kitting-and-assembly", "title": "/kitting-and-assembly/", "value": "0.1/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Kitting and Assembly | Propeller Co-Pack", "url": "/kitting-and-assembly/", "file": "kitting-and-assembly/index.html", "detail": "Expand on-page copy (~197 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~197 words now) toward 600-900 words while preserving layout and SEO head tags."}, "rank-low-moqs": {"id": "rank-low-moqs", "title": "/low-moqs/", "value": "0.1/10", "description": "2 inbound \u00b7 2 outbound links", "culprits": [{"title": "Low MOQs | Propeller Co-Pack", "url": "/low-moqs/", "file": "low-moqs/index.html", "detail": "Expand on-page copy (~202 words now) toward 600-900 words while preserving layout and SEO head tags."}], "prompt": "Expand on-page copy (~202 words now) toward 600-900 words while preserving layout and SEO head tags."}}</script>
+  <script>
+(function () {
+  var metrics = {};
+  try {
+    metrics = JSON.parse(document.getElementById("status-metrics-json").textContent || "{}");
+  } catch (error) {
+    console.warn("Failed to parse status metrics", error);
+  }
 
+  function animateOdometers() {
+    document.querySelectorAll(".status-odometer").forEach(function (odometer) {
+      var wheels = odometer.querySelectorAll(".status-odometer-wheel");
+      wheels.forEach(function (wheel, index) {
+        var digit = parseInt(wheel.getAttribute("data-digit"), 10);
+        var strip = wheel.querySelector(".status-odometer-strip");
+        if (!strip || Number.isNaN(digit)) return;
+        window.setTimeout(function () {
+          strip.style.transform = "translateY(" + (-digit * 10) + "%)";
+        }, 120 + index * 90);
+      });
+    });
 
-  <section id="hero-status">
+    document.querySelectorAll(".status-gauge-ring-current").forEach(function (ring) {
+      var offset = ring.getAttribute("stroke-dashoffset");
+      if (!offset) return;
+      ring.style.strokeDashoffset = ring.getAttribute("stroke-dasharray");
+      window.requestAnimationFrame(function () {
+        ring.style.strokeDashoffset = offset;
+      });
+    });
+  }
+
+  animateOdometers();
+
+  var modal = document.getElementById("status-modal");
+  var modalTitle = document.getElementById("status-modal-title");
+  var modalValue = document.querySelector(".status-modal-value");
+  var modalDesc = document.querySelector(".status-modal-desc");
+  var modalCulprits = document.getElementById("status-modal-culprits");
+  var modalPrompt = document.getElementById("status-modal-prompt");
+  var copyButton = document.getElementById("status-copy-prompt");
+  var copyFeedback = document.getElementById("status-copy-feedback");
+  var lastFocus = null;
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderCulprits(culprits) {
+    if (!modalCulprits) return;
+    if (!culprits || !culprits.length) {
+      modalCulprits.innerHTML = '<li class="status-modal-empty">No culprits listed.</li>';
+      return;
+    }
+    modalCulprits.innerHTML = culprits.map(function (item) {
+      var title = escapeHtml(item.title || item.url || item.file || "Unknown");
+      var detail = escapeHtml(item.detail || "");
+      var file = escapeHtml(item.file || "");
+      var url = item.url ? '<a href="' + escapeHtml(item.url) + '">' + escapeHtml(item.url) + "</a>" : "";
+      var severity = item.severity ? '<span class="status-modal-severity severity-' + escapeHtml(item.severity) + '">' + escapeHtml(item.severity) + "</span>" : "";
+      return '<li><div class="status-modal-culprit-head"><strong>' + title + "</strong>" + severity + "</div>" + (url ? "<div>" + url + "</div>" : "") + (file ? "<code>" + file + "</code>" : "") + (detail ? "<p>" + detail + "</p>" : "") + "</li>";
+    }).join("");
+  }
+
+  function openMetric(id) {
+    var metric = metrics[id];
+    if (!metric || !modal) return;
+    lastFocus = document.activeElement;
+    modalTitle.textContent = metric.title || id;
+    modalValue.textContent = metric.value || "";
+    modalDesc.textContent = metric.description || "";
+    renderCulprits(metric.culprits || []);
+    modalPrompt.textContent = metric.prompt || "";
+    if (copyFeedback) copyFeedback.hidden = true;
+    modal.hidden = false;
+    document.body.classList.add("status-modal-open");
+    modal.querySelector(".status-modal-close").focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove("status-modal-open");
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener("click", function (event) {
+    var trigger = event.target.closest("[data-metric-id]");
+    if (trigger) {
+      event.preventDefault();
+      openMetric(trigger.getAttribute("data-metric-id"));
+      return;
+    }
+    if (event.target.closest("[data-close-modal]")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal && !modal.hidden) {
+      closeModal();
+    }
+  });
+
+  if (copyButton && modalPrompt) {
+    copyButton.addEventListener("click", function () {
+      var text = modalPrompt.textContent || "";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          if (copyFeedback) {
+            copyFeedback.hidden = false;
+            window.setTimeout(function () {
+              copyFeedback.hidden = true;
+            }, 1800);
+          }
+        });
+        return;
+      }
+      var area = document.createElement("textarea");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      document.body.removeChild(area);
+      if (copyFeedback) copyFeedback.hidden = false;
+    });
+  }
+
+  var input = document.getElementById("status-filter");
+  var rows = document.querySelectorAll("#status-table tbody tr");
+  if (input && rows.length) {
+    input.addEventListener("input", function () {
+      var needle = input.value.toLowerCase().trim();
+      rows.forEach(function (row) {
+        var haystack = (row.getAttribute("data-search") || "").toLowerCase();
+        row.hidden = needle && haystack.indexOf(needle) === -1;
+      });
+    });
+  }
+})();
+</script>
+</div>
+
+  <section id="hero-status" class="status-panel">
     <h2>Hero image library</h2>
-    <p><strong>23</strong> service hero entries indexed from live page <span class="mono">picture</span> tags.</p>
+    <p class="status-detail"><strong>23</strong> service hero entries indexed from live page <code>picture</code> tags.</p>
     <p><a href="./hero-images/">Open hero image library →</a></p>
-    <p class="muted">Regenerate: <span class="mono">python tools/rebuild_hero_index.py</span></p>
+    <p class="status-muted">Regenerate: <code>python tools/rebuild_hero_index.py</code></p>
   </section>
 
 
-  <section id="src-deploy">
+  <section id="src-deploy" class="status-panel">
     <h2>Src deployment (v3)</h2>
-    <p>Design source: <strong>PropellerCopack v.3</strong> at <span class="mono">src/PropellerCopack v.3/</span></p>
-    <table>
-      <tbody>
-        <tr><th>Deployment version ID</th><td><span class="mono">4c0da9cb7278</span></td></tr>
-        <tr><th>Src last modified</th><td>2026-06-02 16:53</td></tr>
-        <tr><th>Src pages</th><td>16</td></tr>
-        <tr><th>Live service pages</th><td>23</td></tr>
-        <tr><th>Live public pages</th><td>24 (includes homepage)</td></tr>
-        <tr><th>Mapped slugs</th><td>15</td></tr>
-        <tr><th>Live-only pages</th><td>/40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /distribution/, /loading-docks/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</td></tr>
-        <tr><th>Src-only pages</th><td>/contract-supplement-manufacturing/</td></tr>
-      </tbody>
-    </table>
-
+    <p class="status-detail">Design source: <strong>PropellerCopack v.3</strong> at <code>src/PropellerCopack v.3/</code></p>
+    <div class="status-table-wrap">
+      <table class="status-table">
+        <tbody>
+          <tr><th scope="row">Deployment version ID</th><td><code>4c0da9cb7278</code></td></tr>
+          <tr><th scope="row">Src last modified</th><td>2026-06-02 16:53</td></tr>
+          <tr><th scope="row">Src pages</th><td>16</td></tr>
+          <tr><th scope="row">Live service pages</th><td>23</td></tr>
+          <tr><th scope="row">Live public pages</th><td>24 (includes homepage)</td></tr>
+          <tr><th scope="row">Mapped slugs</th><td>15</td></tr>
+          <tr><th scope="row">Live-only pages</th><td>/40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /distribution/, /loading-docks/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</td></tr>
+          <tr><th scope="row">Src-only pages</th><td>/contract-supplement-manufacturing/</td></tr>
+        </tbody>
+      </table>
+    </div>
     <h3>Src → live slug map</h3>
-    <table>
-      <thead><tr><th>Src slug</th><th>Live URL</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><span class="mono">3pl-logistics</span></td><td><span class="mono">/fulfillment/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">contract-manufacturing</span></td><td><span class="mono">/manufacturing/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">custom-formulation-and-testing</span></td><td><span class="mono">/product-testing/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">custom-product-development</span></td><td><span class="mono">/custom-projects/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">distribution-center</span></td><td><span class="mono">/distribution-center/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">ingredient-solutions</span></td><td><span class="mono">/ingredient-solutions/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">kitting-and-assembly</span></td><td><span class="mono">/kitting-and-assembly/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">new-product-development</span></td><td><span class="mono">/product-development/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">packaging-design</span></td><td><span class="mono">/packaging-design/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">powder-blending</span></td><td><span class="mono">/powder-blending/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">product-reformulation</span></td><td><span class="mono">/formulation/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">quality-and-compliance</span></td><td><span class="mono">/quality-compliance/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">startup-friendly-low-moqs</span></td><td><span class="mono">/low-moqs/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">turnkey-solutions</span></td><td><span class="mono">/turn-key-co-packing/</span></td><td class="good">synced</td></tr><tr><td><span class="mono">white-label</span></td><td><span class="mono">/white-label/</span></td><td class="good">synced</td></tr>
-      </tbody>
-    </table>
-    <p class="muted">Apply src to live site: <span class="mono">python tools/apply_v3_from_src.py</span></p>
+    <div class="status-table-wrap">
+      <table class="status-table">
+        <thead><tr><th scope="col">Src slug</th><th scope="col">Live URL</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>3pl-logistics</code></td><td><code>/fulfillment/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>contract-manufacturing</code></td><td><code>/manufacturing/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>custom-formulation-and-testing</code></td><td><code>/product-testing/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>custom-product-development</code></td><td><code>/custom-projects/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>distribution-center</code></td><td><code>/distribution-center/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>ingredient-solutions</code></td><td><code>/ingredient-solutions/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>kitting-and-assembly</code></td><td><code>/kitting-and-assembly/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>new-product-development</code></td><td><code>/product-development/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>packaging-design</code></td><td><code>/packaging-design/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>powder-blending</code></td><td><code>/powder-blending/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>product-reformulation</code></td><td><code>/formulation/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>quality-and-compliance</code></td><td><code>/quality-compliance/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>startup-friendly-low-moqs</code></td><td><code>/low-moqs/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>turnkey-solutions</code></td><td><code>/turn-key-co-packing/</code></td><td class="status-ok-label">synced</td></tr><tr><td><code>white-label</code></td><td><code>/white-label/</code></td><td class="status-ok-label">synced</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="status-muted">Apply src to live site: <code>python tools/apply_v3_from_src.py</code></p>
   </section>
 
 
-  <section id="regenerate">
+  <section id="regenerate" class="status-panel">
     <h2>Regenerate this dashboard</h2>
-    <p>From repo root:</p>
-    <p><span class="mono">python tools/refresh_seo_all.py</span></p>
-    <p class="muted">Runs SEO audit, hero index rebuild, and this status page in one step.</p>
+    <p class="status-detail">From repo root:</p>
+    <p><code>python tools/refresh_seo_all.py</code></p>
+    <p class="status-muted">Runs SEO audit, hero index rebuild, and this status page in one step.</p>
   </section>
 </body>
 </html>

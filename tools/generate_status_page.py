@@ -128,10 +128,10 @@ def hero_summary() -> dict:
 def render_deploy_section(deploy: dict) -> str:
     map_rows = []
     for row in deploy["mapping_rows"]:
-        cls = "good" if row["status"] == "synced" else "warn"
+        cls = "status-ok-label" if row["status"] == "synced" else "status-muted"
         map_rows.append(
-            f'<tr><td><span class="mono">{html.escape(row["src_slug"])}</span></td>'
-            f'<td><span class="mono">/{html.escape(row["live_slug"])}/</span></td>'
+            f'<tr><td><code>{html.escape(row["src_slug"])}</code></td>'
+            f'<td><code>/{html.escape(row["live_slug"])}/</code></td>'
             f'<td class="{cls}">{html.escape(row["status"])}</td></tr>'
         )
 
@@ -139,30 +139,33 @@ def render_deploy_section(deploy: dict) -> str:
     src_only = ", ".join(f"/{s}/" for s in deploy["src_only_pages"]) or "—"
 
     return f"""
-  <section id="src-deploy">
+  <section id="src-deploy" class="status-panel">
     <h2>Src deployment (v3)</h2>
-    <p>Design source: <strong>{html.escape(deploy["src_label"])}</strong> at <span class="mono">{html.escape(deploy["src_path"])}</span></p>
-    <table>
-      <tbody>
-        <tr><th>Deployment version ID</th><td><span class="mono">{html.escape(deploy["src_version_id"])}</span></td></tr>
-        <tr><th>Src last modified</th><td>{html.escape(deploy["src_last_modified"])}</td></tr>
-        <tr><th>Src pages</th><td>{deploy["src_page_count"]}</td></tr>
-        <tr><th>Live service pages</th><td>{deploy["live_service_count"]}</td></tr>
-        <tr><th>Live public pages</th><td>{deploy["live_public_count"]} (includes homepage)</td></tr>
-        <tr><th>Mapped slugs</th><td>{deploy["mapped_page_count"]}</td></tr>
-        <tr><th>Live-only pages</th><td>{html.escape(live_only)}</td></tr>
-        <tr><th>Src-only pages</th><td>{html.escape(src_only)}</td></tr>
-      </tbody>
-    </table>
-
+    <p class="status-detail">Design source: <strong>{html.escape(deploy["src_label"])}</strong> at <code>{html.escape(deploy["src_path"])}</code></p>
+    <div class="status-table-wrap">
+      <table class="status-table">
+        <tbody>
+          <tr><th scope="row">Deployment version ID</th><td><code>{html.escape(deploy["src_version_id"])}</code></td></tr>
+          <tr><th scope="row">Src last modified</th><td>{html.escape(deploy["src_last_modified"])}</td></tr>
+          <tr><th scope="row">Src pages</th><td>{deploy["src_page_count"]}</td></tr>
+          <tr><th scope="row">Live service pages</th><td>{deploy["live_service_count"]}</td></tr>
+          <tr><th scope="row">Live public pages</th><td>{deploy["live_public_count"]} (includes homepage)</td></tr>
+          <tr><th scope="row">Mapped slugs</th><td>{deploy["mapped_page_count"]}</td></tr>
+          <tr><th scope="row">Live-only pages</th><td>{html.escape(live_only)}</td></tr>
+          <tr><th scope="row">Src-only pages</th><td>{html.escape(src_only)}</td></tr>
+        </tbody>
+      </table>
+    </div>
     <h3>Src → live slug map</h3>
-    <table>
-      <thead><tr><th>Src slug</th><th>Live URL</th><th>Status</th></tr></thead>
-      <tbody>
-        {''.join(map_rows)}
-      </tbody>
-    </table>
-    <p class="muted">Apply src to live site: <span class="mono">python tools/apply_v3_from_src.py</span></p>
+    <div class="status-table-wrap">
+      <table class="status-table">
+        <thead><tr><th scope="col">Src slug</th><th scope="col">Live URL</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          {''.join(map_rows)}
+        </tbody>
+      </table>
+    </div>
+    <p class="status-muted">Apply src to live site: <code>python tools/apply_v3_from_src.py</code></p>
   </section>
 """
 
@@ -170,24 +173,23 @@ def render_deploy_section(deploy: dict) -> str:
 def render_hero_section(hero: dict) -> str:
     if not hero["exists"]:
         return """
-  <section id="hero-status">
+  <section id="hero-status" class="status-panel">
     <h2>Hero image library</h2>
-    <p class="bad">Hero index not generated. Run <span class="mono">python tools/rebuild_hero_index.py</span>.</p>
+    <p class="status-muted">Hero index not generated. Run <code>python tools/rebuild_hero_index.py</code>.</p>
   </section>
 """
     return f"""
-  <section id="hero-status">
+  <section id="hero-status" class="status-panel">
     <h2>Hero image library</h2>
-    <p><strong>{hero["service_count"]}</strong> service hero entries indexed from live page <span class="mono">picture</span> tags.</p>
+    <p class="status-detail"><strong>{hero["service_count"]}</strong> service hero entries indexed from live page <code>picture</code> tags.</p>
     <p><a href="./hero-images/">Open hero image library →</a></p>
-    <p class="muted">Regenerate: <span class="mono">python tools/rebuild_hero_index.py</span></p>
+    <p class="status-muted">Regenerate: <code>python tools/rebuild_hero_index.py</code></p>
   </section>
 """
 
 
 def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
-    now = deploy["generated_on"]
-    audit_date = json.loads(AUDIT_CACHE.read_text(encoding="utf-8"))["generated_on"] if AUDIT_CACHE.is_file() else "—"
+    from status_design import STATUS_CSS
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -195,165 +197,36 @@ def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Site Status - Propeller Co-Pack</title>
+  <title>SEO Status - Propeller Co-Pack</title>
   <style>
-    :root {{
-      --bg: #fff;
-      --surface: #f6f8fa;
-      --text: #1f2328;
-      --muted: #656d76;
-      --border: #d0d7de;
-      --accent: #0969da;
-      --good: #1a7f37;
-      --warn: #9a6700;
-      --bad: #cf222e;
-    }}
     * {{ box-sizing: border-box; }}
     body {{
       margin: 0 auto;
       max-width: 72rem;
-      padding: 2rem 1.25rem 3rem;
+      padding: 0 1.25rem 3rem;
       font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      color: #2c2c2c;
+      background: #fff;
     }}
-    h1 {{ margin: 0 0 0.35rem; font-size: 1.85rem; }}
-    h2 {{
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 1.2rem;
-    }}
-    h3 {{ margin: 1.25rem 0 0.5rem; font-size: 1.05rem; color: var(--text); }}
-    p {{ margin: 0 0 0.85rem; color: var(--muted); }}
-    p.muted {{ font-size: 0.92rem; }}
-    ul {{ margin: 0 0 1rem; padding-left: 1.25rem; color: var(--muted); }}
-    li {{ margin-bottom: 0.35rem; }}
-    a {{ color: var(--accent); }}
-    table {{
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.75rem 0 1rem;
-      font-size: 0.92rem;
-    }}
-    th, td {{
-      border: 1px solid var(--border);
-      padding: 0.5rem 0.6rem;
-      text-align: left;
-      vertical-align: top;
-    }}
-    th {{ background: var(--surface); width: 12rem; }}
-    thead th {{ width: auto; }}
-    .mono {{
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      background: var(--surface);
-      border-radius: 4px;
-      padding: 0.1em 0.35em;
-      font-size: 0.88em;
-    }}
-    .score {{
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 0.8rem 1rem;
-      background: var(--surface);
-      margin: 0.75rem 0 1rem;
-    }}
-    .big {{ font-size: 1.65rem; font-weight: 700; }}
-    .good {{ color: var(--good); }}
-    .warn {{ color: var(--warn); }}
-    .bad {{ color: var(--bad); }}
-    .nav {{
+    a {{ color: #0b3a5b; }}
+    .status-subnav {{
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem 1.25rem;
-      margin: 1rem 0 1.5rem;
+      margin: 0 0 1rem;
       padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #f7fbff;
+      border: 1px solid #e5e5e5;
       border-radius: 8px;
     }}
-    .nav a {{ text-decoration: none; font-weight: 600; }}
-    .nav a:hover {{ text-decoration: underline; }}
-    .meta-bar {{
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }}
-    .task-groups {{
-      display: grid;
-      gap: 0.85rem;
-      margin: 0.75rem 0 1.25rem;
-    }}
-    .task-group {{
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
-      background: var(--surface);
-    }}
-    .task-header {{
-      display: flex;
-      align-items: baseline;
-      gap: 0.65rem;
-      margin-bottom: 0.35rem;
-    }}
-    .task-priority {{
-      flex: 0 0 auto;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.1rem 0.45rem;
-    }}
-    .task-title {{
-      margin: 0;
-      font-size: 1rem;
-      color: var(--text);
-    }}
-    .task-summary {{
-      margin: 0 0 0.45rem;
-      color: var(--muted);
-    }}
-    .task-pages {{
-      margin: 0 0 0.55rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }}
-    .task-prompt {{
-      margin-top: 0.35rem;
-    }}
-    .task-prompt summary {{
-      cursor: pointer;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.92rem;
-    }}
-    .cursor-prompt {{
-      margin: 0.55rem 0 0;
-      padding: 0.75rem 0.85rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 0.82rem;
-      line-height: 1.45;
-      white-space: pre-wrap;
-      overflow-x: auto;
-    }}
+    .status-subnav a {{ text-decoration: none; font-weight: 600; }}
+    .status-subnav a:hover {{ text-decoration: underline; }}
+    {STATUS_CSS}
   </style>
 </head>
 <body>
-  <h1>Site status dashboard</h1>
-  <p class="meta-bar">Status generated: <strong>{html.escape(now)}</strong> · SEO audit date: <strong>{html.escape(audit_date)}</strong></p>
-
-  <nav class="nav" aria-label="Status sections">
-    <a href="#seo-status">SEO status</a>
+  <nav class="status-subnav" aria-label="Status sections">
+    <a href="#status-dashboard">SEO dashboard</a>
     <a href="#hero-status">Hero library</a>
     <a href="./hero-images/">Hero images</a>
     <a href="#src-deploy">Src deployment</a>
@@ -363,11 +236,11 @@ def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
 {render_hero_section(hero)}
 {render_deploy_section(deploy)}
 
-  <section id="regenerate">
+  <section id="regenerate" class="status-panel">
     <h2>Regenerate this dashboard</h2>
-    <p>From repo root:</p>
-    <p><span class="mono">python tools/refresh_seo_all.py</span></p>
-    <p class="muted">Runs SEO audit, hero index rebuild, and this status page in one step.</p>
+    <p class="status-detail">From repo root:</p>
+    <p><code>python tools/refresh_seo_all.py</code></p>
+    <p class="status-muted">Runs SEO audit, hero index rebuild, and this status page in one step.</p>
   </section>
 </body>
 </html>
