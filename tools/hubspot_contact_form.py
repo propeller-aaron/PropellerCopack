@@ -9,6 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 HUBSPOT_SCRIPT = (
     '<script src="https://js-na2.hsforms.net/forms/embed/246245836.js" defer></script>'
 )
+HUBSPOT_TRACKING_SCRIPT = """<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246245836.js"></script>
+<!-- End of HubSpot Embed Code -->"""
 HUBSPOT_FRAME = (
     '<div class="hs-form-frame" data-region="na2" '
     'data-form-id="892ca546-e4a6-4194-84a9-995725d68f76" '
@@ -78,6 +81,14 @@ def replace_form_script(html: str, *, is_root: bool) -> tuple[str, bool]:
         html = html.replace(
             "<!-- Additional JS END -->",
             f"{HUBSPOT_SCRIPT}\n<!-- Additional JS END -->",
+            1,
+        )
+        changed = True
+
+    if "hs-script-loader" not in html:
+        html = html.replace(
+            "<!-- Additional JS END -->",
+            f"{HUBSPOT_TRACKING_SCRIPT}\n<!-- Additional JS END -->",
             1,
         )
         changed = True

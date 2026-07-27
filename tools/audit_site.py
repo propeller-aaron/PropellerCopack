@@ -50,6 +50,8 @@ def audit_page(path: Path) -> list[str]:
         issues.append("missing HubSpot contact form")
     if "js-na2.hsforms.net/forms/embed/246245836.js" not in text:
         issues.append("missing HubSpot form script")
+    if "js-na2.hs-scripts.com/246245836.js" not in text:
+        issues.append("missing HubSpot tracking embed")
     if 'alt="Blending"' in text and "powder-blending" not in rel:
         issues.append('hero alt still "Blending"')
     if "Contact3." not in text:

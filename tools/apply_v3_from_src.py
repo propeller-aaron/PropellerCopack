@@ -31,6 +31,7 @@ from hubspot_contact_form import (  # noqa: E402
     CONTACT_BLOCK,
     HOMEPAGE_FORM_INNER,
     HUBSPOT_SCRIPT,
+    HUBSPOT_TRACKING_SCRIPT,
     apply_to_html,
 )
 
@@ -58,6 +59,7 @@ ROOT_SCRIPTS = f"""<!-- Additional JS --><script src="./js/jquery.min.js"></scri
 <script src="./js/bootstrap.bundle.min.js?3128"></script>
 <script src="./js/blocs.min.js?2597"></script>
 {HUBSPOT_SCRIPT}
+{HUBSPOT_TRACKING_SCRIPT}
 <script src="./js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->"""
 
@@ -67,6 +69,7 @@ INNER_SCRIPTS = f"""<!-- Additional JS --><script src="../js/jquery.min.js"></sc
 <script src="../js/bootstrap.bundle.min.js?3128"></script>
 <script src="../js/blocs.min.js?2597"></script>
 {HUBSPOT_SCRIPT}
+{HUBSPOT_TRACKING_SCRIPT}
 <script src="../js/lazysizes.min.js" defer></script>
 <!-- Additional JS END -->"""
 
