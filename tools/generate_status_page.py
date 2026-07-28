@@ -249,6 +249,7 @@ def build_page(deploy: dict, seo: dict, hero: dict) -> str:
       <ul class="status-nav">{build_nav_html(counts)}</ul>
       <div class="status-sidebar-footer">
         <p>Generated {html.escape(seo["generated"])}</p>
+        <p><a href="./executive-summary/">Plain-English summary →</a></p>
         <p>Regenerate everything:</p>
         <code>python tools/refresh_seo_all.py</code>
       </div>

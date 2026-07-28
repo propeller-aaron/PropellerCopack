@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Website Health Report — Propeller Co-Pack</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1.25rem 3rem;
+    background: #f4f7fa;
+    font: 19px/1.6 "Segoe UI", system-ui, sans-serif;
+    color: #24303d;
+  }
+  .exec-shell {
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+  .exec-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.6rem;
+    color: #0b3a5b;
+  }
+  .exec-sub {
+    margin: 0 0 1.75rem;
+    color: #5b6b7a;
+    font-size: 1rem;
+  }
+  .exec-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: 14px;
+    background: #fff;
+    border: 2px solid #0b3a5b;
+    margin-bottom: 1.75rem;
+  }
+  .exec-banner-emoji {
+    font-size: 2.75rem;
+    line-height: 1;
+  }
+  .exec-banner-label {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0b3a5b;
+  }
+  .exec-banner-score {
+    margin: 0.2rem 0 0;
+    color: #5b6b7a;
+    font-size: 1.05rem;
+  }
+  .exec-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .exec-stat {
+    background: #fff;
+    border: 1px solid #e2e8ef;
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+  }
+  .exec-stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0b3a5b;
+  }
+  .exec-stat-label {
+    display: block;
+    margin-top: 0.15rem;
+    color: #5b6b7a;
+    font-size: 0.95rem;
+  }
+  .exec-section {
+    background: #fff;
+    border: 1px solid #e2e8ef;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .exec-section h2 {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    color: #0b3a5b;
+  }
+  .exec-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .exec-list li {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 1.9rem;
+    border-bottom: 1px solid #eef2f6;
+  }
+  .exec-list li:last-child {
+    border-bottom: 0;
+  }
+  .exec-attention li::before {
+    content: "⚠️";
+    position: absolute;
+    left: 0;
+  }
+  .exec-attention.exec-list-clear li::before {
+    content: "✅";
+  }
+  .exec-working li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+  }
+  .exec-footer {
+    color: #5b6b7a;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .exec-footer a {
+    color: #0b3a5b;
+  }
+  @media (max-width: 560px) {
+    body { font-size: 17px; padding: 1.25rem 1rem 2.5rem; }
+    .exec-banner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+  <div class="exec-shell">
+    <p class="exec-title">Propeller Co-Pack — Website Health Report</p>
+    <p class="exec-sub">A plain-English summary, prepared July 28, 2026.</p>
+
+    <div class="exec-banner">
+      <span class="exec-banner-emoji">✅</span>
+      <div>
+        <p class="exec-banner-label">Overall: Good</p>
+        <p class="exec-banner-score">Score: 86 out of 100</p>
+      </div>
+    </div>
+
+    <div class="exec-stats">
+      <div class="exec-stat">
+        <span class="exec-stat-value">24</span>
+        <span class="exec-stat-label">pages on the website checked</span>
+      </div>
+      <div class="exec-stat">
+        <span class="exec-stat-value">1</span>
+        <span class="exec-stat-label">pages in great shape already</span>
+      </div>
+      <div class="exec-stat">
+        <span class="exec-stat-value">23</span>
+        <span class="exec-stat-label">pages with room to improve</span>
+      </div>
+    </div>
+
+    <div class="exec-section">
+      <h2>What needs attention</h2>
+      <ul class="exec-list exec-attention"><li><strong>23 pages</strong> have less written content than recommended. Adding more detail to these pages could help them rank better in search.</li><li><strong>3 pages</strong> are hard for search engines to discover because few other pages link to them.</li></ul>
+    </div>
+
+    <div class="exec-section">
+      <h2>What's working well</h2>
+      <ul class="exec-list exec-working"><li>Search engines are allowed to visit the website</li><li>The website provides search engines a map of all its pages</li><li>Every page on the website is online and loading correctly</li><li>Pages link to each other well, making the site easy to navigate</li><li>Every page has the descriptive information search engines look for</li></ul>
+    </div>
+
+    <p class="exec-footer">
+      This report is generated automatically from the website's SEO monitoring tool.<br>
+      Questions? Contact Aaron at <a href="mailto:aaron@propellerinc.com">aaron@propellerinc.com</a>.
+    </p>
+  </div>
+</body>
+</html>

@@ -20,6 +20,7 @@ def main() -> None:
     run("sync_hero_from_src.py")
     run("rebuild_hero_index.py")
     run("generate_status_page.py")
+    run("generate_exec_summary.py")
     print("\nAll status artifacts regenerated.")
 
 
