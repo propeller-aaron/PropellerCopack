@@ -97,6 +97,23 @@ body {
   color: #0b3a5b;
 }
 
+.status-nav-divider {
+  height: 1px;
+  margin: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.15);
+  list-style: none;
+}
+
+.status-nav-link {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.status-nav-arrow {
+  color: #9db9cf;
+  font-size: 0.85rem;
+}
+
 .status-sidebar-footer {
   margin-top: auto;
   padding-top: 1rem;
@@ -215,6 +232,10 @@ body {
 
   .status-nav-btn {
     white-space: nowrap;
+  }
+
+  .status-nav-divider {
+    display: none;
   }
 
   .status-sidebar-footer {

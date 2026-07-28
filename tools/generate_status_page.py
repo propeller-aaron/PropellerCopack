@@ -206,6 +206,11 @@ def build_nav_html(counts: dict) -> str:
             f'<li><button type="button" class="status-nav-btn" data-tab-target="{tab_id}">'
             f"<span>{html.escape(label)}</span>{count_html}</button></li>"
         )
+    items.append(
+        '<li class="status-nav-divider" role="separator"></li>'
+        '<li><a class="status-nav-btn status-nav-link" href="./executive-summary/">'
+        "<span>Plain-English summary</span><span class=\"status-nav-arrow\" aria-hidden=\"true\">↗</span></a></li>"
+    )
     return "".join(items)
 
 
@@ -249,7 +254,6 @@ def build_page(deploy: dict, seo: dict, hero: dict) -> str:
       <ul class="status-nav">{build_nav_html(counts)}</ul>
       <div class="status-sidebar-footer">
         <p>Generated {html.escape(seo["generated"])}</p>
-        <p><a href="./executive-summary/">Plain-English summary →</a></p>
         <p>Regenerate everything:</p>
         <code>python tools/refresh_seo_all.py</code>
       </div>

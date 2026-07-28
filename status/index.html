@@ -113,6 +113,23 @@ body {
   color: #0b3a5b;
 }
 
+.status-nav-divider {
+  height: 1px;
+  margin: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.15);
+  list-style: none;
+}
+
+.status-nav-link {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.status-nav-arrow {
+  color: #9db9cf;
+  font-size: 0.85rem;
+}
+
 .status-sidebar-footer {
   margin-top: auto;
   padding-top: 1rem;
@@ -231,6 +248,10 @@ body {
 
   .status-nav-btn {
     white-space: nowrap;
+  }
+
+  .status-nav-divider {
+    display: none;
   }
 
   .status-sidebar-footer {
@@ -1208,10 +1229,9 @@ body.status-modal-open {
         <span class="status-brand-title">Propeller Co-Pack</span>
         <span class="status-brand-sub">Site status dashboard</span>
       </a>
-      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li></ul>
+      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li><li class="status-nav-divider" role="separator"></li><li><a class="status-nav-btn status-nav-link" href="./executive-summary/"><span>Plain-English summary</span><span class="status-nav-arrow" aria-hidden="true">↗</span></a></li></ul>
       <div class="status-sidebar-footer">
         <p>Generated July 28, 2026</p>
-        <p><a href="./executive-summary/">Plain-English summary →</a></p>
         <p>Regenerate everything:</p>
         <code>python tools/refresh_seo_all.py</code>
       </div>
