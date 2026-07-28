@@ -9,7 +9,6 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-from status_design import STATUS_JS
 from status_metrics import ISSUE_LABELS, build_metric_catalog, metric_trigger, safe_json_for_script
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -567,12 +566,7 @@ def build_donut_style(severity_counts: dict[str, int], total: int) -> str:
     return f"conic-gradient({', '.join(stops)})"
 
 
-def build_status_dashboard_html(report: dict, metrics: dict) -> str:
-    max_issue_count = metrics["topIssues"][0][1] if metrics["topIssues"] else 1
-    donut_style = build_donut_style(metrics["severityCounts"], metrics["severityTotal"])
-    health_total = metrics["pagesWithIssues"] + metrics["cleanPages"] or 1
-    clean_pct = round((metrics["cleanPages"] / health_total) * 100)
-
+def build_status_hero_html(report: dict, metrics: dict) -> str:
     kpi_cards = []
     for kpi in [
         ("kpi-total-findings", "Total findings", len(report["findings"]), f"{metrics['severityCounts']['high']} high priority", min(100, len(report["findings"]) / 1.5), "warn"),
@@ -595,6 +589,34 @@ def build_status_dashboard_html(report: dict, metrics: dict) -> str:
                 "status-kpi-trigger",
             )
         )
+
+    return f"""<section class="status-dashboard" id="status-dashboard" aria-label="SEO dashboard">
+    <div class="status-dashboard-hero">
+      {metric_trigger("seo-score", f'''<span class="status-odometer-card">
+        <span class="status-odometer-kicker">Current SEO score</span>
+        {build_odometer_html(metrics["currentScore"], variant="score")}
+        <span class="status-odometer-caption">out of 100 · click for details</span>
+      </span>''', "status-hero-trigger")}
+      {metric_trigger("improvement-headroom", f'''<span class="status-odometer-card status-odometer-card-gain">
+        <span class="status-odometer-kicker">Improvement headroom</span>
+        {build_odometer_html(metrics["improvement"], variant="gain", prefix="+")}
+        <span class="status-odometer-caption">points available if issues are fixed</span>
+      </span>''', "status-hero-trigger")}
+      {metric_trigger("score-vs-optimal", f'''<span class="status-gauge-card">
+        <span class="status-odometer-kicker">Score vs optimal</span>
+        {build_gauge_svg(metrics["currentScore"], metrics["potentialScore"])}
+        <span class="status-odometer-caption">{metrics["improvement"]} points to reach {metrics["potentialScore"]}</span>
+      </span>''', "status-hero-trigger")}
+    </div>
+    <div class="status-kpi-grid" aria-label="Key performance indicators">{''.join(kpi_cards)}</div>
+  </section>"""
+
+
+def build_status_charts_html(report: dict, metrics: dict) -> str:
+    max_issue_count = metrics["topIssues"][0][1] if metrics["topIssues"] else 1
+    donut_style = build_donut_style(metrics["severityCounts"], metrics["severityTotal"])
+    health_total = metrics["pagesWithIssues"] + metrics["cleanPages"] or 1
+    clean_pct = round((metrics["cleanPages"] / health_total) * 100)
 
     severity_legend = []
     for key, label, color in [
@@ -630,26 +652,7 @@ def build_status_dashboard_html(report: dict, metrics: dict) -> str:
             )
         )
 
-    return f"""<section class="status-dashboard" id="status-dashboard" aria-label="SEO dashboard">
-    <div class="status-dashboard-hero">
-      {metric_trigger("seo-score", f'''<span class="status-odometer-card">
-        <span class="status-odometer-kicker">Current SEO score</span>
-        {build_odometer_html(metrics["currentScore"], variant="score")}
-        <span class="status-odometer-caption">out of 100 · click for details</span>
-      </span>''', "status-hero-trigger")}
-      {metric_trigger("improvement-headroom", f'''<span class="status-odometer-card status-odometer-card-gain">
-        <span class="status-odometer-kicker">Improvement headroom</span>
-        {build_odometer_html(metrics["improvement"], variant="gain", prefix="+")}
-        <span class="status-odometer-caption">points available if issues are fixed</span>
-      </span>''', "status-hero-trigger")}
-      {metric_trigger("score-vs-optimal", f'''<span class="status-gauge-card">
-        <span class="status-odometer-kicker">Score vs optimal</span>
-        {build_gauge_svg(metrics["currentScore"], metrics["potentialScore"])}
-        <span class="status-odometer-caption">{metrics["improvement"]} points to reach {metrics["potentialScore"]}</span>
-      </span>''', "status-hero-trigger")}
-    </div>
-    <div class="status-kpi-grid" aria-label="Key performance indicators">{''.join(kpi_cards)}</div>
-    <div class="status-charts-grid">
+    return f"""<div class="status-charts-grid">
       <article class="status-chart-panel">
         <h3>Findings by severity</h3>
         <div class="status-donut-wrap">
@@ -678,8 +681,7 @@ def build_status_dashboard_html(report: dict, metrics: dict) -> str:
           </ul>
         </div>
       </article>
-    </div>
-  </section>"""
+    </div>"""
 
 
 def build_status_checks(site_checks: list[dict]) -> str:
@@ -797,20 +799,15 @@ def build_status_modal_html() -> str:
 </div>"""
 
 
-def render_report(audit: dict) -> str:
+def build_seo_sections(audit: dict) -> dict:
+    """Build the SEO report as separate tab-panel sections plus shared modal/script assets."""
     report = build_report_model(audit)
     metrics = build_dashboard_metrics(report)
     metric_catalog = build_metric_catalog(report, metrics)
     generated = format_display_date(report["generatedAt"])
 
-    return f"""<div class="status-shell">
-  <header class="status-header">
-    <div>
-      <p class="status-kicker">Internal tooling · not indexed</p>
-      <p class="status-meta">Generated {html.escape(generated)} · {len(report["pageReports"])} pages · {len(report["findings"])} findings · click any metric for culprits and fix prompts</p>
-    </div>
-  </header>
-  {build_status_dashboard_html(report, metrics)}
+    overview_html = f"""
+  {build_status_hero_html(report, metrics)}
   <section class="status-grid" aria-label="Site metrics">
     {metric_trigger("metric-site-pagerank", f'<span class="status-card"><span class="status-card-heading">Site PageRank</span><span class="status-metric">{report["pageRank"]["siteToolbar"]}/10</span><span class="status-detail">Simulated sitewide authority</span></span>', "status-card-trigger")}
     {metric_trigger("metric-home-pagerank", f'<span class="status-card"><span class="status-card-heading">Home PageRank</span><span class="status-metric">{report["pageRank"]["homeToolbar"]}/10</span><span class="status-detail">Homepage toolbar score</span></span>', "status-card-trigger")}
@@ -818,9 +815,16 @@ def render_report(audit: dict) -> str:
     {metric_trigger("metric-content-files", f'<span class="status-card"><span class="status-card-heading">Content pages</span><span class="status-metric">{report["fileCount"]}</span><span class="status-detail">{report["summary"]["thinContent"]} thin-content pages</span></span>', "status-card-trigger")}
   </section>
   <section class="status-panel"><h2>Site checks</h2><ul class="status-checks">{build_status_checks(report["siteChecks"])}</ul></section>
+"""
+
+    findings_html = f"""
+  {build_status_charts_html(report, metrics)}
   <section class="status-panel"><h2>Summary</h2><div class="status-summary">{build_status_summary(report["summary"])}</div></section>
   <section class="status-panel"><h2>Top PageRank pages</h2><ul class="status-rank-list">{build_status_rank_list(report["pageRank"]["topPages"])}</ul></section>
   <section class="status-panel"><h2>Global improvement prompts</h2><div class="status-prompts">{build_status_prompts(report["prompts"])}</div></section>
+"""
+
+    pages_html = f"""
   <section class="status-panel status-pages">
     <div class="status-pages-head">
       <h2>Page-by-page suggestions</h2>
@@ -833,10 +837,24 @@ def render_report(audit: dict) -> str:
       </table>
     </div>
   </section>
+"""
+
+    shared_html = f"""
   {build_status_modal_html()}
   <script type="application/json" id="status-metrics-json">{safe_json_for_script(metric_catalog)}</script>
-  <script>{STATUS_JS}</script>
-</div>"""
+"""
+
+    return {
+        "overview_html": overview_html,
+        "findings_html": findings_html,
+        "pages_html": pages_html,
+        "shared_html": shared_html,
+        "generated": generated,
+        "page_count": len(report["pageReports"]),
+        "finding_count": len(report["findings"]),
+        "score": metrics["currentScore"],
+        "high_findings": metrics["severityCounts"]["high"],
+    }
 
 
 def load_audit() -> dict:
@@ -845,7 +863,10 @@ def load_audit() -> dict:
 
 def main() -> None:
     audit = load_audit()
-    print(render_report(audit))
+    sections = build_seo_sections(audit)
+    print(sections["overview_html"])
+    print(sections["findings_html"])
+    print(sections["pages_html"])
 
 
 if __name__ == "__main__":

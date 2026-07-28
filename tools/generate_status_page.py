@@ -188,8 +188,37 @@ def render_hero_section(hero: dict) -> str:
 """
 
 
-def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
-    from status_design import STATUS_CSS
+NAV_ITEMS = [
+    ("overview", "Overview"),
+    ("findings", "Findings"),
+    ("pages", "Pages"),
+    ("deployment", "Deployment"),
+    ("hero-library", "Hero library"),
+]
+
+
+def build_nav_html(counts: dict) -> str:
+    items = []
+    for tab_id, label in NAV_ITEMS:
+        count = counts.get(tab_id)
+        count_html = f'<span class="status-nav-count">{count}</span>' if count is not None else ""
+        items.append(
+            f'<li><button type="button" class="status-nav-btn" data-tab-target="{tab_id}">'
+            f"<span>{html.escape(label)}</span>{count_html}</button></li>"
+        )
+    return "".join(items)
+
+
+def build_page(deploy: dict, seo: dict, hero: dict) -> str:
+    from status_design import STATUS_CSS, STATUS_JS
+
+    counts = {
+        "overview": seo["page_count"],
+        "findings": seo["finding_count"],
+        "pages": seo["page_count"],
+        "deployment": deploy["mapped_page_count"],
+        "hero-library": hero["service_count"] if hero["exists"] else None,
+    }
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -201,60 +230,66 @@ def build_page(deploy: dict, seo_html: str, hero: dict) -> str:
   <style>
     * {{ box-sizing: border-box; }}
     body {{
-      margin: 0 auto;
-      max-width: 72rem;
-      padding: 0 1.25rem 3rem;
+      margin: 0;
       font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
       color: #2c2c2c;
       background: #fff;
     }}
     a {{ color: #0b3a5b; }}
-    .status-subnav {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      margin: 0 0 1rem;
-      padding: 0.75rem 1rem;
-      background: #f7fbff;
-      border: 1px solid #e5e5e5;
-      border-radius: 8px;
-    }}
-    .status-subnav a {{ text-decoration: none; font-weight: 600; }}
-    .status-subnav a:hover {{ text-decoration: underline; }}
     {STATUS_CSS}
   </style>
 </head>
 <body>
-  <nav class="status-subnav" aria-label="Status sections">
-    <a href="#status-dashboard">SEO dashboard</a>
-    <a href="#hero-status">Hero library</a>
-    <a href="./hero-images/">Hero images</a>
-    <a href="#src-deploy">Src deployment</a>
-  </nav>
-
-{seo_html}
-{render_hero_section(hero)}
-{render_deploy_section(deploy)}
-
-  <section id="regenerate" class="status-panel">
-    <h2>Regenerate this dashboard</h2>
-    <p class="status-detail">From repo root:</p>
-    <p><code>python tools/refresh_seo_all.py</code></p>
-    <p class="status-muted">Runs SEO audit, hero index rebuild, and this status page in one step.</p>
-  </section>
+  <div class="status-app">
+    <aside class="status-sidebar">
+      <a class="status-brand" href="#overview">
+        <span class="status-brand-title">Propeller Co-Pack</span>
+        <span class="status-brand-sub">Site status dashboard</span>
+      </a>
+      <ul class="status-nav">{build_nav_html(counts)}</ul>
+      <div class="status-sidebar-footer">
+        <p>Generated {html.escape(seo["generated"])}</p>
+        <p>Regenerate everything:</p>
+        <code>python tools/refresh_seo_all.py</code>
+      </div>
+    </aside>
+    <main class="status-main">
+      <header class="status-topbar">
+        <div>
+          <p class="status-topbar-title">Internal tooling · not indexed</p>
+          <p class="status-topbar-meta">{seo["page_count"]} pages · {seo["finding_count"]} findings · click any metric for culprits and fix prompts</p>
+        </div>
+        <div class="status-topbar-score">
+          <span class="status-topbar-score-value">{seo["score"]}</span>
+          <span class="status-topbar-score-label">SEO score /100</span>
+        </div>
+      </header>
+      <div class="status-panels">
+        <div class="status-shell">
+          <section class="status-tab-panel" data-tab-panel="overview" tabindex="-1">{seo["overview_html"]}</section>
+          <section class="status-tab-panel" data-tab-panel="findings" tabindex="-1">{seo["findings_html"]}</section>
+          <section class="status-tab-panel" data-tab-panel="pages" tabindex="-1">{seo["pages_html"]}</section>
+          <section class="status-tab-panel" data-tab-panel="deployment" tabindex="-1">{render_deploy_section(deploy)}</section>
+          <section class="status-tab-panel" data-tab-panel="hero-library" tabindex="-1">{render_hero_section(hero)}</section>
+          {seo["shared_html"]}
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>{STATUS_JS}</script>
 </body>
 </html>
 """
 
 
 def main() -> None:
-    from generate_seo_report import load_audit, render_report
+    from generate_seo_report import build_seo_sections, load_audit
 
     deploy = deploy_status()
     hero = hero_summary()
-    seo_html = render_report(load_audit())
+    seo = build_seo_sections(load_audit())
     STATUS_HTML.parent.mkdir(parents=True, exist_ok=True)
-    STATUS_HTML.write_text(build_page(deploy, seo_html, hero), encoding="utf-8")
+    STATUS_HTML.write_text(build_page(deploy, seo, hero), encoding="utf-8")
     print(f"wrote {STATUS_HTML.relative_to(ROOT)}")
     print(f"wrote {DEPLOY_CACHE.relative_to(ROOT)}")
 
