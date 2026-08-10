@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-07-28",
+  "generated_on": "2026-08-10",
   "page_count": 24,
   "rows": [
     {
@@ -261,7 +261,7 @@
     {
       "slug": "/kitting-and-assembly/",
       "title_text": "Kitting and Assembly | Propeller Co-Pack",
-      "description_text": "Custom projects and small-batch production for growing brands. Propeller Co-Pack Utah co-packer.",
+      "description_text": "Kitting and assembly services for marketing kits, product launches, and fulfillment needs. Propeller Co-Pack delivers accurate, scalable execution in Utah.",
       "canonical_path": "/kitting-and-assembly/",
       "title_present": true,
       "description_present": true,
@@ -632,7 +632,7 @@
     ]
   ],
   "live_checks": {
-    "total": 23,
+    "total": 24,
     "bad_count": 0,
     "results": [
       {
@@ -747,6 +747,11 @@
       },
       {
         "url": "https://propellercopack.com/turn-key-co-packing/",
+        "status": 200,
+        "error": ""
+      },
+      {
+        "url": "https://propellercopack.com/kitting-and-assembly/",
         "status": 200,
         "error": ""
       }

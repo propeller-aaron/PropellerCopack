@@ -370,4 +370,18 @@
 	<image:title>Turn-Key</image:title>
 	</image:image>
 </url>
+<url>
+	<loc>https://propellercopack.com/kitting-and-assembly/</loc>
+	<lastmod>2026-08-10</lastmod>
+	<changefreq>Weekly</changefreq>
+	<priority>0.5</priority>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Kitting%20and%20Assembly.png</image:loc>
+	<image:title>Kitting and Assembly</image:title>
+	</image:image>
+	<image:image>
+	<image:loc>https://propellercopack.com/img/Kitting%20and%20Assembly.webp</image:loc>
+	<image:title>Kitting and Assembly</image:title>
+	</image:image>
+</url>
 </urlset>
