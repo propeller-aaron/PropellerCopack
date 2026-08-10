@@ -505,6 +505,32 @@ body {
   font-size: 0.82rem;
 }
 
+.status-changelog {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.status-changelog-entry {
+  padding-left: 1rem;
+  border-left: 3px solid #0b3a5b;
+}
+
+.status-changelog-date {
+  margin: 0 0 0.2rem;
+  color: #666;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-changelog-entry h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: #0b3a5b;
+}
+
 .status-ok-label {
   color: #1b7f3b;
   font-weight: 600;

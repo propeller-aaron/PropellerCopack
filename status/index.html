@@ -521,6 +521,32 @@ body {
   font-size: 0.82rem;
 }
 
+.status-changelog {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.status-changelog-entry {
+  padding-left: 1rem;
+  border-left: 3px solid #0b3a5b;
+}
+
+.status-changelog-date {
+  margin: 0 0 0.2rem;
+  color: #666;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-changelog-entry h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: #0b3a5b;
+}
+
 .status-ok-label {
   color: #1b7f3b;
   font-weight: 600;
@@ -1229,7 +1255,7 @@ body.status-modal-open {
         <span class="status-brand-title">Propeller Co-Pack</span>
         <span class="status-brand-sub">Site status dashboard</span>
       </a>
-      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li><li class="status-nav-divider" role="separator"></li><li><a class="status-nav-btn status-nav-link" href="./executive-summary/"><span>Plain-English summary</span><span class="status-nav-arrow" aria-hidden="true">↗</span></a></li></ul>
+      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="changelog"><span>Changelog</span><span class="status-nav-count">1</span></button></li><li class="status-nav-divider" role="separator"></li><li><a class="status-nav-btn status-nav-link" href="./executive-summary/"><span>Plain-English summary</span><span class="status-nav-arrow" aria-hidden="true">↗</span></a></li></ul>
       <div class="status-sidebar-footer">
         <p>Generated August 10, 2026</p>
         <p>Regenerate everything:</p>
@@ -1422,6 +1448,19 @@ body.status-modal-open {
     <p class="status-detail"><strong>23</strong> service hero entries indexed from live page <code>picture</code> tags.</p>
     <p><a href="./hero-images/">Open hero image library →</a></p>
     <p class="status-muted">Regenerate: <code>python tools/rebuild_hero_index.py</code></p>
+  </section>
+</section>
+          <section class="status-tab-panel" data-tab-panel="changelog" tabindex="-1">
+  <section class="status-panel">
+    <h2>Changelog</h2>
+    <p class="status-detail">Notable fixes and investigations, most recent first.</p>
+    <div class="status-changelog">
+    <div class="status-changelog-entry">
+      <p class="status-changelog-date">2026-08-10</p>
+      <h3>Fixed Google Search Console indexing issues</h3>
+      <p class="status-detail">Aaron shared a Google Search Console coverage export (propellercopack.com-Coverage-2026-08-10.xlsx) flagging two critical issues: 1 page with a redirect and 1 page “Crawled – currently not indexed.” Root cause: kitting-and-assembly/ was cloned from custom-projects/ and its meta description, og:title/description, and twitter:title/description tags were never updated, so Google treated it as duplicate content of an already-indexed page. It was also missing from sitemap.xml despite being linked from the homepage, so Google only discovered it through inconsistent URL forms. Fixed by giving the page unique meta/social tags and adding it to sitemap.xml with its own hero image entries. The http/www/non-trailing-slash redirects Google also reported were checked and confirmed to be correct canonicalization, not bugs — no action needed there.</p>
+    </div>
+</div>
   </section>
 </section>
           

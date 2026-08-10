@@ -194,7 +194,38 @@ NAV_ITEMS = [
     ("pages", "Pages"),
     ("deployment", "Deployment"),
     ("hero-library", "Hero library"),
+    ("changelog", "Changelog"),
 ]
+
+
+def render_changelog_section() -> str:
+    from status_changelog import CHANGELOG_ENTRIES
+
+    if not CHANGELOG_ENTRIES:
+        return """
+  <section class="status-panel">
+    <h2>Changelog</h2>
+    <p class="status-muted">No entries yet.</p>
+  </section>
+"""
+
+    entries_html = "".join(
+        f"""
+    <div class="status-changelog-entry">
+      <p class="status-changelog-date">{html.escape(entry["date"])}</p>
+      <h3>{html.escape(entry["title"])}</h3>
+      <p class="status-detail">{html.escape(entry["detail"])}</p>
+    </div>
+"""
+        for entry in CHANGELOG_ENTRIES
+    )
+    return f"""
+  <section class="status-panel">
+    <h2>Changelog</h2>
+    <p class="status-detail">Notable fixes and investigations, most recent first.</p>
+    <div class="status-changelog">{entries_html}</div>
+  </section>
+"""
 
 
 def build_nav_html(counts: dict) -> str:
@@ -217,12 +248,15 @@ def build_nav_html(counts: dict) -> str:
 def build_page(deploy: dict, seo: dict, hero: dict) -> str:
     from status_design import STATUS_CSS, STATUS_JS
 
+    from status_changelog import CHANGELOG_ENTRIES
+
     counts = {
         "overview": seo["page_count"],
         "findings": seo["finding_count"],
         "pages": seo["page_count"],
         "deployment": deploy["mapped_page_count"],
         "hero-library": hero["service_count"] if hero["exists"] else None,
+        "changelog": len(CHANGELOG_ENTRIES) or None,
     }
 
     return f"""<!DOCTYPE html>
@@ -276,6 +310,7 @@ def build_page(deploy: dict, seo: dict, hero: dict) -> str:
           <section class="status-tab-panel" data-tab-panel="pages" tabindex="-1">{seo["pages_html"]}</section>
           <section class="status-tab-panel" data-tab-panel="deployment" tabindex="-1">{render_deploy_section(deploy)}</section>
           <section class="status-tab-panel" data-tab-panel="hero-library" tabindex="-1">{render_hero_section(hero)}</section>
+          <section class="status-tab-panel" data-tab-panel="changelog" tabindex="-1">{render_changelog_section()}</section>
           {seo["shared_html"]}
         </div>
       </div>
