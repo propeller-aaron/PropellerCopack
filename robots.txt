@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /seo/
 Disallow: /status/
+Disallow: /discovery-questionnaire/
 
 Sitemap: https://propellercopack.com/sitemap.xml
