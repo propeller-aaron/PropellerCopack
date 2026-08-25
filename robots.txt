@@ -3,5 +3,6 @@ Allow: /
 Disallow: /seo/
 Disallow: /status/
 Disallow: /discovery-questionnaire/
+Disallow: /formulation-brief/
 
 Sitemap: https://propellercopack.com/sitemap.xml
