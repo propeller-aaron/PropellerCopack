@@ -569,6 +569,86 @@ body {
   color: #2c2c2c;
 }
 
+.status-drafts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.status-draft-card {
+  padding: 1rem 1.1rem;
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #0b3a5b;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.status-draft-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.status-draft-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0b3a5b;
+}
+
+.status-draft-word-count {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eef4fa;
+  color: #0b3a5b;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-draft-body p {
+  margin: 0 0 0.65rem;
+  color: #2c2c2c;
+}
+
+.status-draft-body p:last-child {
+  margin-bottom: 0;
+}
+
+.status-draft-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.status-draft-copy {
+  border: 1px solid #0b3a5b;
+  background: #fff;
+  color: #0b3a5b;
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-draft-copy:hover,
+.status-draft-copy:focus-visible {
+  background: #0b3a5b;
+  color: #fff;
+}
+
+.status-draft-copy-feedback {
+  color: #1b7f3b;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .status-dashboard {
   margin-bottom: 1.5rem;
 }
@@ -1362,6 +1442,35 @@ STATUS_JS = r"""
       if (copyFeedback) copyFeedback.hidden = false;
     });
   }
+
+  document.addEventListener("click", function (event) {
+    var draftCopyBtn = event.target.closest("[data-copy-source]");
+    if (!draftCopyBtn) return;
+    var source = document.getElementById(draftCopyBtn.getAttribute("data-copy-source"));
+    if (!source) return;
+    var text = source.innerText || source.textContent || "";
+    var feedback = draftCopyBtn.parentElement
+      ? draftCopyBtn.parentElement.querySelector(".status-draft-copy-feedback")
+      : null;
+    function showFeedback() {
+      if (!feedback) return;
+      feedback.hidden = false;
+      window.setTimeout(function () {
+        feedback.hidden = true;
+      }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showFeedback);
+      return;
+    }
+    var area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    document.body.removeChild(area);
+    showFeedback();
+  });
 
   var input = document.getElementById("status-filter");
   var rows = document.querySelectorAll("#status-table tbody tr");

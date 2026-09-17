@@ -192,6 +192,7 @@ NAV_ITEMS = [
     ("overview", "Overview"),
     ("findings", "Findings"),
     ("pages", "Pages"),
+    ("content-drafts", "Content drafts"),
     ("deployment", "Deployment"),
     ("hero-library", "Hero library"),
     ("changelog", "Changelog"),
@@ -228,6 +229,45 @@ def render_changelog_section() -> str:
 """
 
 
+def render_content_drafts_section() -> str:
+    from status_content_drafts import CONTENT_DRAFTS
+
+    if not CONTENT_DRAFTS:
+        return """
+  <section class="status-panel">
+    <h2>Content drafts</h2>
+    <p class="status-muted">No drafts yet.</p>
+  </section>
+"""
+
+    cards = []
+    for index, draft in enumerate(CONTENT_DRAFTS):
+        body_id = f"status-draft-body-{index}"
+        paragraphs_html = "".join(f"<p>{html.escape(p)}</p>" for p in draft["paragraphs"])
+        cards.append(
+            f"""
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="{html.escape(draft['slug'])}">{html.escape(draft['title'])}</a></h3>
+        <span class="status-draft-word-count">~{draft['current_words']} → ~{draft['target_words']} words</span>
+      </div>
+      <div class="status-draft-body" id="{body_id}">{paragraphs_html}</div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="{body_id}">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+"""
+        )
+    return f"""
+  <section class="status-panel">
+    <h2>Content drafts</h2>
+    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit. Drafts for review — nothing here is published automatically.</p>
+    <div class="status-drafts">{''.join(cards)}</div>
+  </section>
+"""
+
+
 def build_nav_html(counts: dict) -> str:
     items = []
     for tab_id, label in NAV_ITEMS:
@@ -249,11 +289,13 @@ def build_page(deploy: dict, seo: dict, hero: dict) -> str:
     from status_design import STATUS_CSS, STATUS_JS
 
     from status_changelog import CHANGELOG_ENTRIES
+    from status_content_drafts import CONTENT_DRAFTS
 
     counts = {
         "overview": seo["page_count"],
         "findings": seo["finding_count"],
         "pages": seo["page_count"],
+        "content-drafts": len(CONTENT_DRAFTS) or None,
         "deployment": deploy["mapped_page_count"],
         "hero-library": hero["service_count"] if hero["exists"] else None,
         "changelog": len(CHANGELOG_ENTRIES) or None,
@@ -308,6 +350,7 @@ def build_page(deploy: dict, seo: dict, hero: dict) -> str:
           <section class="status-tab-panel" data-tab-panel="overview" tabindex="-1">{seo["overview_html"]}</section>
           <section class="status-tab-panel" data-tab-panel="findings" tabindex="-1">{seo["findings_html"]}</section>
           <section class="status-tab-panel" data-tab-panel="pages" tabindex="-1">{seo["pages_html"]}</section>
+          <section class="status-tab-panel" data-tab-panel="content-drafts" tabindex="-1">{render_content_drafts_section()}</section>
           <section class="status-tab-panel" data-tab-panel="deployment" tabindex="-1">{render_deploy_section(deploy)}</section>
           <section class="status-tab-panel" data-tab-panel="hero-library" tabindex="-1">{render_hero_section(hero)}</section>
           <section class="status-tab-panel" data-tab-panel="changelog" tabindex="-1">{render_changelog_section()}</section>

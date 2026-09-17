@@ -1,12 +1,12 @@
 {
-  "generated_on": "2026-08-10 08:00",
+  "generated_on": "2026-09-17 08:19",
   "src_label": "PropellerCopack v.3",
   "src_path": "src/PropellerCopack v.3/",
   "src_version_id": "4c0da9cb7278",
-  "src_last_modified": "2026-06-02 16:53",
+  "src_last_modified": "2026-09-17 08:17",
   "src_page_count": 16,
-  "live_service_count": 23,
-  "live_public_count": 24,
+  "live_service_count": 25,
+  "live_public_count": 26,
   "mapped_page_count": 15,
   "mapping_rows": [
     {
@@ -119,7 +119,9 @@
     "40000-sq-ft-facility",
     "bottles-and-jars",
     "customer-service",
+    "discovery-questionnaire",
     "distribution",
+    "formulation-brief",
     "loading-docks",
     "sachet-packaging",
     "stand-up-pouches",

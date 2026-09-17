@@ -585,6 +585,86 @@ body {
   color: #2c2c2c;
 }
 
+.status-drafts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.status-draft-card {
+  padding: 1rem 1.1rem;
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #0b3a5b;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.status-draft-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.status-draft-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0b3a5b;
+}
+
+.status-draft-word-count {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eef4fa;
+  color: #0b3a5b;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-draft-body p {
+  margin: 0 0 0.65rem;
+  color: #2c2c2c;
+}
+
+.status-draft-body p:last-child {
+  margin-bottom: 0;
+}
+
+.status-draft-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.status-draft-copy {
+  border: 1px solid #0b3a5b;
+  background: #fff;
+  color: #0b3a5b;
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-draft-copy:hover,
+.status-draft-copy:focus-visible {
+  background: #0b3a5b;
+  color: #fff;
+}
+
+.status-draft-copy-feedback {
+  color: #1b7f3b;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .status-dashboard {
   margin-bottom: 1.5rem;
 }
@@ -1255,7 +1335,7 @@ body.status-modal-open {
         <span class="status-brand-title">Propeller Co-Pack</span>
         <span class="status-brand-sub">Site status dashboard</span>
       </a>
-      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="changelog"><span>Changelog</span><span class="status-nav-count">1</span></button></li><li class="status-nav-divider" role="separator"></li><li><a class="status-nav-btn status-nav-link" href="./executive-summary/"><span>Plain-English summary</span><span class="status-nav-arrow" aria-hidden="true">↗</span></a></li></ul>
+      <ul class="status-nav"><li><button type="button" class="status-nav-btn" data-tab-target="overview"><span>Overview</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="findings"><span>Findings</span><span class="status-nav-count">26</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="pages"><span>Pages</span><span class="status-nav-count">24</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="content-drafts"><span>Content drafts</span><span class="status-nav-count">23</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="deployment"><span>Deployment</span><span class="status-nav-count">15</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="hero-library"><span>Hero library</span><span class="status-nav-count">23</span></button></li><li><button type="button" class="status-nav-btn" data-tab-target="changelog"><span>Changelog</span><span class="status-nav-count">1</span></button></li><li class="status-nav-divider" role="separator"></li><li><a class="status-nav-btn status-nav-link" href="./executive-summary/"><span>Plain-English summary</span><span class="status-nav-arrow" aria-hidden="true">↗</span></a></li></ul>
       <div class="status-sidebar-footer">
         <p>Generated August 10, 2026</p>
         <p>Regenerate everything:</p>
@@ -1412,6 +1492,289 @@ body.status-modal-open {
     </div>
   </section>
 </section>
+          <section class="status-tab-panel" data-tab-panel="content-drafts" tabindex="-1">
+  <section class="status-panel">
+    <h2>Content drafts</h2>
+    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit. Drafts for review — nothing here is published automatically.</p>
+    <div class="status-drafts">
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/sachet-packaging/">Sachet Packaging</a></h3>
+        <span class="status-draft-word-count">~162 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-0"><p>Sachet formats work well for single-serve powders, functional beverage mixes, and supplement samples that need to travel, be sampled at retail, or ship inside a subscription box. We size fill weights to the product — from small nutraceutical doses to larger meal-replacement or hydration servings — and match film structure to the ingredient&#x27;s moisture sensitivity and shelf-life requirements.</p><p>Every run includes fill-weight verification and seal-integrity checks before cartoning, so brands moving into sachets from bottles or pouches can expect the same consistency they see across our other packaging formats. Tear-notch, matte or gloss finishes, and stock or custom-printed film are available depending on volume and timeline.</p><p>Because sachets typically use less material per serving than jars or pouches, they&#x27;re also a common choice for brands testing a new SKU at lower cost before committing to a larger format — pairing naturally with our low MOQ and product testing programs.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-0">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/loading-docks/">Loading Docks</a></h3>
+        <span class="status-draft-word-count">~164 → ~450 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-1"><p>Multiple truck-high dock doors and grade-level door access let us receive raw ingredients and packaging components while shipping finished goods on a separate schedule, so one function doesn&#x27;t bottleneck the other. On-site yard space for trailer staging keeps inbound receiving and outbound shipping moving in step with production rather than queued behind it.</p><p>Dock access is coordinated directly with our production and distribution teams, so a finished run can move from the packaging line to a waiting trailer the same day rather than sitting in queue. That coordination is part of what supports on-time delivery for co-packing programs, and it connects directly to the logistics handled through our distribution and distribution center operations.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-1">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/bottles-and-jars/">Bottles &amp; Jars</a></h3>
+        <span class="status-draft-word-count">~166 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-2"><p>We work with HDPE and PET bottles, glass and plastic jars, and both narrow- and wide-mouth formats depending on whether the product is a powder, capsule, tablet, or liquid. Capping options include continuous-thread lids, induction seals for tamper evidence, and child-resistant closures where the product category requires them.</p><p>Labeling is applied in-line — pressure-sensitive labels, shrink sleeves, or a combination — and matched to Supplement Facts or Nutrition Facts panel requirements so the finished bottle or jar is retail- and marketplace-ready at the end of the run. Fill accuracy and cap torque are checked throughout production, not just at the start of the batch, to keep every case consistent from the first unit to the last.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-2">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/stand-up-pouches/">Stand Up Pouches</a></h3>
+        <span class="status-draft-word-count">~166 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-3"><p>Stand-up pouches give brands a lightweight, shelf-stable alternative to jars and bottles with a larger graphic area for branding. We support flat-bottom and gusseted styles, with options for tear notches, resealable zippers, clear windows, and matte or gloss finishes depending on the shelf presence a brand is going for.</p><p>Film structure and barrier properties are selected based on the product inside — moisture-sensitive powders need different protection than dense granules or blends — and fill accuracy is verified throughout the run. Pouches are a common next step for brands moving out of sachets as order volumes grow, since the format scales well from pilot batches through full production runs.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-3">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/stick-pack-packaging/">Stick Pack Packaging</a></h3>
+        <span class="status-draft-word-count">~166 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-4"><p>Stick packs are built for portion control and portability — a single stick delivers one measured serving of a pre-workout, electrolyte, greens, collagen, or protein blend without the bulk of a jar or pouch. That makes them a popular format for on-the-go nutrition brands and for subscription or sampling programs where a compact, travel-friendly unit matters as much as the product inside.</p><p>Fill weight accuracy and seal integrity are checked throughout the run since stick packs use less overage margin than larger formats. We coordinate stick pack production alongside formulation and quality checks, so brands moving a formula from a bottle or pouch into a stick format can keep the same recipe and simply adjust for the smaller fill volume.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-4">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/distribution/">Distribution</a></h3>
+        <span class="status-draft-word-count">~168 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-5"><p>Distribution support covers the handoff after a production run is complete — staging finished goods, coordinating outbound freight, and routing product to retail distribution centers, fulfillment partners, or direct-to-consumer channels. We work with major parcel and LTL carriers and can align with a brand&#x27;s existing routing guide or retailer compliance requirements.</p><p>Because distribution runs through the same facility as production and packaging, inventory stays visible from the moment a batch finishes to the moment it leaves the dock — reducing the handoffs and delays that come from splitting manufacturing and logistics across separate vendors. This connects directly to the dock access, yard space, and warehousing described on our loading docks and distribution center pages.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-5">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/customer-service/">Customer Service</a></h3>
+        <span class="status-draft-word-count">~169 → ~450 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-6"><p>A single point of contact follows a project from initial quote through production scheduling, packout, and shipment, so brands aren&#x27;t re-explaining their product or specs to a new person at each stage. That includes proactive updates on timelines, ingredient or component lead times, and anything that could affect a ship date — not just responses when something goes wrong.</p><p>For repeat and reorder customers, that continuity also means faster quoting and scheduling on future runs, since production history, packaging specs, and prior formulas are already on file. It&#x27;s a practical extension of what we look for across every service on this site: fewer handoffs, clearer communication, and a partner who treats a brand&#x27;s timeline as our own.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-6">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/custom-projects/">Custom Product Development</a></h3>
+        <span class="status-draft-word-count">~171 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-7"><p>New product development typically starts with a conversation about the category, target consumer, and format — supplement, functional food, or nutraceutical — followed by ingredient and flavor direction, formulation trials, and sample rounds until the product matches what the brand envisioned. We work with both first-time founders bringing an idea to market and established brands extending an existing line.</p><p>Because formulation, packaging, and production sit under one roof, changes identified during sample review — an ingredient swap, a texture adjustment, a different fill format — can move back into development quickly instead of waiting on a separate manufacturing partner. Regulatory and label considerations are part of that same conversation, so the finished product is ready for retail or e-commerce, not just for the lab.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-7">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/ingredient-solutions/">Ingredient Solutions</a></h3>
+        <span class="status-draft-word-count">~176 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-8"><p>Ingredient sourcing covers vitamins, minerals, botanicals, proteins, and functional actives, with options for clean-label formulations — non-GMO, allergen-free, or organic-sourced ingredients where a brand&#x27;s positioning calls for it. Our buying relationships and volume across multiple brands help keep ingredient costs competitive even for smaller production runs.</p><p>Every ingredient is vetted before it enters a formulation — supplier documentation, certificates of analysis, and compliance history are reviewed so brands aren&#x27;t inheriting sourcing risk along with a new formula. Because ingredient selection directly affects cost, taste, and shelf stability, it&#x27;s typically one of the first conversations we have during custom formulation or reformulation work, not an afterthought once a recipe is set.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-8">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/40000-sq-ft-facility/">40,000 Sq. Ft. Facility</a></h3>
+        <span class="status-draft-word-count">~177 → ~450 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-9"><p>The facility is organized into distinct zones for blending, filling and packaging, finished-goods storage, and shipping and receiving, so materials move in one direction through the building rather than crossing back and forth between departments. That layout keeps production, packaging, and logistics connected without one function displacing another as volume increases.</p><p>Because storage, packaging, and dock access all sit within the same footprint, a brand scaling from a pilot run to a full production schedule doesn&#x27;t need to move to a different facility or add a second vendor for warehousing — the space is sized to grow with a production program rather than cap it.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-9">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/turn-key-co-packing/">Turn-Key Co-Packing</a></h3>
+        <span class="status-draft-word-count">~192 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-10"><p>Turnkey means a brand can start with a rough idea rather than a finished formula, and every step after that — formulation, ingredient sourcing, packaging format, production, and fulfillment — runs through the same team instead of being pieced together across separate vendors. That single point of accountability is usually what saves the most time and back-and-forth compared with managing a formulator, a co-packer, and a fulfillment provider separately.</p><p>Most turnkey projects follow the same rough arc: an initial conversation about the product and category, formulation and sample rounds, a pilot batch to confirm the recipe and packaging at production scale, then a full run scheduled around the brand&#x27;s launch or reorder timeline. Brands that already have a formula are welcome to skip straight to production, white label, or custom formulation — turnkey is there for brands that need the earlier steps too.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-10">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/powder-blending/">Powder Blending</a></h3>
+        <span class="status-draft-word-count">~196 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-11"><p>Dry blending covers everything from simple two- or three-ingredient mixes to complex multi-ingredient formulas with actives measured in milligrams, where accuracy and homogeneity across the full batch matter as much as the ingredients themselves. Batches are sized to the run — small enough for a pilot or reformulation trial, scalable up to full production volume once a formula is confirmed.</p><p>Blend consistency is checked before a batch moves to filling, and ingredient handling accounts for allergens, potency-sensitive actives, and moisture-sensitive components that can affect shelf life if blended or stored incorrectly. Powder blending typically sits between formulation and filling in a project timeline, so a formula developed with our team moves into blending without translation issues between the recipe and the production floor.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-11">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/kitting-and-assembly/">Kitting and Assembly</a></h3>
+        <span class="status-draft-word-count">~197 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-12"><p>Kitting covers multi-piece bundles, subscription box builds, promotional or gift-with-purchase sets, and prep for Amazon or other marketplace fulfillment programs — projects where several components need to come together into one shippable unit accurately and on a launch deadline. Work scales from a small run, like a limited product-launch kit, up to ongoing programs shipped on a recurring schedule.</p><p>Assembly can be manual or semi-automated depending on the components and volume, with quality checks built into the process so a kit shipped in month three matches the one shipped in week one. Because kitting sits alongside packaging and fulfillment in the same facility, a finished kit can move straight to the warehouse for order fulfillment without an extra shipping leg between vendors.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-12">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/white-label/">White Label</a></h3>
+        <span class="status-draft-word-count">~198 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-13"><p>White label gives a brand a faster path to market than starting formulation from scratch — an existing, production-ready formula is packaged and labeled under the brand&#x27;s own name, so the timeline from decision to shelf is measured in weeks rather than months of R&amp;D. It&#x27;s a common starting point for brands entering a new category or testing demand before investing in a fully custom formula.</p><p>Brands aren&#x27;t limited to the base formula as-is: flavor, packaging format, and label design can still be customized to differentiate the finished product, and low MOQs mean a white label launch doesn&#x27;t require committing to a large production run up front. When a brand outgrows the base formula or wants something proprietary, the same team handles the move into custom formulation or private label manufacturing without switching partners.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-13">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/formulation/">Custom Formulations</a></h3>
+        <span class="status-draft-word-count">~200 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-14"><p>Reformulation projects usually start from one of a few triggers: an ingredient cost increase that&#x27;s compressing margin, a supplier discontinuing a key ingredient, a consumer trend the current formula doesn&#x27;t address (sugar-free, clean label, plant-based), or feedback that taste or mixability needs work. Each of those points to a different lever — ingredient substitution, ratio adjustment, or a full sensory rework — so the first step is identifying which one is actually driving the request.</p><p>From there, formula changes go through lab trials and sensory testing before moving to a production-scale pilot batch, so a brand can confirm taste, solubility, and stability hold up before committing a full run to the new version. Packaging and label updates are coordinated alongside the formula change when needed, so a reformulated product and its updated packaging launch together rather than in separate phases.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-14">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/low-moqs/">Low MOQs</a></h3>
+        <span class="status-draft-word-count">~202 → ~500 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-15"><p>Startup-friendly minimums are built around the reality that a new brand or new SKU needs to validate a formula and test market response before committing to a large production run. Pilot runs, sample batches, and small test orders are treated as standard projects, not exceptions squeezed in around bigger customers.</p><p>That flexibility matters most at two points: launching a first product with limited capital, or testing a new flavor, format, or claim before rolling it into the full lineup. As a brand&#x27;s orders grow, production can scale up within the same facility and, in most cases, the same formula and packaging specs already validated during the smaller run — so there&#x27;s no re-qualification step when moving from pilot to full production.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-15">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/quality-compliance/">Quality &amp; Compliance</a></h3>
+        <span class="status-draft-word-count">~205 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-16"><p>Every batch is produced under documented cGMP procedures inside an FDA-registered facility, with quality assurance and quality control functioning as separate checkpoints — QA owns the procedures and documentation, QC verifies the product itself meets specification before it ships. Batch and lot coding support traceability from raw ingredient receipt through finished goods, so any question about a specific batch can be traced back through the process that produced it.</p><p>Ingredients and finished products are supported by certificates of analysis and, where warranted, third-party lab testing for identity, purity, and potency — the same standards referenced across our formulation, blending, and packaging pages. For brands new to regulated manufacturing, our team can walk through what documentation retailers, marketplaces, or a brand&#x27;s own quality team will typically ask to see before a product goes to market.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-16">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/product-testing/">Custom Formulation and Testing</a></h3>
+        <span class="status-draft-word-count">~208 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-17"><p>Before a formula goes into full production, pilot batches let a brand confirm taste, texture, solubility, and stability at real production scale rather than relying on a lab-scale sample that may not translate to a full mixing run. That step catches issues — a flavor that reads differently at volume, a blend that doesn&#x27;t mix as evenly at scale — while they&#x27;re still inexpensive to fix.</p><p>Testing supports the same categories covered under custom formulation — sports nutrition, meal replacements, and functional foods, including plant-based, sugar-free, and allergen-conscious products — and feeds directly into low MOQ production runs once a formula is confirmed. Sensory and stability results from a pilot batch also inform packaging and shelf-life claims, so what&#x27;s on the label matches what testing actually showed.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-17">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/fulfillment/">Fulfillment</a></h3>
+        <span class="status-draft-word-count">~211 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-18"><p>As an asset-based 3PL, we own the warehousing and fulfillment operation rather than brokering it through a third party, which keeps pick, pack, and ship timelines and inventory accuracy under our direct control rather than a subcontractor&#x27;s. That matters most for brands with routing guide requirements from big-box retailers or marketplaces, where a missed compliance detail can mean a chargeback rather than just a late shipment.</p><p>Integration with FedEx, UPS, USPS, and major LTL carriers covers both retail and e-commerce fulfillment, including subscription programs that need consistent, recurring ship dates. Because fulfillment sits in the same facility as production, packaging, and kitting, inventory moves from the packaging line into fulfillment-ready storage without a separate transfer, keeping stock counts accurate as orders go out.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-18">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/packaging-design/">Packaging Design</a></h3>
+        <span class="status-draft-word-count">~214 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-19"><p>Packaging design starts with the format — jar, bottle, pouch, sachet, stick pack, or box — and works through material, closure, and label decisions with production and regulatory requirements in view from the first concept rather than as a final check before print. That includes making sure a Supplement Facts or Nutrition Facts panel, required warnings, and label claims all fit the chosen format without a redesign late in the process.</p><p>We can work from a brand&#x27;s existing design files and in-house creative team, or provide guidance on format and material selection when a brand is choosing a package for the first time. Sustainability options — lighter-weight films, recyclable structures, reduced material formats — are available across most of the packaging types listed on this page for brands prioritizing environmental impact alongside shelf appeal.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-19">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/product-development/">New Product Development</a></h3>
+        <span class="status-draft-word-count">~217 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-20"><p>Line extension work typically follows one of a few paths: a new flavor within an existing product, a seasonal or limited-edition variant, a new SKU that fills a gap in the current lineup, or a higher-protein or otherwise reformulated version of a bestseller. Each path uses a different mix of formulation, packaging, and testing resources, so scoping the request correctly at the start keeps the timeline realistic.</p><p>New product development draws on the same formulation, ingredient sourcing, and packaging design capabilities used for a brand&#x27;s original product, which is what lets a line extension move faster than a first product typically does — much of the groundwork (supplier relationships, packaging specs, regulatory templates) is already established. Sustainable packaging formats can be built into a new SKU from the start rather than retrofitted later.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-20">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/manufacturing/">Contract Manufacturing</a></h3>
+        <span class="status-draft-word-count">~231 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-21"><p>Contract manufacturing covers everything from toll processing — blending or filling a formula a brand already owns — through full private label and white label production where we supply the base formula as well. That range means a brand doesn&#x27;t need to switch manufacturing partners as its needs shift from a fully custom formula to a faster-to-market private label option.</p><p>Production is backed by batch-level quality control and documentation consistent with our cGMP and FDA-registered facility, so scaling up from a pilot run to ongoing production doesn&#x27;t mean a drop in oversight. Added capacity is one of the practical benefits of partnering rather than manufacturing in-house — a brand gains access to blending, filling, and packaging equipment and expertise without the capital investment of building it out independently.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-21">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+
+    <div class="status-draft-card">
+      <div class="status-draft-head">
+        <h3><a href="/distribution-center/">Distribution Center</a></h3>
+        <span class="status-draft-word-count">~237 → ~550 words</span>
+      </div>
+      <div class="status-draft-body" id="status-draft-body-22"><p>Inventory inside the distribution center is tracked through EDI and API integrations that connect directly to retail and e-commerce order systems, so stock counts stay current as goods move from receiving through storage and out to fulfillment — rather than relying on manual counts or end-of-day reconciliation.</p><p>Cross-docking capability lets time-sensitive shipments move from inbound to outbound with minimal dwell time in storage, which matters for promotional programs or retail resets with a fixed delivery window. Combined with the facility&#x27;s location between I-70 and I-80 and close proximity to I-15, that setup is built to support both steady replenishment programs and the tighter deadlines that come with retail launches or seasonal spikes.</p></div>
+      <div class="status-draft-actions">
+        <button type="button" class="status-draft-copy" data-copy-source="status-draft-body-22">Copy draft</button>
+        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      </div>
+    </div>
+</div>
+  </section>
+</section>
           <section class="status-tab-panel" data-tab-panel="deployment" tabindex="-1">
   <section id="src-deploy" class="status-panel">
     <h2>Src deployment (v3)</h2>
@@ -1420,12 +1783,12 @@ body.status-modal-open {
       <table class="status-table">
         <tbody>
           <tr><th scope="row">Deployment version ID</th><td><code>4c0da9cb7278</code></td></tr>
-          <tr><th scope="row">Src last modified</th><td>2026-06-02 16:53</td></tr>
+          <tr><th scope="row">Src last modified</th><td>2026-09-17 08:17</td></tr>
           <tr><th scope="row">Src pages</th><td>16</td></tr>
-          <tr><th scope="row">Live service pages</th><td>23</td></tr>
-          <tr><th scope="row">Live public pages</th><td>24 (includes homepage)</td></tr>
+          <tr><th scope="row">Live service pages</th><td>25</td></tr>
+          <tr><th scope="row">Live public pages</th><td>26 (includes homepage)</td></tr>
           <tr><th scope="row">Mapped slugs</th><td>15</td></tr>
-          <tr><th scope="row">Live-only pages</th><td>/40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /distribution/, /loading-docks/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</td></tr>
+          <tr><th scope="row">Live-only pages</th><td>/40000-sq-ft-facility/, /bottles-and-jars/, /customer-service/, /discovery-questionnaire/, /distribution/, /formulation-brief/, /loading-docks/, /sachet-packaging/, /stand-up-pouches/, /stick-pack-packaging/</td></tr>
           <tr><th scope="row">Src-only pages</th><td>/contract-supplement-manufacturing/</td></tr>
         </tbody>
       </table>
@@ -1619,6 +1982,35 @@ body.status-modal-open {
       if (copyFeedback) copyFeedback.hidden = false;
     });
   }
+
+  document.addEventListener("click", function (event) {
+    var draftCopyBtn = event.target.closest("[data-copy-source]");
+    if (!draftCopyBtn) return;
+    var source = document.getElementById(draftCopyBtn.getAttribute("data-copy-source"));
+    if (!source) return;
+    var text = source.innerText || source.textContent || "";
+    var feedback = draftCopyBtn.parentElement
+      ? draftCopyBtn.parentElement.querySelector(".status-draft-copy-feedback")
+      : null;
+    function showFeedback() {
+      if (!feedback) return;
+      feedback.hidden = false;
+      window.setTimeout(function () {
+        feedback.hidden = true;
+      }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showFeedback);
+      return;
+    }
+    var area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    document.body.removeChild(area);
+    showFeedback();
+  });
 
   var input = document.getElementById("status-filter");
   var rows = document.querySelectorAll("#status-table tbody tr");
