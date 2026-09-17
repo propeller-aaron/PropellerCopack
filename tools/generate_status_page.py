@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -19,6 +20,34 @@ DEPLOY_CACHE = ROOT / "status" / "deploy-status.json"
 AUDIT_CACHE = ROOT / "seo" / "audit-cache.json"
 HERO_INDEX = ROOT / "status" / "hero-images" / "index.html"
 EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "src", "worker"}
+
+BLOC7_RE = re.compile(r'id="bloc-7">(.*?)<!--\s*bloc-7 END\s*-->', re.S)
+TAG_RE = re.compile(r"<[^>]+>")
+WHITESPACE_RE = re.compile(r"\s+")
+
+
+def _strip_tags(fragment: str) -> str:
+    text = TAG_RE.sub(" ", fragment)
+    text = html.unescape(text)
+    return WHITESPACE_RE.sub(" ", text).strip()
+
+
+def current_page_copy(slug: str) -> list[str]:
+    """Best-effort extraction of a live page's unique body copy (the bloc-7 section)
+    for side-by-side display against a suggested draft. Falls back to an empty list
+    if the page or its bloc-7 section can't be found."""
+    file_path = ROOT / (
+        "index.html" if slug == "/" else f"{slug.strip('/')}/index.html"
+    )
+    if not file_path.is_file():
+        return []
+    page_html = file_path.read_text(encoding="utf-8", errors="ignore")
+    match = BLOC7_RE.search(page_html)
+    if not match:
+        return []
+    block = match.group(1)
+    paragraphs = [_strip_tags(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", block, re.S)]
+    return [p for p in paragraphs if p]
 
 try:
     from apply_v3_from_src import SLUG_MAP
@@ -230,7 +259,7 @@ def render_changelog_section() -> str:
 
 
 def render_content_drafts_section() -> str:
-    from status_content_drafts import CONTENT_DRAFTS
+    from status_content_drafts import CONTENT_DRAFTS, draft_anchor
 
     if not CONTENT_DRAFTS:
         return """
@@ -242,19 +271,35 @@ def render_content_drafts_section() -> str:
 
     cards = []
     for index, draft in enumerate(CONTENT_DRAFTS):
+        anchor_id = draft_anchor(index)
         body_id = f"status-draft-body-{index}"
-        paragraphs_html = "".join(f"<p>{html.escape(p)}</p>" for p in draft["paragraphs"])
+        current_paragraphs = current_page_copy(draft["slug"])
+        current_html = (
+            "".join(f"<p>{html.escape(p)}</p>" for p in current_paragraphs)
+            if current_paragraphs
+            else '<p class="status-muted">Could not read current copy from the live page.</p>'
+        )
+        draft_html = "".join(f"<p>{html.escape(p)}</p>" for p in draft["paragraphs"])
         cards.append(
             f"""
-    <div class="status-draft-card">
+    <div class="status-draft-card" id="{anchor_id}">
       <div class="status-draft-head">
         <h3><a href="{html.escape(draft['slug'])}">{html.escape(draft['title'])}</a></h3>
         <span class="status-draft-word-count">~{draft['current_words']} → ~{draft['target_words']} words</span>
       </div>
-      <div class="status-draft-body" id="{body_id}">{paragraphs_html}</div>
-      <div class="status-draft-actions">
-        <button type="button" class="status-draft-copy" data-copy-source="{body_id}">Copy draft</button>
-        <span class="status-draft-copy-feedback" hidden>Copied</span>
+      <div class="status-draft-compare">
+        <div class="status-draft-col">
+          <p class="status-draft-col-label">Current on page</p>
+          <div class="status-draft-body status-draft-current">{current_html}</div>
+        </div>
+        <div class="status-draft-col">
+          <p class="status-draft-col-label">Suggested draft</p>
+          <div class="status-draft-body status-draft-suggested" id="{body_id}">{draft_html}</div>
+          <div class="status-draft-actions">
+            <button type="button" class="status-draft-copy" data-copy-source="{body_id}">Copy draft</button>
+            <span class="status-draft-copy-feedback" hidden>Copied</span>
+          </div>
+        </div>
       </div>
     </div>
 """
@@ -262,7 +307,7 @@ def render_content_drafts_section() -> str:
     return f"""
   <section class="status-panel">
     <h2>Content drafts</h2>
-    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit. Drafts for review — nothing here is published automatically.</p>
+    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit, shown next to what's live today. Drafts for review — nothing here is published automatically.</p>
     <div class="status-drafts">{''.join(cards)}</div>
   </section>
 """

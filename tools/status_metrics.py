@@ -4,6 +4,8 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from status_content_drafts import DRAFT_ANCHORS_BY_SLUG
+
 ISSUE_LABELS = {
     "missing-meta": "Missing metadata",
     "bad-h1": "Bad H1 count",
@@ -59,6 +61,16 @@ def metric_trigger(metric_id: str, inner_html: str, class_name: str = "") -> str
 
 def empty_culprit(message: str) -> list[dict[str, str]]:
     return [{"title": "No issues", "url": "", "file": "", "detail": message}]
+
+
+def with_draft_links(culprits: list[dict]) -> list[dict]:
+    """Attach a draftAnchor to any culprit whose url has a matching content draft,
+    so the metric-detail modal can deep link into the Content drafts tab."""
+    out = []
+    for culprit in culprits:
+        anchor = DRAFT_ANCHORS_BY_SLUG.get(culprit.get("url"))
+        out.append({**culprit, "draftAnchor": anchor} if anchor else culprit)
+    return out
 
 
 def culprit_from_finding(finding: dict, page: dict | None = None) -> dict:
@@ -117,7 +129,7 @@ def build_metric_catalog(report: dict, metrics: dict) -> dict[str, dict]:
             "title": title,
             "value": value,
             "description": description,
-            "culprits": culprits,
+            "culprits": with_draft_links(culprits),
             "prompt": prompt,
         }
 

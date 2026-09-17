@@ -582,6 +582,51 @@ body {
   border-left: 3px solid #0b3a5b;
   border-radius: 8px;
   background: #fff;
+  scroll-margin-top: 1rem;
+  transition: box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.status-draft-highlight {
+  border-left-color: #d68910;
+  box-shadow: 0 0 0 3px rgba(214, 137, 16, 0.25);
+}
+
+.status-draft-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .status-draft-compare {
+    grid-template-columns: 1fr;
+  }
+}
+
+.status-draft-col-label {
+  margin: 0 0 0.4rem;
+  color: #666;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-draft-current {
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #f7f7f7;
+}
+
+.status-draft-current p {
+  color: #555;
+}
+
+.status-draft-suggested {
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #f4f8fc;
 }
 
 .status-draft-head {
@@ -1211,6 +1256,24 @@ body.status-modal-open {
   margin-bottom: 0.25rem;
 }
 
+.status-modal-draft-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #0b3a5b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.status-modal-draft-link:hover,
+.status-modal-draft-link:focus-visible {
+  color: #d68910;
+}
+
 .status-modal-culprits code {
   display: block;
   margin-top: 0.25rem;
@@ -1375,7 +1438,10 @@ STATUS_JS = r"""
       var file = escapeHtml(item.file || "");
       var url = item.url ? '<a href="' + escapeHtml(item.url) + '">' + escapeHtml(item.url) + "</a>" : "";
       var severity = item.severity ? '<span class="status-modal-severity severity-' + escapeHtml(item.severity) + '">' + escapeHtml(item.severity) + "</span>" : "";
-      return '<li><div class="status-modal-culprit-head"><strong>' + title + "</strong>" + severity + "</div>" + (url ? "<div>" + url + "</div>" : "") + (file ? "<code>" + file + "</code>" : "") + (detail ? "<p>" + detail + "</p>" : "") + "</li>";
+      var draftLink = item.draftAnchor
+        ? '<button type="button" class="status-modal-draft-link" data-goto-draft="' + escapeHtml(item.draftAnchor) + '">View suggested draft &rarr;</button>'
+        : "";
+      return '<li><div class="status-modal-culprit-head"><strong>' + title + "</strong>" + severity + "</div>" + (url ? "<div>" + url + "</div>" : "") + (file ? "<code>" + file + "</code>" : "") + (detail ? "<p>" + detail + "</p>" : "") + draftLink + "</li>";
     }).join("");
   }
 
@@ -1406,6 +1472,23 @@ STATUS_JS = r"""
     if (trigger) {
       event.preventDefault();
       openMetric(trigger.getAttribute("data-metric-id"));
+      return;
+    }
+    var draftLink = event.target.closest("[data-goto-draft]");
+    if (draftLink) {
+      event.preventDefault();
+      var anchor = draftLink.getAttribute("data-goto-draft");
+      closeModal();
+      activateTab("content-drafts", false);
+      window.requestAnimationFrame(function () {
+        var card = document.getElementById(anchor);
+        if (!card) return;
+        card.scrollIntoView({ behavior: "smooth", block: "start" });
+        card.classList.add("status-draft-highlight");
+        window.setTimeout(function () {
+          card.classList.remove("status-draft-highlight");
+        }, 2200);
+      });
       return;
     }
     if (event.target.closest("[data-close-modal]")) {

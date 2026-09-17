@@ -241,3 +241,13 @@ CONTENT_DRAFTS = [
         ],
     },
 ]
+
+
+def draft_anchor(index: int) -> str:
+    """Anchor id for a draft card, shared by the dashboard renderer and the metric-modal deep links."""
+    return f"status-draft-{index}"
+
+
+DRAFT_ANCHORS_BY_SLUG: dict[str, str] = {
+    draft["slug"]: draft_anchor(i) for i, draft in enumerate(CONTENT_DRAFTS)
+}
