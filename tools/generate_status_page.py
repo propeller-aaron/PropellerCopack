@@ -24,6 +24,7 @@ EXCLUDE = {"seo", "status", "img", "js", "css", "fonts", "includes", "tools", "s
 BLOC7_RE = re.compile(r'id="bloc-7">(.*?)<!--\s*bloc-7 END\s*-->', re.S)
 TAG_RE = re.compile(r"<[^>]+>")
 WHITESPACE_RE = re.compile(r"\s+")
+LINK_RE = re.compile(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', re.S | re.I)
 
 
 def _strip_tags(fragment: str) -> str:
@@ -32,13 +33,44 @@ def _strip_tags(fragment: str) -> str:
     return WHITESPACE_RE.sub(" ", text).strip()
 
 
+def _normalize_href(href: str, slug: str) -> str:
+    href = href.strip()
+    if href.startswith(("http://", "https://", "/", "#", "mailto:", "tel:")):
+        return href
+    if href.startswith("../"):
+        return "/" + href[3:]
+    if href.startswith("./"):
+        base = "/" if slug == "/" else slug
+        return base + href[2:]
+    return "/" + href.lstrip("./")
+
+
+def _fragment_to_safe_html(fragment: str, slug: str) -> str:
+    """Strip a live page's markup down to plain text plus its <a> links, escaping
+    everything else so the result is safe to drop straight into the dashboard."""
+    links: list[str] = []
+
+    def stash(match: re.Match) -> str:
+        href = html.escape(_normalize_href(match.group(1), slug), quote=True)
+        text = html.escape(_strip_tags(match.group(2)))
+        links.append(f'<a href="{href}">{text}</a>')
+        return f"\x00{len(links) - 1}\x00"
+
+    placeheld = LINK_RE.sub(stash, fragment)
+    plain = html.escape(_strip_tags(placeheld))
+    for index, link_html in enumerate(links):
+        plain = plain.replace(f"\x00{index}\x00", link_html)
+    return plain
+
+
 def current_page_copy(slug: str) -> list[str]:
     """Best-effort extraction of a live page's unique body copy (the bloc-7 section)
-    for side-by-side display against a suggested draft. Falls back to an empty list
-    if the page or its bloc-7 section can't be found."""
-    file_path = ROOT / (
-        "index.html" if slug == "/" else f"{slug.strip('/')}/index.html"
-    )
+    for side-by-side display against a suggested draft, preserving any internal
+    links found in that copy. Falls back to an empty list if the page or its
+    bloc-7 section can't be found. Returned strings are safe, render-ready HTML."""
+    from generate_seo_report import page_file_from_slug
+
+    file_path = ROOT / page_file_from_slug(slug)
     if not file_path.is_file():
         return []
     page_html = file_path.read_text(encoding="utf-8", errors="ignore")
@@ -46,8 +78,27 @@ def current_page_copy(slug: str) -> list[str]:
     if not match:
         return []
     block = match.group(1)
-    paragraphs = [_strip_tags(p) for p in re.findall(r"<p[^>]*>(.*?)</p>", block, re.S)]
-    return [p for p in paragraphs if p]
+    paragraphs = [
+        _fragment_to_safe_html(p, slug) for p in re.findall(r"<p[^>]*>(.*?)</p>", block, re.S)
+    ]
+    return [p for p in paragraphs if _strip_tags(p)]
+
+
+def fragment_word_count(fragment: str) -> int:
+    return len(_strip_tags(fragment).split())
+
+
+def fragment_link_count(fragment: str) -> int:
+    return len(re.findall(r"<a\s", fragment, re.I))
+
+
+def fragment_to_prompt_text(fragment: str) -> str:
+    """Render a safe-HTML paragraph (see _fragment_to_safe_html) as plain text for an
+    AI prompt, keeping link targets visible as "anchor text (href)" so they survive
+    outside HTML."""
+    text = re.sub(r'<a href="([^"]+)">(.*?)</a>', r"\2 (\1)", fragment, flags=re.S)
+    text = html.unescape(TAG_RE.sub(" ", text))
+    return WHITESPACE_RE.sub(" ", text).strip()
 
 try:
     from apply_v3_from_src import SLUG_MAP
@@ -258,7 +309,58 @@ def render_changelog_section() -> str:
 """
 
 
+def build_seo_issue_notes(current_paragraphs: list[str], audit_row: dict | None) -> list[str]:
+    notes = []
+    if not current_paragraphs:
+        notes.append("Could not read current copy from the live page.")
+
+    if audit_row is not None:
+        page_word_count = audit_row.get("word_count", 0)
+        if page_word_count < 250:
+            notes.append(
+                f"Thin content: the SEO audit measures ~{page_word_count} words on this page (nav, footer, and body "
+                "combined), below its 250-word thin-content threshold."
+            )
+        elif page_word_count < 400:
+            notes.append(
+                f"Moderate depth: the SEO audit measures ~{page_word_count} words on this page, short of its "
+                "600-900 word target for a full-depth service page."
+            )
+
+    if current_paragraphs:
+        body_word_count = sum(fragment_word_count(p) for p in current_paragraphs)
+        notes.append(
+            f"The unique body copy shown below is only ~{body_word_count} word"
+            f"{'s' if body_word_count != 1 else ''} across {len(current_paragraphs)} paragraph"
+            f"{'s' if len(current_paragraphs) != 1 else ''}."
+        )
+        link_count = sum(fragment_link_count(p) for p in current_paragraphs)
+        if link_count <= 1:
+            notes.append(
+                f"Only {link_count} internal link{'s' if link_count != 1 else ''} in that body copy, limiting "
+                "link equity to related service pages."
+            )
+    return notes
+
+
+def build_ai_prompt(slug: str, title: str, full_paragraphs: list[str]) -> str:
+    from generate_seo_report import page_file_from_slug
+
+    file_path = page_file_from_slug(slug)
+    body = "\n\n".join(fragment_to_prompt_text(p) for p in full_paragraphs)
+    return (
+        f"Update the body copy in {file_path} (the bloc-7 section) on the \"{title}\" page "
+        "to fix a thin/moderate-content SEO finding.\n\n"
+        "Keep the existing layout, hero image, and SEO head tags unchanged; only replace the "
+        "paragraph(s) inside bloc-7 with the following, split into separate <p> tags in this "
+        "order. Where a link target is shown in parentheses, wrap that text in an <a href=\"...\"> "
+        "tag pointing to it:\n\n"
+        f"{body}"
+    )
+
+
 def render_content_drafts_section() -> str:
+    from generate_seo_report import load_audit
     from status_content_drafts import CONTENT_DRAFTS, draft_anchor
 
     if not CONTENT_DRAFTS:
@@ -269,35 +371,51 @@ def render_content_drafts_section() -> str:
   </section>
 """
 
+    audit_by_slug = {row["slug"]: row for row in load_audit().get("rows", [])}
+
     cards = []
     for index, draft in enumerate(CONTENT_DRAFTS):
         anchor_id = draft_anchor(index)
         body_id = f"status-draft-body-{index}"
+        prompt_id = f"status-draft-prompt-{index}"
         current_paragraphs = current_page_copy(draft["slug"])
+        full_paragraphs = current_paragraphs + draft["paragraphs"]
+
         current_html = (
-            "".join(f"<p>{html.escape(p)}</p>" for p in current_paragraphs)
+            "".join(f"<p>{p}</p>" for p in current_paragraphs)
             if current_paragraphs
             else '<p class="status-muted">Could not read current copy from the live page.</p>'
         )
-        draft_html = "".join(f"<p>{html.escape(p)}</p>" for p in draft["paragraphs"])
+        suggested_html = "".join(f"<p>{p}</p>" for p in full_paragraphs)
+        issues_notes = build_seo_issue_notes(current_paragraphs, audit_by_slug.get(draft["slug"]))
+        issues_html = "".join(f"<li>{html.escape(note)}</li>" for note in issues_notes)
+        prompt_text = build_ai_prompt(draft["slug"], draft["title"], full_paragraphs)
+
         cards.append(
             f"""
     <div class="status-draft-card" id="{anchor_id}">
       <div class="status-draft-head">
         <h3><a href="{html.escape(draft['slug'])}">{html.escape(draft['title'])}</a></h3>
-        <span class="status-draft-word-count">~{draft['current_words']} → ~{draft['target_words']} words</span>
       </div>
+      <ul class="status-draft-issues">{issues_html}</ul>
       <div class="status-draft-compare">
         <div class="status-draft-col">
           <p class="status-draft-col-label">Current on page</p>
           <div class="status-draft-body status-draft-current">{current_html}</div>
         </div>
         <div class="status-draft-col">
-          <p class="status-draft-col-label">Suggested draft</p>
-          <div class="status-draft-body status-draft-suggested" id="{body_id}">{draft_html}</div>
+          <p class="status-draft-col-label">Suggested draft (current copy plus additions)</p>
+          <div class="status-draft-body status-draft-suggested" id="{body_id}">{suggested_html}</div>
+          <pre class="status-draft-prompt" id="{prompt_id}" hidden>{html.escape(prompt_text)}</pre>
           <div class="status-draft-actions">
-            <button type="button" class="status-draft-copy" data-copy-source="{body_id}">Copy draft</button>
-            <span class="status-draft-copy-feedback" hidden>Copied</span>
+            <span class="status-draft-action">
+              <button type="button" class="status-draft-copy" data-copy-source="{body_id}">Copy draft</button>
+              <span class="status-draft-copy-feedback" hidden>Copied</span>
+            </span>
+            <span class="status-draft-action">
+              <button type="button" class="status-draft-copy" data-copy-source="{prompt_id}">Copy AI prompt</button>
+              <span class="status-draft-copy-feedback" hidden>Copied</span>
+            </span>
           </div>
         </div>
       </div>
@@ -307,7 +425,7 @@ def render_content_drafts_section() -> str:
     return f"""
   <section class="status-panel">
     <h2>Content drafts</h2>
-    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit, shown next to what's live today. Drafts for review — nothing here is published automatically.</p>
+    <p class="status-detail">Suggested copy additions for pages flagged as thin or moderate content in the SEO audit, shown next to what's live today. Drafts for review: nothing here is published automatically.</p>
     <div class="status-drafts">{''.join(cards)}</div>
   </section>
 """

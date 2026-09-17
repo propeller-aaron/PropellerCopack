@@ -644,15 +644,23 @@ body {
   color: #0b3a5b;
 }
 
-.status-draft-word-count {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: #eef4fa;
-  color: #0b3a5b;
-  font-size: 0.78rem;
-  font-weight: 600;
-  white-space: nowrap;
+.status-draft-issues {
+  margin: 0 0 0.85rem;
+  padding: 0.6rem 0.9rem;
+  list-style: disc;
+  list-style-position: inside;
+  background: #fff8ec;
+  border: 1px solid #f0dfb8;
+  border-radius: 6px;
+}
+
+.status-draft-issues li {
+  color: #7a5c14;
+  font-size: 0.88rem;
+}
+
+.status-draft-issues li + li {
+  margin-top: 0.3rem;
 }
 
 .status-draft-body p {
@@ -664,11 +672,23 @@ body {
   margin-bottom: 0;
 }
 
+.status-draft-body a {
+  color: #0b3a5b;
+  font-weight: 600;
+}
+
 .status-draft-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   margin-top: 0.75rem;
+}
+
+.status-draft-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .status-draft-copy {
